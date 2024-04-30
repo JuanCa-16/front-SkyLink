@@ -414,4 +414,185 @@
   color: var(--ColorTexto1);
   text-align: left;
   line-height: var(--Interlineado);
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  height: auto;
+  padding: 0rem;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.header h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.results {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.results .flight {
+  justify-content: center;
+  background: linear-gradient(to right, #125965, #333);
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  width: 17vh;
+  height: 30px;
+}
+.results .flight .info {
+  color: #fcfcfc;
+}
+.results .flight .info h3 {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.results .flight .info p {
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.search-bar .origin,
+.search-bar .destination {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-right: 1rem;
+}
+.search-bar .origin .icon,
+.search-bar .destination .icon {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  color: #000000;
+}
+.search-bar .origin input,
+.search-bar .destination input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+.search-bar .separacion {
+  width: 30vh;
+}
+.search-bar button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search-bar2 {
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  margin-bottom: 2rem;
+}
+.search-bar2 .filter-psg {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-right: 1rem;
+}
+.search-bar2 .filter {
+  width: calc(33% - 1rem);
+  padding: 1rem;
+}
+.search-bar2 .filter label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.search-bar2 .filter textarea,
+.search-bar2 .filter input[type=date],
+.search-bar2 .filter input[type=number] {
+  width: 30vh;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+.search-bar2 .filter .input-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.buttons {
+  text-align: center;
+}
+.buttons button {
+  background: linear-gradient(to right, #125965, #333);
+  color: #fff;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.flight-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #1c32f2;
+  background: url(./recursos/estrellas.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-top: 2rem;
+  padding: 7vh;
+  width: 100%;
+  height: 40vh;
+}
+.flight-info .flight-info-item {
+  border-radius: 20px;
+  background-color: rgb(211, 211, 211);
+  width: auto; /* Adjust based on number of elements per row */
+  padding: 7vh;
+  margin-left: 15vh;
+  margin-right: 15vh;
+  box-shadow: 5px 8px 16px rgba(0, 0, 0, 0.9);
+}
+.flight-info .flight-info-item h3 {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.7);
+}
+.flight-info .flight-info-item label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.flight-info .flight-info-item textarea,
+.flight-info .flight-info-item input[type=date],
+.flight-info .flight-info-item input[type=number] {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
 }/*# sourceMappingURL=estilos.css.map */

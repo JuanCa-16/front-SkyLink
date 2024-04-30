@@ -3,6 +3,7 @@ import BarraNav from './pags/BarraNav'
 import Login from './pags/Login'
 import Registro from './pags/Registro'
 import PiePaag from './pags/PiePaag'
+import Principal from './pags/Principal'
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
         {/* Rura Principal */}
         <Route path='/' element={<>
           <BarraNav/>
+          <Principal/>
           <Outlet/>{/* Outlet para renderizar el contenido de las subrutas */}
           <PiePaag/>
         </>}/>
