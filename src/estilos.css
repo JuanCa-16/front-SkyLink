@@ -35,7 +35,7 @@
   background: url(./recursos/estrellas.png) no-repeat;
   background-size: cover;
   background-position: center;
-  width: 100%;
+  width: 99.2%;
 }
 .navBar .p1 {
   width: 50%;
@@ -77,16 +77,6 @@
 .navBar .p2 .icono:hover {
   cursor: pointer;
   color: var(--BrilloIcono);
-}
-.navBar::after {
-  content: ""; /* Crea un pseudo-elemento */
-  z-index: -10;
-  position: absolute; /* Coloca el pseudo-elemento en relación con el contenedor */
-  bottom: 5px; /* Posición del pseudo-elemento debajo del contenedor */
-  left: -10px; /* Alinear con el borde izquierdo del contenedor */
-  width: 150%;
-  height: 20px; /* Altura igual al margen que quieres sombrear */
-  box-shadow: 0 13px 15px rgb(0, 0, 0); /* Sombra en el margen inferior */
 }
 
 .logins {

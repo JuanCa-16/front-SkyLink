@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {useState, useEffect} from 'react'
 //Logos
 import { HiMenu } from "react-icons/hi";
 
@@ -10,6 +10,10 @@ import {Link, useNavigate} from 'react-router-dom';
 
 const BarraNav = () => {
 
+    const [isLoggedIn, setIsLoggedIn] = useState(false); // Estado para controlar si el usuario ha iniciado sesión
+    const actualizar= (estado) => {
+        setIsLoggedIn(estado);
+    };
     const navigate = useNavigate()
     return (
         //Header contendra toda la barra de navegacion Principal sin iniciar sesion
@@ -24,7 +28,13 @@ const BarraNav = () => {
                 </div>
                 {/* //p2 sera la segunda mitad de la barra contendra el inicio de sesion y el submenu */}
                 <div className='flex p2'>
-                    <button className='texto' onClick={() => navigate('/inicio-sesion')}>Iniciar Sesion</button>
+                    {isLoggedIn? (
+                        <>
+                            <h4 className='texto'>BIENVENIDO</h4>
+                        </>
+                    ):( 
+                    <button className='texto' onClick={() => navigate('/inicioSesion')}>Iniciar Sesion</button>
+                    )}
                     <div className='flex icono'><HiMenu /></div>
                 </div>
             </nav>
@@ -32,4 +42,4 @@ const BarraNav = () => {
     )
 }
 
-export default BarraNav
+export default BarraNav;
