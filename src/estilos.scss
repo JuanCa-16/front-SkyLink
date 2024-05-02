@@ -542,15 +542,21 @@
     .flight {
       justify-content: center;
       background: linear-gradient(to right, #125965, #333);
-      border-radius: 4px;
+      
       padding: 1rem;
       margin-bottom: 1rem;
       width: 17vh;//calc(33% - 1rem);
       height: 30px;
+      transition: background-color 0.7s;
+
+      &:hover{
+        background: #5f9198;
+        }
 
   
       .info {
         color: #fcfcfc;
+        
         //margin-bottom: 0.5rem;
   
         h3 {
