@@ -6,7 +6,7 @@ import { MdPassword } from "react-icons/md";
 import {useState, useEffect} from 'react'
 import {Link, useNavigate} from 'react-router-dom';
 
-
+import { ToastContainer, toast } from 'react-toastify';
 const Login = ({setAuth}) => {
 
     const navigate = useNavigate()
@@ -32,9 +32,10 @@ const Login = ({setAuth}) => {
         if(data.token){
             localStorage.setItem("token",data.token);
             setAuth(true);
-            toast.success("Inicio Sesion Exitoso");
+            toast.success("Inicio Sesion EXITOSO");
         }else{
             setAuth(false);
+            toast.error(data);
             console.log(data);
         }
 
