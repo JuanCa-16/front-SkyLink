@@ -1,11 +1,14 @@
-import {BrowserRouter,Routes,Route,Outlet,useNavigate} from 'react-router-dom'
+import {BrowserRouter,Routes,Route,Outlet,Navigate} from 'react-router-dom'
+import React, {useState, useEffect, Fragment} from 'react'
+
+//import PrivateRoute from './PrivateRoute'
+
+//Componentes
 import BarraNav from './pags/BarraNav'
 import Login from './pags/Login'
 import Registro from './pags/Registro'
 import PiePaag from './pags/PiePaag'
 import AccesoAdm from './pags/accessoRest'
-import React, {useState, useEffect} from 'react'
-import PrivateRoute from './PrivateRoute'
 
 function App() {
   
@@ -13,11 +16,9 @@ function App() {
 
   const setAuth = (boolean) => {
     setIsAuth(boolean);
-    console.log("variable auth")
-    console.log(isAuth);
   };
 
-  async function estaAutenticado(){
+  const estaAutenticado = async() => {
     try {
       const respuesta = await fetch('http://localhost:4000/estalogin', {
         method: 'GET',
@@ -25,6 +26,7 @@ function App() {
       });
 
       const data = await respuesta.json()
+      
       data === true? setIsAuth(true) :setIsAuth(false)
       
     } catch (err) {
@@ -34,30 +36,47 @@ function App() {
 
   useEffect(() => {
     estaAutenticado()
-  })
+  },[])
+
+  //Accesibles con logueo
+  const PrivateRoute = ({ element, ...props }) => {
+    return isAuth ? (
+      element
+    ) : (
+      <Navigate to="/inicioSesion" replace />
+    );
+  };
+
+  //Solo accesibles mientras no este logueado
+  const PublicRoute = ({ element, ...props }) => {
+    return isAuth ? (
+      <Navigate to="/acceso" replace />
+    ) : (
+      element
+    );
+  };
   
   return (
+    <Fragment>
     <BrowserRouter>
     <Routes>
 
       <Route path='/inicioSesion' 
-            element={<PrivateRoute isAuth={isAuth} redirectPath='/acceso'> 
-                                    <Login setAuth = {setAuth}/>
-                    </PrivateRoute>} 
+            element={<PublicRoute element={ <Login setAuth = {setAuth}/>}/> } 
       />
 
       {/* Ruta para El Registro, lo que cargara solo para esa ruta */}
       <Route path='/registro' 
-            element={<PrivateRoute isAuth={isAuth} redirectPath='/acceso'> 
-                                    <Registro setAuth = {setAuth}/>
-                    </PrivateRoute>} 
+            element={<PublicRoute element={<Registro setAuth = {setAuth}/> }/>} 
       />
 
       {/* RUTA QUE NECESITA EL INICIO DE SESION */}
       <Route path='/acceso' 
-            element={<PrivateRoute isAuth={!isAuth} redirectPath='/inicioSesion'>
-                                    <AccesoAdm setAuth = {setAuth}/>
-                    </PrivateRoute>} 
+            element={<>
+            <BarraNav setAuth = {setAuth} logueado = {isAuth}/>
+            <PrivateRoute element={ <AccesoAdm setAuth = {setAuth}/>}/>
+            <PiePaag/>
+            </>}
       />
 
       {/* Rura Principal */}
@@ -66,9 +85,11 @@ function App() {
         <Outlet/>{/* Outlet para renderizar el contenido de las subrutas */}
         <PiePaag/>
       </>}/>
+
     </Routes>
 
   </BrowserRouter>
+  </Fragment>
   )
 }
 

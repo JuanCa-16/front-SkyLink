@@ -8,13 +8,35 @@ import logoSky from '../recursos/LogoSkyLink.png';
 
 import {Link, useNavigate} from 'react-router-dom';
 
-const BarraNav = () => {
+const BarraNav = ({setAuth, logueado}) => {
 
-    const [isLoggedIn, setIsLoggedIn] = useState(false); // Estado para controlar si el usuario ha iniciado sesión
-    const actualizar= (estado) => {
-        setIsLoggedIn(estado);
-    };
+    const[name,setName] = useState("")
+
+    async function getName(){
+        try {
+        const response = await fetch('http://localhost:4000/usuarioLogin', {
+            method: 'GET',
+            headers: {token: localStorage.token} // Para que rellene los campos
+        });
+
+        const data = await response.json()
+        setName(data.nombre)
+        } catch (err) {
+        console.error(err.message);
+        }
+    }
+
+    useEffect(() => {
+        getName()
+    },[])
+
+    const salir = (e) => {
+        e.preventDefault()
+        localStorage.removeItem("token")
+        setAuth(false)
+    } 
     const navigate = useNavigate()
+
     return (
         //Header contendra toda la barra de navegacion Principal sin iniciar sesion
         <header className='navBar flex'>
@@ -28,9 +50,12 @@ const BarraNav = () => {
                 </div>
                 {/* //p2 sera la segunda mitad de la barra contendra el inicio de sesion y el submenu */}
                 <div className='flex p2'>
-                    {isLoggedIn? (
+                    {logueado? (
                         <>
-                            <h4 className='texto'>BIENVENIDO</h4>
+                            <div className=''>
+                                <p className='usuario'>Bienvenido {name}</p>
+                                <button className='texto' onClick={(e)=>salir(e)}>Salir</button>
+                            </div>
                         </>
                     ):( 
                     <button className='texto' onClick={() => navigate('/inicioSesion')}>Iniciar Sesion</button>

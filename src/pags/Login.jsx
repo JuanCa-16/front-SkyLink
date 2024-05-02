@@ -1,7 +1,5 @@
 import React from 'react'
-import 'react-toastify/dist/ReactToastify.css';
-import {toast} from 'react-toastify';
-toast.configure()
+
 //Logos Importados
 import { HiOutlineMail } from "react-icons/hi";
 import { MdPassword } from "react-icons/md";
@@ -22,8 +20,7 @@ const Login = ({setAuth}) => {
 
     const handleSubmit = async(e) => {
         e.preventDefault(); //para que no recarge al darle al boton enviar evitar refresh
-        //console.log('submit');
-        //console.log(usuario);
+
         const res = await fetch('http://localhost:4000/login', {
             method: 'POST',
             body: JSON.stringify(usuario), //Para que lo detecte como string
@@ -33,15 +30,13 @@ const Login = ({setAuth}) => {
         const data = await res.json();
 
         if(data.token){
-
             localStorage.setItem("token",data.token);
             setAuth(true);
             toast.success("Inicio Sesion Exitoso");
         }else{
             setAuth(false);
-            toast.error(data);
+            console.log(data);
         }
-
 
         // if(data == "ACCESSO PERMITIDO"){
         //     console.log('Permitido')

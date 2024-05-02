@@ -11,6 +11,7 @@ import logoSky from '../recursos/LogoSkyLink.png';
 const PiePaag = () => {
     return (
         <footer className='piePag flex'>
+            
             <div className='contenedorPiePag grid'>
 
                 <div className='boxFlex'>

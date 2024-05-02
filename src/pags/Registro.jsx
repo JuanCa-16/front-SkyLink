@@ -1,5 +1,5 @@
 import React from 'react'
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 //Iconos importados
 import { HiOutlineMail } from "react-icons/hi";
 import { MdPassword } from "react-icons/md";
@@ -31,8 +31,7 @@ const Registro = ({setAuth}) => {
     //Manejo del formulario, envia la peticion al dar click en el boton del form
     const handleSubmit = async(e) => {
         e.preventDefault(); //para que no recarge al darle al boton enviar evitar refresh
-        //console.log('submit');
-        //console.log(usuario);
+
         const res = await fetch('http://localhost:4000/usuarios', {
             method: 'POST',
             body: JSON.stringify(usuario), //Para que lo detecte como string
@@ -40,12 +39,16 @@ const Registro = ({setAuth}) => {
         });
 
         const data = await res.json()
-        //console.log(data)
+        console.log(data)
 
-        //navigate('/') ya no es necesario lo hago desde la ruta
-        localStorage.setItem("token",data.token);
-        setAuth(true);
+        if(data.token){
+            localStorage.setItem("token",data.token);
+            setAuth(true);
 
+        }else{
+            setAuth(false);
+            console.log(data);
+        }
 
     };
 

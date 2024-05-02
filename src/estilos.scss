@@ -51,7 +51,6 @@
         }
     
         h4{
-            font-weight: 600;
             font-size: var(--SizeFuente1);
             margin-top: 5px;
             color: var(--ColorTexto1);
@@ -68,6 +67,7 @@
             color: var(--ColorTexto1);
             font-size: var(--SizeFuente1);
             margin-top: 5px;
+            margin-right: 15px;
             &:hover{
                 cursor: pointer;
                 //font-weight: 500;
@@ -86,12 +86,23 @@
             color: var(--ColorIconos);
             padding: 0 10px;
             font-size: 2.2rem;
-
+            margin-right: 5px;
             &:hover{
                 cursor: pointer;
                 color: var(--BrilloIcono);
             }
         }
+
+        .usuario{
+            display: inline-block;
+            margin-right: 50px;
+            font-weight: 300px;
+            font-size: var(--SizeFuente1);
+            margin-top: 5px;
+            color: var(--ColorTexto1);
+            
+        }
+
     }
 
     //efecto de sombra
