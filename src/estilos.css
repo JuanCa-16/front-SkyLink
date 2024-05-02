@@ -35,7 +35,7 @@
   background: url(./recursos/estrellas.png) no-repeat;
   background-size: cover;
   background-position: center;
-  width: 100%;
+  width: 99.2%;
 }
 .navBar .p1 {
   width: 50%;
@@ -45,7 +45,6 @@
   filter: invert(100%);
 }
 .navBar .p1 h4 {
-  font-weight: 600;
   font-size: var(--SizeFuente1);
   margin-top: 5px;
   color: var(--ColorTexto1);
@@ -59,6 +58,7 @@
   color: var(--ColorTexto1);
   font-size: var(--SizeFuente1);
   margin-top: 5px;
+  margin-right: 15px;
 }
 .navBar .p2 .texto:hover {
   cursor: pointer;
@@ -73,20 +73,19 @@
   color: var(--ColorIconos);
   padding: 0 10px;
   font-size: 2.2rem;
+  margin-right: 5px;
 }
 .navBar .p2 .icono:hover {
   cursor: pointer;
   color: var(--BrilloIcono);
 }
-.navBar::after {
-  content: ""; /* Crea un pseudo-elemento */
-  z-index: -10;
-  position: absolute; /* Coloca el pseudo-elemento en relación con el contenedor */
-  bottom: 5px; /* Posición del pseudo-elemento debajo del contenedor */
-  left: -10px; /* Alinear con el borde izquierdo del contenedor */
-  width: 150%;
-  height: 20px; /* Altura igual al margen que quieres sombrear */
-  box-shadow: 0 13px 15px rgb(0, 0, 0); /* Sombra en el margen inferior */
+.navBar .p2 .usuario {
+  display: inline-block;
+  margin-right: 50px;
+  font-weight: 300px;
+  font-size: var(--SizeFuente1);
+  margin-top: 5px;
+  color: var(--ColorTexto1);
 }
 
 .logins {
