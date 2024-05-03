@@ -1,15 +1,16 @@
 //Fuentes del proyecto
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Montserrat:ital,wght@0,700;1,700&display=swap');
 
-*{
+* {
     font-family: "League Spartan", sans-serif;
     margin: 0;
 }
 
 //variables
-:root{
-    --ColorPrincipal: rgb(72,143,253);
+:root {
+    --ColorPrincipal: rgb(80, 87, 99);
     --ColorSecundario: rgb(51, 86, 143);
+    --ColorGris: #cec9c9;
     --ColorTexto1: rgb(255, 255, 255);
     --BrilloIcono: rgb(255, 255, 255);
     --SizeFuente1: 1.5rem;
@@ -18,22 +19,22 @@
     --ColorIconos: rgb(225, 220, 220);
 }
 
-.flex{
+.flex {
     display: flex;
     align-items: center;
 }
 
-.grid{
+.grid {
     display: grid;
     align-items: center;
 }
 
-.sinSubrayado{
+.sinSubrayado {
     text-decoration: none;
 }
 
 //Estilos de la barra de navegacion
-.navBar{
+.navBar {
     padding: 5px;
     background: url(./recursos/estrellas.png) no-repeat;
     background-size: cover;
@@ -42,15 +43,17 @@
     //position: fixed;
     //z-index: 1000;
     width: 99.2%;
+
     //mitad izq
-    .p1{
+    .p1 {
         width: 50%;
-        .logo{
+
+        .logo {
             width: 8%;
             filter: invert(100%); //volver el logo blanco
         }
-    
-        h4{
+
+        h4 {
             font-size: var(--SizeFuente1);
             margin-top: 5px;
             color: var(--ColorTexto1);
@@ -58,17 +61,18 @@
     }
 
     //mitad derecha
-    .p2{
+    .p2 {
         width: 50%;
         justify-content: flex-end;
         gap: 15px;
 
-        .texto{
+        .texto {
             color: var(--ColorTexto1);
             font-size: var(--SizeFuente1);
             margin-top: 5px;
             margin-right: 15px;
-            &:hover{
+
+            &:hover {
                 cursor: pointer;
                 //font-weight: 500;
                 text-shadow: 0px 1px 3px var(--ColorSombraTexto);
@@ -76,31 +80,32 @@
             }
         }
 
-        button{
+        button {
             background-color: transparent;
             outline: none;
             border: none;
         }
 
-        .icono{
+        .icono {
             color: var(--ColorIconos);
             padding: 0 10px;
             font-size: 2.2rem;
             margin-right: 5px;
-            &:hover{
+
+            &:hover {
                 cursor: pointer;
                 color: var(--BrilloIcono);
             }
         }
 
-        .usuario{
+        .usuario {
             display: inline-block;
             margin-right: 50px;
             font-weight: 300px;
             font-size: var(--SizeFuente1);
             margin-top: 5px;
             color: var(--ColorTexto1);
-            
+
         }
 
     }
@@ -120,66 +125,72 @@
 }
 
 //Estilo del login
-.logins{
+.logins {
 
     //Estilos de la pantalla principal
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url(./recursos/cielo.png) no-repeat;
+    background: url(./recursos/fondo3.jpg) no-repeat;
     background-size: cover;
     background-position: center;
-
     //estilos del que contendra el formulario
-    .wrapper{
+    .wrapper {
         position: relative;
-        width: 420px;
-        height: 450px;
         background: transparent;
-        border: 2px solid rgba(255,255,255, .1);
-        backdrop-filter: blur(70px);
+
+        //correrlo a la izq
+        margin-left: 55%;
+
+        border: 2px solid rgba(255, 255, 255, .1);
+        backdrop-filter: blur(100px);
         border-radius: 35px;
         color: white;
+        max-width: 420px;
+        max-height: 450px;
 
+        min-width: 420px;
+        min-height: 450px;
+        
         //Estilos Formulario
-        .form-box{
-
+        .form-box {
+            
             width: 81%;
             padding: 40px;
 
-            form{
+            form {
 
-                h1{
+                h1 {
                     font-size: 36px;
                     text-align: center;
                 }
 
-                .input-box{
+                .input-box {
                     position: relative;
                     width: 100%;
                     height: 50px;
                     margin: 30px 0;
-    
-                    input{
+
+                    input {
                         width: 85%;
                         height: 100%;
                         background: transparent;
                         border: none;
                         outline: none;
-                        border: 2px solid rgba(255,255,255, .1);
+                        border: 2px solid rgba(255, 255, 255, .1);
                         border-radius: 40px;
                         font-size: 16px;
                         color: white;
                         padding: 0 20px;
 
-                        &::placeholder{
+                        &::placeholder {
                             color: white;
                         }
                     }
                 }
 
-                .forgot{
+                .forgot {
                     display: flex;
                     justify-content: center;
                     font-size: 14.5px;
@@ -189,20 +200,20 @@
                         color: white;
                         text-decoration: none;
 
-                        &:hover{
+                        &:hover {
                             text-decoration: underline;
                         }
                     }
                 }
 
-                button{
+                button {
                     width: 100%;
                     height: 45px;
                     background: white;
                     border: none;
                     outline: none;
                     border-radius: 40px;
-                    box-shadow: 0 0 10px rgba(0,0,0,.1);
+                    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
                     cursor: pointer;
                     font-size: 16px;
                     color: #333;
@@ -210,7 +221,7 @@
                 }
             }
 
-            .icon{
+            .icon {
                 position: absolute;
                 right: 27px;
                 top: 50%;
@@ -218,8 +229,8 @@
                 font-size: 16px;
             }
 
-            .register-link{
-                
+            .register-link {
+
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -227,12 +238,13 @@
                 text-align: center;
                 font-weight: 600;
                 padding-top: 20px;
-                p{
+
+                p {
                     color: white;
                     font-weight: 300;
                 }
 
-                button{
+                button {
                     background-color: transparent;
                     outline: none;
                     border: none;
@@ -240,7 +252,7 @@
                     font-weight: 600;
                     text-decoration: none;
 
-                    &:hover{
+                    &:hover {
                         text-decoration: underline;
                     }
                 }
@@ -250,66 +262,66 @@
 
 }
 
-
 //Estilo de registros
-.registros{
+.registros {
 
     //Pantall principal
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url(./recursos/cielo.jpg) no-repeat;
+    background: url(./recursos/fondo1.jpg) no-repeat;
     background-size: cover;
     background-position: center;
 
     //Estilos del que contendra el formulario
-    .principal-r{
+    .principal-r {
         display: flex;
         flex-direction: column;
         background: transparent;
-        border: 2px solid rgba(255,255,255, .1);
+        border: 2px solid rgba(255, 255, 255, .1);
         backdrop-filter: blur(100px);
         border-radius: 35px;
         align-items: center;
         justify-content: center;
 
-        h1{
+        h1 {
             margin-top: 30px;
             font-size: 36px;
             text-align: center;
             color: white;
-            
+
         }
 
-        button{
-            width: 50%;
-            height: 45px;
-            background: white;
-            border: none;
-            outline: none;
-            border-radius: 40px;
-            box-shadow: 0 0 10px rgba(0,0,0,.1);
-            cursor: pointer;
-            font-size: 16px;
-            color: #333;
-            font-weight: 600;
-            
-        }
+        form{
+            button {
+                width: 50%;
+                height: 45px;
+                background: white;
+                border: none;
+                outline: none;
+                border-radius: 40px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+                cursor: pointer;
+                font-size: 16px;
+                color: #333;
+                font-weight: 600;
 
-        .register-link-r{
+            }
+        }
+        .register-link-r {
             font-size: 14.5px;
             text-align: center;
             font-weight: 600;
             padding: 20px;
 
-            p{
+            p {
                 color: white;
                 font-weight: 300;
-                white-space: nowrap;//Para que ocupe toda la linea
+                white-space: nowrap; //Para que ocupe toda la linea
             }
 
-            button{
+            button {
                 background-color: transparent;
                 outline: none;
                 border: none;
@@ -317,88 +329,88 @@
                 font-weight: 600;
                 text-decoration: none;
 
-                &:hover{
+                &:hover {
                     text-decoration: underline;
                 }
             }
         }
 
-        .btn-registro{
+        .btn-registro {
             justify-content: center;
             align-items: center;
         }
     }
 
     //Estilos de las 2 columnas del formulario
-    .wrapper-r{
+    .wrapper-r {
         position: relative;
         width: 840px;
         height: 380px;
         color: white;
         display: flex;
-    
-        .form-box-r{
+
+        .form-box-r {
             width: 81%;
             padding: 5px 40px;
 
-            .form{
+            .form {
 
-                .input-box-r{
+                .input-box-r {
                     position: relative;
                     width: 100%;
                     height: 50px;
                     margin: 30px 0;
-    
-                    input{
+
+                    input {
                         width: 87%;
                         height: 100%;
                         background: transparent;
                         border: none;
                         outline: none;
-                        border: 2px solid rgba(255,255,255, .1);
+                        border: 2px solid rgba(255, 255, 255, .1);
                         border-radius: 40px;
                         font-size: 16px;
                         color: white;
                         padding: 0 20px;
 
-                        &::placeholder{
+                        &::placeholder {
                             color: white;
                         }
                     }
                 }
 
-                .input-box-fecha-r{
+                .input-box-fecha-r {
                     display: flex;
                     flex-direction: rows;
                     position: relative;
                     width: 100%;
                     height: 50px;
                     margin: 30px 0;
-    
-                    input{
+
+                    input {
                         width: 50%;
                         height: 100%;
                         background: transparent;
                         border: none;
                         outline: none;
-                        border: 2px solid rgba(255,255,255, .1);
+                        border: 2px solid rgba(255, 255, 255, .1);
                         border-radius: 40px;
                         font-size: 16px;
                         color: white;
                         padding: 0 15px 0 20px;
 
-                        &::placeholder{
+                        &::placeholder {
                             color: white;
                         }
                     }
 
-                    p{
-                        padding: 15px 10px;                  
+                    p {
+                        padding: 15px 10px;
                     }
                 }
             }
 
-            .icon-r{
+            .icon-r {
                 position: absolute;
                 right: 20px;
                 top: 50%;
@@ -408,15 +420,17 @@
 
             /* Estilos para el icono del calendario en navegadores WebKit (Chrome y Safari) */
             input[type="date"]::-webkit-calendar-picker-indicator {
-                filter: invert(1); /* Invertir el color del icono a blanco */
-            }
-            
-            /* Estilos para el botón de aumento/descenso en navegadores WebKit (Chrome y Safari) */
-            input[type="date"]::-webkit-inner-spin-button {
-                filter: invert(1); /* Invertir el color del botón a blanco */
+                filter: invert(1);
+                /* Invertir el color del icono a blanco */
             }
 
-            
+            /* Estilos para el botón de aumento/descenso en navegadores WebKit (Chrome y Safari) */
+            input[type="date"]::-webkit-inner-spin-button {
+                filter: invert(1);
+                /* Invertir el color del botón a blanco */
+            }
+
+
         }
     }
 
@@ -424,49 +438,53 @@
 
 }
 
-.piePag{
+//Footer
+.piePag {
 
     background: url(./recursos/estrellas.png) no-repeat;
     background-size: cover;
     background-position: center;
-    
-    .contenedorPiePag{
+
+    .contenedorPiePag {
         display: grid;
-        grid-template-columns: repeat(4, 1fr); /* Divide el contenedor en 4 columnas de igual ancho */
+        grid-template-columns: repeat(4, 1fr);
+        /* Divide el contenedor en 4 columnas de igual ancho */
         gap: 10px;
         padding: 10px 5px 20px;
         //background-color: red;
 
-        .boxFlex{
+        .boxFlex {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             gap: 15px;
 
-            .logoDiv{
+            .logoDiv {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                .logo{
-                    
+
+                .logo {
+
                     width: 30%;
                     filter: invert(100%); //volver el logo blanco
                 }
             }
 
-            p{
+            p {
                 padding: 0 28%;
                 color: var(--ColorTexto1);
                 line-height: var(--Interlineado);
             }
 
-            .socialIcon{
+            .socialIcon {
                 gap: 20px;
-                .icon{
+
+                .icon {
                     color: var(--ColorIconos);
 
-                    &:hover{
+                    &:hover {
                         cursor: pointer;
                         color: var(--BrilloIcono);
                     }
@@ -474,11 +492,11 @@
             }
         }
 
-        .box{
+        .box {
 
             padding: 0 15px;
 
-            h2{
+            h2 {
                 padding-top: 0;
                 padding-bottom: 15px;
                 font-size: var(--SizeFuente1);
@@ -486,24 +504,23 @@
                 text-shadow: 5px 4px 8px var(--ColorSombraTexto);
             }
 
-            p{
+            p {
                 color: var(--ColorTexto1);
                 text-align: left;
                 line-height: var(--Interlineado);
             }
         }
 
-        .bigBox{
+        .bigBox {
             padding: 25px 15px 0 15px;
-
-            h2{
+            h2 {
                 padding-top: 0;
                 padding-bottom: 15px;
                 font-size: var(--SizeFuente1);
                 color: var(--ColorTexto1);
             }
 
-            p{
+            p {
                 color: var(--ColorTexto1);
                 text-align: left;
                 line-height: var(--Interlineado);
@@ -512,7 +529,213 @@
     }
 }
 
+//Principal
+.containerPrincipal{
 
+    display: flex;
+    gap: 10px;
+    min-height: 60vh;
 
+    .principal-izq{
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        min-height: 60vh;
+        //background-color: blueviolet;
+        padding: 50px;
+        padding-left: 10%;
 
+        .busqueda{
 
+            //background-color: orange;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+            //overflow: hidden;
+
+            .globalRadio{
+
+                //background-color: pink;
+                display: flex;
+                justify-content: center;
+                align-items: center; 
+                padding: 10px 0;  
+                width: 100%;
+                
+                .radioClases{
+                
+                    display: flex;
+                    overflow: hidden;
+                    border-radius: 15px;
+                    box-shadow: 0 0 5px rgba(0,0,0,0.25);
+                    justify-content: center;
+                    align-items: center; 
+                    //min-width: 400px;
+
+    
+                    .radioInput{
+                        display: none;
+                        //cuando un input e seleccionado el selctor apuntara al siguiente elemento con la clase despues del +
+                        &:checked + .radioLabel{
+                            background: var(--ColorSecundario);
+                        }
+                    }
+    
+                    .radioLabel{
+                        padding: 8px 14px;
+                        font-size: 14px;
+                        color: var(--ColorTexto1);
+                        background: var(--ColorPrincipal);
+                        cursor: pointer;
+                        
+                        h3{
+                            padding: 3px 0 5px 0;
+                        }
+
+                        p{
+                            padding: 3px 0 5px 0;
+                        }
+    
+                        transition: backgroung 0.1s;
+    
+                        &:not(:last-of-type){
+                            border-right: 1px solid var(--ColorIconos); //la linia divisiora menos al ultimo
+                        }
+                    }
+                }
+            }
+
+            .globalBox{
+
+                display: grid;
+                grid-template-columns: repeat(2,1fr);
+                grid-template-rows: repeat(3,1fr);
+                gap: 10px;
+                
+                .input-box{
+                    display: flex;
+                    flex-wrap: wrap;
+                    //background: red;
+                    justify-content: center;
+                    align-items: center;
+    
+                    .icon{
+                        margin-top: 5px;
+                        margin-right: 5px;
+                    }
+    
+                    input{
+                        border: unset;
+                        background-color: var(--ColorGris);
+                        padding: 0.5rem;
+                        border-radius: 5px;
+                        width: 80%;
+                        height: 20%;
+                        border: none;
+                        outline: none;
+    
+                        &::placeholder {
+                            color: black;
+                        }
+                    }
+                }
+    
+                .input-box-fecha{
+    
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    //background-color: green;
+
+                    input{
+                        border: unset;
+                        background-color: var(--ColorGris);
+                        padding: 0.5rem;
+                        border-radius: 5px;
+                        width: 80%;
+                        height: 20%;
+                        //margin-left: 5px;
+                    }
+    
+                    p{
+                        padding: 5px;
+                    }
+                }
+
+                .ult{
+                    grid-column: span 2;
+                    input{
+                        width: 40%;
+                    }
+                }
+            }
+
+            .enviar{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+                button {
+                    width: 20%;
+                    height: 25px;
+                    background: var(--ColorPrincipal);
+                    border: none;
+                    outline: none;
+                    border-radius: 40px;
+                    box-shadow: 0 0 5px rgba(0,0,0,0.25);
+                    cursor: pointer;
+                    font-size: 16px;
+                    color: white;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        h1, p{
+            padding-left: 6rem;
+        }
+
+    }
+
+    .principal-der{
+        display: flex;
+        width: 30%;
+        min-height: 60vh;
+        //background-color: green;
+
+        .otro{
+            padding-top: 15%;
+            padding-left: 10%;
+            //background-color: yellow;
+            display: flex;
+            flex-direction: column;
+            gap: 10%;
+            .homeImages{
+                display: flex;
+                //background-color: red;
+                min-height: 50%;
+                position: relative;
+        
+                .videoDiv{
+                    width: 100%;
+    
+                    video{
+                        width: 130%;
+                    }
+                    .video{
+                        border-radius: 5rem;
+                        
+                    }
+                }
+        
+                .plane{
+                    position: absolute;
+                    width: 140%;
+                    top:-50%
+                }
+            }
+        }
+    }
+}

@@ -6,8 +6,9 @@
 }
 
 :root {
-  --ColorPrincipal: rgb(72,143,253);
+  --ColorPrincipal: rgb(80, 87, 99);
   --ColorSecundario: rgb(51, 86, 143);
+  --ColorGris: #cec9c9;
   --ColorTexto1: rgb(255, 255, 255);
   --BrilloIcono: rgb(255, 255, 255);
   --SizeFuente1: 1.5rem;
@@ -93,20 +94,23 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: url(./recursos/cielo.png) no-repeat;
+  background: url(./recursos/fondo3.jpg) no-repeat;
   background-size: cover;
   background-position: center;
 }
 .logins .wrapper {
   position: relative;
-  width: 420px;
-  height: 450px;
   background: transparent;
+  margin-left: 55%;
   border: 2px solid rgba(255, 255, 255, 0.1);
-  -webkit-backdrop-filter: blur(70px);
-          backdrop-filter: blur(70px);
+  -webkit-backdrop-filter: blur(100px);
+          backdrop-filter: blur(100px);
   border-radius: 35px;
   color: white;
+  max-width: 420px;
+  max-height: 450px;
+  min-width: 420px;
+  min-height: 450px;
 }
 .logins .wrapper .form-box {
   width: 81%;
@@ -203,7 +207,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: url(./recursos/cielo.jpg) no-repeat;
+  background: url(./recursos/fondo1.jpg) no-repeat;
   background-size: cover;
   background-position: center;
 }
@@ -224,7 +228,7 @@
   text-align: center;
   color: white;
 }
-.registros .principal-r button {
+.registros .principal-r form button {
   width: 50%;
   height: 45px;
   background: white;
@@ -337,10 +341,12 @@
   font-size: 16px;
 }
 .registros .wrapper-r .form-box-r input[type=date]::-webkit-calendar-picker-indicator {
-  filter: invert(1); /* Invertir el color del icono a blanco */
+  filter: invert(1);
+  /* Invertir el color del icono a blanco */
 }
 .registros .wrapper-r .form-box-r input[type=date]::-webkit-inner-spin-button {
-  filter: invert(1); /* Invertir el color del botón a blanco */
+  filter: invert(1);
+  /* Invertir el color del botón a blanco */
 }
 
 .piePag {
@@ -350,7 +356,8 @@
 }
 .piePag .contenedorPiePag {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Divide el contenedor en 4 columnas de igual ancho */
+  grid-template-columns: repeat(4, 1fr);
+  /* Divide el contenedor en 4 columnas de igual ancho */
   gap: 10px;
   padding: 10px 5px 20px;
 }
@@ -413,4 +420,169 @@
   color: var(--ColorTexto1);
   text-align: left;
   line-height: var(--Interlineado);
+}
+
+.containerPrincipal {
+  display: flex;
+  gap: 10px;
+  min-height: 60vh;
+}
+.containerPrincipal .principal-izq {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  min-height: 60vh;
+  padding: 50px;
+  padding-left: 10%;
+}
+.containerPrincipal .principal-izq .busqueda {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+.containerPrincipal .principal-izq .busqueda .globalRadio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  width: 100%;
+}
+.containerPrincipal .principal-izq .busqueda .globalRadio .radioClases {
+  display: flex;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+  justify-content: center;
+  align-items: center;
+}
+.containerPrincipal .principal-izq .busqueda .globalRadio .radioClases .radioInput {
+  display: none;
+}
+.containerPrincipal .principal-izq .busqueda .globalRadio .radioClases .radioInput:checked + .radioLabel {
+  background: var(--ColorSecundario);
+}
+.containerPrincipal .principal-izq .busqueda .globalRadio .radioClases .radioLabel {
+  padding: 8px 14px;
+  font-size: 14px;
+  color: var(--ColorTexto1);
+  background: var(--ColorPrincipal);
+  cursor: pointer;
+  transition: backgroung 0.1s;
+}
+.containerPrincipal .principal-izq .busqueda .globalRadio .radioClases .radioLabel h3 {
+  padding: 3px 0 5px 0;
+}
+.containerPrincipal .principal-izq .busqueda .globalRadio .radioClases .radioLabel p {
+  padding: 3px 0 5px 0;
+}
+.containerPrincipal .principal-izq .busqueda .globalRadio .radioClases .radioLabel:not(:last-of-type) {
+  border-right: 1px solid var(--ColorIconos);
+}
+.containerPrincipal .principal-izq .busqueda .globalBox {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10px;
+}
+.containerPrincipal .principal-izq .busqueda .globalBox .input-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.containerPrincipal .principal-izq .busqueda .globalBox .input-box .icon {
+  margin-top: 5px;
+  margin-right: 5px;
+}
+.containerPrincipal .principal-izq .busqueda .globalBox .input-box input {
+  border: unset;
+  background-color: var(--ColorGris);
+  padding: 0.5rem;
+  border-radius: 5px;
+  width: 80%;
+  height: 20%;
+  border: none;
+  outline: none;
+}
+.containerPrincipal .principal-izq .busqueda .globalBox .input-box input::-moz-placeholder {
+  color: black;
+}
+.containerPrincipal .principal-izq .busqueda .globalBox .input-box input::placeholder {
+  color: black;
+}
+.containerPrincipal .principal-izq .busqueda .globalBox .input-box-fecha {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.containerPrincipal .principal-izq .busqueda .globalBox .input-box-fecha input {
+  border: unset;
+  background-color: var(--ColorGris);
+  padding: 0.5rem;
+  border-radius: 5px;
+  width: 80%;
+  height: 20%;
+}
+.containerPrincipal .principal-izq .busqueda .globalBox .input-box-fecha p {
+  padding: 5px;
+}
+.containerPrincipal .principal-izq .busqueda .globalBox .ult {
+  grid-column: span 2;
+}
+.containerPrincipal .principal-izq .busqueda .globalBox .ult input {
+  width: 40%;
+}
+.containerPrincipal .principal-izq .busqueda .enviar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.containerPrincipal .principal-izq .busqueda .enviar button {
+  width: 20%;
+  height: 25px;
+  background: var(--ColorPrincipal);
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+  font-weight: 600;
+}
+.containerPrincipal .principal-izq h1, .containerPrincipal .principal-izq p {
+  padding-left: 6rem;
+}
+.containerPrincipal .principal-der {
+  display: flex;
+  width: 30%;
+  min-height: 60vh;
+}
+.containerPrincipal .principal-der .otro {
+  padding-top: 15%;
+  padding-left: 10%;
+  display: flex;
+  flex-direction: column;
+  gap: 10%;
+}
+.containerPrincipal .principal-der .otro .homeImages {
+  display: flex;
+  min-height: 50%;
+  position: relative;
+}
+.containerPrincipal .principal-der .otro .homeImages .videoDiv {
+  width: 100%;
+}
+.containerPrincipal .principal-der .otro .homeImages .videoDiv video {
+  width: 130%;
+}
+.containerPrincipal .principal-der .otro .homeImages .videoDiv .video {
+  border-radius: 5rem;
+}
+.containerPrincipal .principal-der .otro .homeImages .plane {
+  position: absolute;
+  width: 140%;
+  top: -50%;
 }/*# sourceMappingURL=estilos.css.map */
