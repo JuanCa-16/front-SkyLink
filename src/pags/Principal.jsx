@@ -39,11 +39,11 @@ const Principal = () => {
                             <div className="globalRadio flex">
                                 <div className="radioClases flex">
                                     <input className="radioInput" type="radio" value="Economica"name="misClases" id="opc1"/>
-                                    <label className="radioLabel" for="opc1"><h3>Economy</h3><p>Clase Turista</p></label>
+                                    <label className="radioLabel"  htmlFor="opc1"><h3>Economy</h3><p>Clase Turista</p></label>
                                     <input className="radioInput" type="radio" value="Economica"name="misClases" id="opc2"/>
-                                    <label className="radioLabel" for="opc2"><h3>Business</h3><p>Clase Ejecutiva</p></label>
+                                    <label className="radioLabel"  htmlFor="opc2"><h3>Business</h3><p>Clase Ejecutiva</p></label>
                                     <input className="radioInput" type="radio" value="Economica"name="misClases" id="opc3"/>
-                                    <label className="radioLabel" for="opc3"><h3>First Class</h3><p>Primera Clase</p></label>
+                                    <label className="radioLabel"  htmlFor="opc3"><h3>First Class</h3><p>Primera Clase</p></label>
                                 </div>
                             </div>
 

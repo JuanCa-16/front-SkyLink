@@ -8,6 +8,7 @@ import { AiOutlinePhone } from "react-icons/ai";
 import { FaLocationDot } from "react-icons/fa6";
 
 import {useNavigate} from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Registro = ({setAuth}) => {
 
@@ -47,6 +48,8 @@ const Registro = ({setAuth}) => {
         }else{
             setAuth(false);
             console.log(data);
+            toast.error(data)
+
         }
 
     };
@@ -55,6 +58,7 @@ const Registro = ({setAuth}) => {
     const handleChange = e =>{
         //console.log(e.target.name, e.target.value);
         setUsuario({...usuario, [e.target.name]: e.target.value});
+
     };
 
     return (

@@ -20,6 +20,7 @@ function App() {
     setIsAuth(boolean);
   };
 
+  //Verificar si inicio sesion si encuentra un token
   const estaAutenticado = async() => {
     try {
       const respuesta = await fetch('http://localhost:4000/estalogin', {
@@ -83,7 +84,7 @@ function App() {
 
       <Route path='/acceso/perfil' 
             element={<>
-            <BarraNav setAuth = {setAuth} logueado = {isAuth}/>
+            
             <PrivateRoute element={ <EditarPerfil/>}/>
             <PiePaag/>
             </>}

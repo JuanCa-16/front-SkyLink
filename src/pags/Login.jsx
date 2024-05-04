@@ -29,6 +29,7 @@ const Login = ({setAuth}) => {
 
         const data = await res.json();
 
+        //Si se devuelve token es porque el inicio de sesion fue correcto y aautenticado se vuelve true
         if(data.token){
             localStorage.setItem("token",data.token);
             setAuth(true);

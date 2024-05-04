@@ -11,7 +11,7 @@ import {Link, useNavigate} from 'react-router-dom';
 const BarraNav = ({setAuth, logueado}) => {
 
     const[name,setName] = useState("")
-
+    
     async function getName(){
         try {
         const response = await fetch('http://localhost:4000/usuarioLogin', {
@@ -20,7 +20,7 @@ const BarraNav = ({setAuth, logueado}) => {
         });
 
         const data = await response.json()
-        setName(data.nombre)
+        setName(data.nombre);
         } catch (err) {
         console.error(err.message);
         }
@@ -50,6 +50,8 @@ const BarraNav = ({setAuth, logueado}) => {
                 </div>
                 {/* //p2 sera la segunda mitad de la barra contendra el inicio de sesion y el submenu */}
                 <div className='flex p2'>
+
+                    {/* //Info si esta Logueado */}
                     {logueado? (
                         <>
                             <div className=''>
@@ -59,6 +61,7 @@ const BarraNav = ({setAuth, logueado}) => {
                             </div>
                         </>
                     ):( 
+                    // Info si no esta logueado
                     <button className='texto' onClick={() => navigate('/inicioSesion')}>Iniciar Sesion</button>
                     )}
                     <div className='flex icono'><HiMenu /></div>
