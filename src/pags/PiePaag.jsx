@@ -14,9 +14,9 @@ const PiePaag = () => {
             
             <div className='contenedorPiePag grid'>
 
-                <div className='boxFlex'>
+                <div className='boxFlex flex'>
 
-                    <div className='logoDiv'>
+                    <div className='logoDiv flex'>
                         <img className='logo'src={logoSky} />
                     </div>
 

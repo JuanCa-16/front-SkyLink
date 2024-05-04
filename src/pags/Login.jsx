@@ -55,7 +55,7 @@ const Login = ({setAuth}) => {
     return (
 
         //logins es mi body para poder ajustar la ventana de inicio de sesion
-        <div className='logins'>
+        <div className='logins flex'>
 
             {/* Div que contendra el inicio de sesion */}
             <div className='wrapper'>
@@ -78,7 +78,7 @@ const Login = ({setAuth}) => {
                             <MdPassword className='icon' />
                         </div>
 
-                        <div className='forgot'>
+                        <div className='forgot flex'>
                             <a href='#'>Olvide la contraseña</a>
                         </div>
 
@@ -86,8 +86,8 @@ const Login = ({setAuth}) => {
                     </form>
 
                     {/* div de crear cuenta */}
-                    <div className='register-link'><p>No tengo una cuenta</p><button type='submit' className='btn-reg'onClick={() => navigate('/registro')}>Registrarme</button></div>
-                    <div className='register-link'><button className='btn-reg'onClick={() => navigate('/')}>Regresar</button></div>
+                    <div className='register-link flex'><p>No tengo una cuenta</p><button type='submit' className='btn-reg'onClick={() => navigate('/registro')}>Registrarme</button></div>
+                    <div className='register-link flex'><button className='btn-reg'onClick={() => navigate('/')}>Regresar</button></div>
                 </div>
             </div>
         </div>

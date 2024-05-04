@@ -8,130 +8,104 @@ const Principal = () => {
     return (
         <div className="containerPrincipal">
 
-            {/* <div className="principal-izq">
-
-                <h1>Reserva tu vuelo</h1>
-                <p>Selecciona una clase y los datos de tu vuelo.</p>
-
-                <div className="busqueda">
-
-                    <form action="">
-
-                        <div className="globalRadio">
-                            <div className="radioClases">
-                                <input className="radioInput" type="radio" value="Economica"name="misClases" id="opc1"/>
-                                <label className="radioLabel" for="opc1"><h3>Economy</h3><p>Clase Turista</p></label>
-                                <input className="radioInput" type="radio" value="Economica"name="misClases" id="opc2"/>
-                                <label className="radioLabel" for="opc2"><h3>Business</h3><p>Clase Ejecutiva</p></label>
-                                <input className="radioInput" type="radio" value="Economica"name="misClases" id="opc3"/>
-                                <label className="radioLabel" for="opc3"><h3>First Class</h3><p>Primera Clase</p></label>
-                            </div>
+            <div className="general flex">
+                <div className="principal-1">
+                    <div className="otro">
+                        <div className='mainText'>
+                            <h1>Linking flies, linking lifes...</h1>
                         </div>
 
-                        <div className="globalBox">
-                            <div className='input-box'>
-                                <div className="icon"><FaPlaneDeparture /></div>
-                                <input type='text' placeholder='Aeropuerto Origen' required name='aeroOrigen'/>
+                        <div className='homeImages'>
+
+                            <div className='videoDiv'>
+                                <video src={video} autoPlay muted loop className='video'></video>
                             </div>
 
-                            <div className='input-box'>
-                                <div className="icon"><FaPlaneArrival /></div>
-                                <input type='text' placeholder='Aeropuerto Destino' required name='aeroOrigen'/>
-                            </div>
+                        <img src={avion2} className='plane' alt='Avion' />
 
-                            <div className='input-box-fecha'>
-                                <p>Fecha de Ida</p>
-                                <input type='date' required name='fecha'/>
-                            </div>
-
-                            <div className='input-box-fecha'>
-                                <p>Fecha de Regreso</p>
-                                <input type='date' required name='fecha'/>
-                            </div>
-
-                            <div className='input-box ult'>
-                                <div className="icon"><FaUser/></div>
-                                <input type='number' min={1} max={5} placeholder='Cantidad Pasajeros' required name='aeroOrigen'/>
-                            </div>
-                        </div>
-
-                        <div className='enviar'>
-                            <button className='btn-env'>Buscar</button>
-                        </div>
-                    </form>
-                </div>
-            </div> */}
-
-            <div className="principal-der">
-                <div className="otro">
-                    <div className='mainText'>
-                        <h1>Linking flies, linking lifes...</h1>
                     </div>
-
-                    <div className='homeImages flex'>
-
-                        <div className='videoDiv'>
-                            <video src={video} autoPlay muted loop className='video'></video>
-                        </div>
-
-                    <img src={avion2} className='plane' alt='Avion' />
-
+                    </div>
                 </div>
+
+                <div className="principal-2">
+
+                    <h1 className="flex">Reserva tu vuelo</h1>
+                    <p className="flex">Selecciona una clase y los datos de tu vuelo.</p>
+
+                    <div className="busqueda flex">
+
+                        <form action="">
+
+                            <div className="globalRadio flex">
+                                <div className="radioClases flex">
+                                    <input className="radioInput" type="radio" value="Economica"name="misClases" id="opc1"/>
+                                    <label className="radioLabel" for="opc1"><h3>Economy</h3><p>Clase Turista</p></label>
+                                    <input className="radioInput" type="radio" value="Economica"name="misClases" id="opc2"/>
+                                    <label className="radioLabel" for="opc2"><h3>Business</h3><p>Clase Ejecutiva</p></label>
+                                    <input className="radioInput" type="radio" value="Economica"name="misClases" id="opc3"/>
+                                    <label className="radioLabel" for="opc3"><h3>First Class</h3><p>Primera Clase</p></label>
+                                </div>
+                            </div>
+
+                            <div className="globalBox">
+                                <div className='input-box flex'>
+                                    <div className="icon"><FaPlaneDeparture /></div>
+                                    <input type='text' placeholder='Aeropuerto Origen' required name='aeroOrigen'/>
+                                </div>
+
+                                <div className='input-box flex'>
+                                    <div className="icon"><FaPlaneArrival /></div>
+                                    <input type='text' placeholder='Aeropuerto Destino' required name='aeroOrigen'/>
+                                </div>
+
+                                <div className='input-box-fecha flex'>
+                                    <p>Fecha de Ida</p>
+                                    <input type='date' required name='fecha'/>
+                                </div>
+
+                                <div className='input-box-fecha flex'>
+                                    <p>Fecha de Regreso</p>
+                                    <input type='date' required name='fecha'/>
+                                </div>
+
+                                <div className='input-box ult flex'>
+                                    <div className="icon"><FaUser/></div>
+                                    <input type='number' min={1} max={5} placeholder='Cantidad Pasajeros' required name='aeroOrigen'/>
+                                </div>
+                            </div>
+
+                            <div className='enviar flex'>
+                                <button className='btn-env'>Buscar</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
 
-            <div className="principal-izq">
+            <div className='info flex'>
+            
+                    <div className="box flex">
+                        <h2>Reserva fácil y rápida de vuelos</h2>
+                        <p>Con nuestra aplicación, reservar vuelos es 
+                            simple y conveniente. Explore una amplia gama de opciones y reserve 
+                            su vuelo perfecto en solo unos pocos clics</p>
+                    </div>
 
-                <h1>Reserva tu vuelo</h1>
-                <p>Selecciona una clase y los datos de tu vuelo.</p>
+                    <div className="box flex">
+                        <h2>Información de vuelos en tiempo real</h2>
+                        <p>Manténgase informado sobre el estado de su vuelo, horarios de salida, 
+                            llegadas y más, para una experiencia de viaje sin preocupaciones desde el 
+                            principio hasta el final</p>
+                    </div>
 
-                <div className="busqueda">
+                    <div className="box flex">
+                        <h2>Gestione sus reservas en cualquier momento</h2>
+                        <p>Modifique fechas, seleccione asientos y realice el check-in en 
+                            línea con facilidad. Nuestra aplicación le da el control total sobre 
+                            su viaje, adaptándose a sus necesidades</p>
+                    </div>
 
-                    <form action="">
 
-                        <div className="globalRadio">
-                            <div className="radioClases">
-                                <input className="radioInput" type="radio" value="Economica"name="misClases" id="opc1"/>
-                                <label className="radioLabel" for="opc1"><h3>Economy</h3><p>Clase Turista</p></label>
-                                <input className="radioInput" type="radio" value="Economica"name="misClases" id="opc2"/>
-                                <label className="radioLabel" for="opc2"><h3>Business</h3><p>Clase Ejecutiva</p></label>
-                                <input className="radioInput" type="radio" value="Economica"name="misClases" id="opc3"/>
-                                <label className="radioLabel" for="opc3"><h3>First Class</h3><p>Primera Clase</p></label>
-                            </div>
-                        </div>
-
-                        <div className="globalBox">
-                            <div className='input-box'>
-                                <div className="icon"><FaPlaneDeparture /></div>
-                                <input type='text' placeholder='Aeropuerto Origen' required name='aeroOrigen'/>
-                            </div>
-
-                            <div className='input-box'>
-                                <div className="icon"><FaPlaneArrival /></div>
-                                <input type='text' placeholder='Aeropuerto Destino' required name='aeroOrigen'/>
-                            </div>
-
-                            <div className='input-box-fecha'>
-                                <p>Fecha de Ida</p>
-                                <input type='date' required name='fecha'/>
-                            </div>
-
-                            <div className='input-box-fecha'>
-                                <p>Fecha de Regreso</p>
-                                <input type='date' required name='fecha'/>
-                            </div>
-
-                            <div className='input-box ult'>
-                                <div className="icon"><FaUser/></div>
-                                <input type='number' min={1} max={5} placeholder='Cantidad Pasajeros' required name='aeroOrigen'/>
-                            </div>
-                        </div>
-
-                        <div className='enviar'>
-                            <button className='btn-env'>Buscar</button>
-                        </div>
-                    </form>
-                </div>
             </div>
 
         </div>

@@ -54,6 +54,7 @@ const BarraNav = ({setAuth, logueado}) => {
                         <>
                             <div className=''>
                                 <p className='usuario'>Bienvenido {name}</p>
+                                <button className='texto' onClick={() => navigate('/acceso/perfil')}>Editar Perfil</button>
                                 <button className='texto' onClick={(e)=>salir(e)}>Salir</button>
                             </div>
                         </>

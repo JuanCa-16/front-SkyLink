@@ -22,6 +22,7 @@
 .flex {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .grid {
@@ -31,6 +32,40 @@
 
 .sinSubrayado {
     text-decoration: none;
+}
+
+input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    font-size: 16px;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, .1);
+}
+
+button{
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    font-weight: 600;
+}
+
+h1{
+    font-size: 36px;
+    text-align: center;
+}
+
+h2{
+    padding-top: 0;
+    padding-bottom: 15px;
+    font-size: var(--SizeFuente1);
+    color: var(--ColorTexto1);
 }
 
 //Estilos de la barra de navegacion
@@ -46,6 +81,7 @@
 
     //mitad izq
     .p1 {
+        justify-content: flex-start;
         width: 50%;
 
         .logo {
@@ -82,8 +118,6 @@
 
         button {
             background-color: transparent;
-            outline: none;
-            border: none;
         }
 
         .icono {
@@ -128,9 +162,7 @@
 .logins {
 
     //Estilos de la pantalla principal
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
     min-height: 100vh;
     background: url(./recursos/fondo3.jpg) no-repeat;
     background-size: cover;
@@ -161,11 +193,6 @@
 
             form {
 
-                h1 {
-                    font-size: 36px;
-                    text-align: center;
-                }
-
                 .input-box {
                     position: relative;
                     width: 100%;
@@ -174,14 +201,6 @@
 
                     input {
                         width: 85%;
-                        height: 100%;
-                        background: transparent;
-                        border: none;
-                        outline: none;
-                        border: 2px solid rgba(255, 255, 255, .1);
-                        border-radius: 40px;
-                        font-size: 16px;
-                        color: white;
                         padding: 0 20px;
 
                         &::placeholder {
@@ -191,8 +210,6 @@
                 }
 
                 .forgot {
-                    display: flex;
-                    justify-content: center;
                     font-size: 14.5px;
                     margin-bottom: 40px;
 
@@ -210,14 +227,8 @@
                     width: 100%;
                     height: 45px;
                     background: white;
-                    border: none;
-                    outline: none;
-                    border-radius: 40px;
                     box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-                    cursor: pointer;
-                    font-size: 16px;
                     color: #333;
-                    font-weight: 600;
                 }
             }
 
@@ -231,9 +242,6 @@
 
             .register-link {
 
-                display: flex;
-                justify-content: center;
-                align-items: center;
                 font-size: 14.5px;
                 text-align: center;
                 font-weight: 600;
@@ -246,10 +254,6 @@
 
                 button {
                     background-color: transparent;
-                    outline: none;
-                    border: none;
-                    color: white;
-                    font-weight: 600;
                     text-decoration: none;
 
                     &:hover {
@@ -266,9 +270,6 @@
 .registros {
 
     //Pantall principal
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
     background: url(./recursos/fondo1.jpg) no-repeat;
     background-size: cover;
@@ -276,19 +277,15 @@
 
     //Estilos del que contendra el formulario
     .principal-r {
-        display: flex;
         flex-direction: column;
         background: transparent;
         border: 2px solid rgba(255, 255, 255, .1);
         backdrop-filter: blur(100px);
         border-radius: 35px;
-        align-items: center;
-        justify-content: center;
+
 
         h1 {
             margin-top: 30px;
-            font-size: 36px;
-            text-align: center;
             color: white;
 
         }
@@ -298,14 +295,8 @@
                 width: 50%;
                 height: 45px;
                 background: white;
-                border: none;
-                outline: none;
-                border-radius: 40px;
                 box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-                cursor: pointer;
-                font-size: 16px;
                 color: #333;
-                font-weight: 600;
 
             }
         }
@@ -323,10 +314,6 @@
 
             button {
                 background-color: transparent;
-                outline: none;
-                border: none;
-                color: white;
-                font-weight: 600;
                 text-decoration: none;
 
                 &:hover {
@@ -363,14 +350,6 @@
 
                     input {
                         width: 87%;
-                        height: 100%;
-                        background: transparent;
-                        border: none;
-                        outline: none;
-                        border: 2px solid rgba(255, 255, 255, .1);
-                        border-radius: 40px;
-                        font-size: 16px;
-                        color: white;
                         padding: 0 20px;
 
                         &::placeholder {
@@ -380,7 +359,6 @@
                 }
 
                 .input-box-fecha-r {
-                    display: flex;
                     flex-direction: rows;
                     position: relative;
                     width: 100%;
@@ -389,14 +367,6 @@
 
                     input {
                         width: 50%;
-                        height: 100%;
-                        background: transparent;
-                        border: none;
-                        outline: none;
-                        border: 2px solid rgba(255, 255, 255, .1);
-                        border-radius: 40px;
-                        font-size: 16px;
-                        color: white;
                         padding: 0 15px 0 20px;
 
                         &::placeholder {
@@ -454,16 +424,11 @@
         //background-color: red;
 
         .boxFlex {
-            display: flex;
+
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
             gap: 15px;
 
             .logoDiv {
-                display: flex;
-                justify-content: center;
-                align-items: center;
 
                 .logo {
 
@@ -497,10 +462,6 @@
             padding: 0 15px;
 
             h2 {
-                padding-top: 0;
-                padding-bottom: 15px;
-                font-size: var(--SizeFuente1);
-                color: var(--ColorTexto1);
                 text-shadow: 5px 4px 8px var(--ColorSombraTexto);
             }
 
@@ -513,12 +474,6 @@
 
         .bigBox {
             padding: 25px 15px 0 15px;
-            h2 {
-                padding-top: 0;
-                padding-bottom: 15px;
-                font-size: var(--SizeFuente1);
-                color: var(--ColorTexto1);
-            }
 
             p {
                 color: var(--ColorTexto1);
@@ -532,210 +487,401 @@
 //Principal
 .containerPrincipal{
 
-    display: flex;
-    gap: 10px;
-    min-height: 60vh;
-
-    .principal-izq{
-        display: flex;
-        flex-direction: column;
-        width: 70%;
+    //display: flex;
+    .general{
+        gap: 10px;
         min-height: 60vh;
-        //background-color: blueviolet;
-        padding: 50px;
-        padding-left: 10%;
 
-        .busqueda{
-
-            //background-color: orange;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 5px;
-            //overflow: hidden;
-
-            .globalRadio{
-
-                //background-color: pink;
-                display: flex;
-                justify-content: center;
-                align-items: center; 
-                padding: 10px 0;  
-                width: 100%;
-                
-                .radioClases{
-                
-                    display: flex;
-                    overflow: hidden;
-                    border-radius: 15px;
-                    box-shadow: 0 0 5px rgba(0,0,0,0.25);
-                    justify-content: center;
-                    align-items: center; 
-                    //min-width: 400px;
-
-    
-                    .radioInput{
-                        display: none;
-                        //cuando un input e seleccionado el selctor apuntara al siguiente elemento con la clase despues del +
-                        &:checked + .radioLabel{
-                            background: var(--ColorSecundario);
-                        }
-                    }
-    
-                    .radioLabel{
-                        padding: 8px 14px;
-                        font-size: 14px;
-                        color: var(--ColorTexto1);
-                        background: var(--ColorPrincipal);
-                        cursor: pointer;
-                        
-                        h3{
-                            padding: 3px 0 5px 0;
-                        }
-
-                        p{
-                            padding: 3px 0 5px 0;
-                        }
-    
-                        transition: backgroung 0.1s;
-    
-                        &:not(:last-of-type){
-                            border-right: 1px solid var(--ColorIconos); //la linia divisiora menos al ultimo
-                        }
-                    }
-                }
-            }
-
-            .globalBox{
-
-                display: grid;
-                grid-template-columns: repeat(2,1fr);
-                grid-template-rows: repeat(3,1fr);
-                gap: 10px;
-                
-                .input-box{
-                    display: flex;
-                    flex-wrap: wrap;
-                    //background: red;
-                    justify-content: center;
-                    align-items: center;
-    
-                    .icon{
-                        margin-top: 5px;
-                        margin-right: 5px;
-                    }
-    
-                    input{
-                        border: unset;
-                        background-color: var(--ColorGris);
-                        padding: 0.5rem;
-                        border-radius: 5px;
-                        width: 80%;
-                        height: 20%;
-                        border: none;
-                        outline: none;
-    
-                        &::placeholder {
-                            color: black;
-                        }
-                    }
-                }
-    
-                .input-box-fecha{
-    
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    //background-color: green;
-
-                    input{
-                        border: unset;
-                        background-color: var(--ColorGris);
-                        padding: 0.5rem;
-                        border-radius: 5px;
-                        width: 80%;
-                        height: 20%;
-                        //margin-left: 5px;
-                    }
-    
-                    p{
-                        padding: 5px;
-                    }
-                }
-
-                .ult{
-                    grid-column: span 2;
-                    input{
-                        width: 40%;
-                    }
-                }
-            }
-
-            .enviar{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                
-                button {
-                    width: 20%;
-                    height: 25px;
-                    background: var(--ColorPrincipal);
-                    border: none;
-                    outline: none;
-                    border-radius: 40px;
-                    box-shadow: 0 0 5px rgba(0,0,0,0.25);
-                    cursor: pointer;
-                    font-size: 16px;
-                    color: white;
-                    font-weight: 600;
-                }
-            }
-        }
-
-        h1, p{
-            padding-left: 6rem;
-        }
-
-    }
-
-    .principal-der{
-        display: flex;
-        width: 30%;
-        min-height: 60vh;
-        //background-color: green;
-
-        .otro{
-            padding-top: 15%;
-            padding-left: 10%;
-            //background-color: yellow;
+        .principal-2{
             display: flex;
             flex-direction: column;
-            gap: 10%;
-            .homeImages{
-                display: flex;
-                //background-color: red;
-                min-height: 50%;
-                position: relative;
-        
-                .videoDiv{
-                    width: 100%;
+            width: 70%;
+            min-height: 60vh;
+            //background-color: blueviolet;
+            padding: 50px;
+            padding-left: 10%;
+
+            h1,p{
+                justify-content: flex-start;
+            }
     
-                    video{
-                        width: 130%;
-                    }
-                    .video{
-                        border-radius: 5rem;
-                        
+            .busqueda{
+    
+                //background-color: orange;
+                padding: 5px;
+                //overflow: hidden;
+    
+                .globalRadio{
+    
+                    //background-color: pink; 
+                    padding: 10px 0;  
+                    width: 100%;
+                    
+                    .radioClases{
+
+                        overflow: hidden;
+                        border-radius: 15px;
+                        box-shadow: 0 0 5px rgba(0,0,0,0.25);
+                        //min-width: 400px;
+    
+        
+                        .radioInput{
+                            display: none;
+                            //cuando un input e seleccionado el selctor apuntara al siguiente elemento con la clase despues del +
+                            &:checked + .radioLabel{
+                                background: var(--ColorSecundario);
+                            }
+                        }
+        
+                        .radioLabel{
+                            padding: 8px 14px;
+                            font-size: 14px;
+                            color: var(--ColorTexto1);
+                            background: var(--ColorPrincipal);
+                            cursor: pointer;
+                            
+                            h3{
+                                padding: 3px 0 5px 0;
+                            }
+    
+                            p{
+                                padding: 3px 0 5px 0;
+                            }
+        
+                            transition: backgroung 0.1s;
+        
+                            &:not(:last-of-type){
+                                border-right: 1px solid var(--ColorIconos); //la linia divisiora menos al ultimo
+                            }
+                        }
                     }
                 }
+    
+                .globalBox{
+    
+                    display: grid;
+                    grid-template-columns: repeat(2,1fr);
+                    grid-template-rows: repeat(3,1fr);
+                    gap: 10px;
+                    
+                    .input-box{
+                        flex-wrap: wrap;
+                        //background: red;
+                        .icon{
+                            margin-top: 5px;
+                            margin-right: 5px;
+                        }
         
-                .plane{
-                    position: absolute;
-                    width: 140%;
-                    top:-50%
+                        input{
+                            border: unset;
+                            background-color: var(--ColorGris);
+                            padding: 0.5rem;
+                            //border-radius: 5px;
+                            width: 90%;
+                            height: 30%;
+        
+                            &::placeholder {
+                                color: black;
+                            }
+                        }
+                    }
+        
+                    .input-box-fecha{
+
+                        flex-direction: column;
+                        //background-color: green;
+    
+                        input{
+                            border: unset;
+                            background-color: var(--ColorGris);
+                            padding: 0.5rem;
+                            //border-radius: 5px;
+                            width: 90%;
+                            height: 30%;
+                            color: black;
+                            
+                            //margin-left: 5px;
+                        }
+        
+                        p{
+                            padding: 5px;
+                        }
+                    }
+    
+                    .ult{
+                        grid-column: span 2;
+                        input{
+                            width: 45%;
+                        }
+                    }
+                }
+    
+                .enviar{
+
+                    button {
+                        width: 20%;
+                        height: 25px;
+                        background: var(--ColorPrincipal);
+                        box-shadow: 0 0 5px rgba(0,0,0,0.25);
+                    }
+                }
+            }
+    
+            h1, p{
+                padding-left: 6rem;
+            }
+    
+        }
+    
+        .principal-1{
+            display: flex;
+            width: 30%;
+            min-height: 60vh;
+
+            //background-color: green;
+    
+            .otro{
+                padding-left: 10%;
+                //background-color: yellow;
+                display: flex;
+                flex-direction: column;
+                gap: 10%;
+                .homeImages{
+                    display: flex;
+                    //background-color: red;
+                    min-height: 50%;
+                    position: relative;
+            
+                    .videoDiv{
+                        width: 100%;
+        
+                        video{
+                            width: 130%;
+                        }
+                        .video{
+                            border-radius: 5rem;
+                            
+                        }
+                    }
+            
+                    .plane{
+                        position: absolute;
+                        width: 140%;
+                        top:-50%
+                    }
                 }
             }
         }
     }
+
+    .info{
+        display: grid;
+        gap: 10px;
+        padding: 30px 30px;
+        //background-color: red;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        background-color: var(--ColorPrincipal);
+
+        .box {
+            flex-direction: column;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, .174);
+            background: rgba(232, 232, 232, 0.174);
+            padding: 20px 15px;
+            min-height: 150px;
+            box-shadow: 5px 4px 8px rgba(232, 232, 232, 0.174);;
+
+            p {
+                color: rgb(226, 224, 224);
+                text-align: left;
+                line-height: var(--Interlineado);
+            }
+        }
+    }
+}
+
+//editar perfil
+.editPerfil {
+
+    //Pantall principal
+    min-height: 90vh;
+    background: url(./recursos/estrellas.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    //Estilos del que contendra el formulario
+    .principal-perfil {
+
+        flex-direction: column;
+        background: transparent;
+        border: 2px solid rgba(255, 255, 255, .1);
+        backdrop-filter: blur(100px);
+        border-radius: 35px;
+        padding-right: 40px;
+
+        h1 {
+            margin-top: 30px;
+            color: white;
+
+        }
+
+        form{
+            button {
+                width: 50%;
+                height: 45px;
+                background: white;
+                box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+                color: #333;
+
+            }
+        }
+        .regresar {
+            font-size: 14.5px;
+            text-align: center;
+            font-weight: 600;
+            padding: 20px;
+
+            p {
+                color: white;
+                font-weight: 300;
+                white-space: nowrap; //Para que ocupe toda la linea
+            }
+
+            button {
+                background-color: transparent;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .btn-editar {
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    //Estilos de las 2 columnas del formulario
+    .wrapper-editar {
+        position: relative;
+        width: 840px;
+        height: 280px;
+        color: white;
+        display: flex;
+
+        .form-box-editar {
+            width: 81%;
+            padding: 5px 40px;
+
+            .form {
+                gap: 20px;
+                .input-box-edit {
+                    position: relative;
+                    width: 100%;
+                    height: 50px;
+                    margin: 30px 0;
+
+                    input {
+
+                        padding: 0 20px;
+
+                        &::placeholder {
+                            color: white;
+                        }
+
+                        &:read-only{
+                            color: gray;
+    
+                        }
+                    }
+
+                }
+
+                .centro{
+                    margin-top: 18px;
+                    margin-bottom: 40px;
+
+                }
+
+                p{
+                    width: 125%;
+                    font-size: .8rem;
+                    padding: 0 0 4px 0px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .arriba{
+                    margin-bottom: 0;
+                }
+
+                // .input-box-fecha-edit {
+                //     display: flex;
+                //     //flex-direction: rows;
+                //     position: relative;
+                //     width: 100%;
+                //     height: 50px;
+                //     margin: 30px 0;
+
+                //     input {
+                //         width: 50%;
+                //         height: 100%;
+                //         background: transparent;
+                //         border: none;
+                //         outline: none;
+                //         border: 2px solid rgba(255, 255, 255, .1);
+                //         border-radius: 40px;
+                //         font-size: 16px;
+                //         color: white;
+                //         //padding: 0 15px 0 20px;
+
+                //         &::placeholder {
+                //             color: white;
+                //         }
+                //     }
+
+                //     p {
+                //        // padding: 15px 10px;
+                //     }
+                // }
+
+                .icon-edit {
+                    position: absolute;
+                    right: -25px;
+                    top: 80%;
+                    translate: 0 -50%;
+                    font-size: 16px;
+                    
+                }
+
+                .dis{
+                    color: gray;
+                }
+                
+            }
+
+            
+
+            /* Estilos para el icono del calendario en navegadores WebKit (Chrome y Safari) */
+            input[type="date"]::-webkit-calendar-picker-indicator {
+                filter: invert(1);
+                /* Invertir el color del icono a blanco */
+            }
+
+            /* Estilos para el botón de aumento/descenso en navegadores WebKit (Chrome y Safari) */
+            input[type="date"]::-webkit-inner-spin-button {
+                filter: invert(1);
+                /* Invertir el color del botón a blanco */
+            }
+
+
+        }
+    }
+
+
+
 }

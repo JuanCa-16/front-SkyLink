@@ -10,6 +10,7 @@ import Registro from './pags/Registro'
 import PiePaag from './pags/PiePaag'
 import AccesoAdm from './pags/accessoRest'
 import Principal from './pags/Principal'
+import EditarPerfil from './pags/EditarPerfil'
 
 function App() {
   
@@ -80,12 +81,21 @@ function App() {
             </>}
       />
 
+      <Route path='/acceso/perfil' 
+            element={<>
+            <BarraNav setAuth = {setAuth} logueado = {isAuth}/>
+            <PrivateRoute element={ <EditarPerfil/>}/>
+            <PiePaag/>
+            </>}
+      />  
+
       {/* Rura Principal */}
       <Route path='/' element={<>
         <BarraNav/>
         <Principal/>
-        <Outlet/>{/* Outlet para renderizar el contenido de las subrutas */}
+        <Outlet/>
         <PiePaag/>
+        {/* <EditarPerfil/> */}
       </>}/>
 
     </Routes>

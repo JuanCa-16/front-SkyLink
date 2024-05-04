@@ -59,10 +59,10 @@ const Registro = ({setAuth}) => {
 
     return (
         //Div de la pantalla Principal
-        <div className='registros'>
+        <div className='registros flex'>
 
             {/* div que contendra todo el crear cuenta */}
-            <div className='principal-r'>
+            <div className='principal-r flex'>
                 <form onSubmit={handleSubmit}>
                     <h1>Registro SkyLink</h1>
 
@@ -106,7 +106,7 @@ const Registro = ({setAuth}) => {
                                     <HiOutlineMail className='icon-r' />
                                 </div>
 
-                                <div className='input-box-fecha-r'>
+                                <div className='input-box-fecha-r flex'>
                                     <p>Fecha de Nacimiento</p>
                                     <input type='date' required name='fecha'onChange={handleChange}/>
                                 </div>
