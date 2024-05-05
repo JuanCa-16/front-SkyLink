@@ -116,11 +116,56 @@ h2 {
 }
 .navBar .p2 .usuario {
   display: inline-block;
-  margin-right: 50px;
+  margin-right: 250px;
   font-weight: 300px;
   font-size: var(--SizeFuente1);
   margin-top: 5px;
   color: var(--ColorTexto1);
+}
+.navBar .p2 .contenedor-menu .menu-toggle {
+  display: none;
+}
+.navBar .p2 .contenedor-menu .menu {
+  position: fixed;
+  top: 0;
+  right: -200px;
+  width: 200px;
+  height: 100%;
+  background: url(./recursos/estrellas.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-top: 50px;
+  transition: right 0.3s ease;
+  z-index: 9999;
+}
+.navBar .p2 .contenedor-menu .menu.open {
+  padding-top: 0;
+  right: 0;
+}
+.navBar .p2 .contenedor-menu .menu.open .izq {
+  display: flex;
+  justify-content: flex-end;
+}
+.navBar .p2 .contenedor-menu .menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.navBar .p2 .contenedor-menu .menu ul li {
+  padding: 15px;
+  padding-left: 35px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.32);
+  text-align: center;
+}
+.navBar .p2 .contenedor-menu .menu ul li:last-child {
+  border-bottom: none;
+}
+.navBar .p2 .contenedor-menu .menu ul li a {
+  font-size: 1rem;
+  text-decoration: none;
+}
+.navBar .p2 .contenedor-menu .menu .primero {
+  padding-top: 10px;
 }
 
 .logins {
@@ -385,7 +430,8 @@ h2 {
   padding: 50px;
   padding-left: 10%;
 }
-.containerPrincipal .general .principal-2 h1, .containerPrincipal .general .principal-2 p {
+.containerPrincipal .general .principal-2 h1,
+.containerPrincipal .general .principal-2 p {
   justify-content: flex-start;
 }
 .containerPrincipal .general .principal-2 .busqueda {
@@ -442,6 +488,8 @@ h2 {
   padding: 0.5rem;
   width: 90%;
   height: 30%;
+  color: black;
+  padding-left: 0.8rem;
 }
 .containerPrincipal .general .principal-2 .busqueda .globalBox .input-box input::-moz-placeholder {
   color: black;
@@ -475,7 +523,8 @@ h2 {
   background: var(--ColorPrincipal);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
 }
-.containerPrincipal .general .principal-2 h1, .containerPrincipal .general .principal-2 p {
+.containerPrincipal .general .principal-2 h1,
+.containerPrincipal .general .principal-2 p {
   padding-left: 6rem;
 }
 .containerPrincipal .general .principal-1 {
@@ -652,4 +701,5 @@ h2 {
 
 .radar {
   margin: 50px;
+  z-index: 0;
 }/*# sourceMappingURL=estilos.css.map */

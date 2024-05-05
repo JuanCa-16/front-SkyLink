@@ -34,7 +34,7 @@
     text-decoration: none;
 }
 
-input{
+input {
     width: 100%;
     height: 100%;
     background: transparent;
@@ -46,7 +46,7 @@ input{
     border: 2px solid rgba(255, 255, 255, .1);
 }
 
-button{
+button {
     border: none;
     outline: none;
     border-radius: 40px;
@@ -56,12 +56,12 @@ button{
     font-weight: 600;
 }
 
-h1{
+h1 {
     font-size: 36px;
     text-align: center;
 }
 
-h2{
+h2 {
     padding-top: 0;
     padding-bottom: 15px;
     font-size: var(--SizeFuente1);
@@ -134,12 +134,69 @@ h2{
 
         .usuario {
             display: inline-block;
-            margin-right: 50px;
+            margin-right: 250px;
             font-weight: 300px;
             font-size: var(--SizeFuente1);
             margin-top: 5px;
             color: var(--ColorTexto1);
+        }
 
+        .contenedor-menu {
+
+            .menu-toggle {
+                display: none; // Oculta el input por defecto
+            }
+            
+            .menu {
+
+                position: fixed;
+                top: 0;
+                right: -200px; // Mueve el menú hacia la derecha fuera de la pantalla
+                width: 200px;
+                height: 100%;
+                background: url(./recursos/estrellas.png) no-repeat;
+                background-size: cover;
+                background-position: center;
+                padding-top: 50px;
+                transition: right 0.3s ease; // Cambia la transición a la propiedad right
+                z-index: 9999;
+                &.open {
+                    padding-top: 0;
+                    right: 0; // Muestra el menú al moverlo a la posición 0 a la derecha
+                    .izq{
+                        display: flex;
+                        justify-content: flex-end;
+                    }
+                }
+
+                ul {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+
+                    li {
+                        padding: 15px;
+                        padding-left: 35px;
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.32);
+                        text-align: center;
+
+                        &:last-child {
+                            border-bottom: none;
+                        }
+
+                        a {
+                            //color: green;
+                            font-size: 1rem;
+                            text-decoration: none;
+                        }
+
+                    }
+                }
+
+                .primero{
+                    padding-top: 10px;
+                }
+            }
         }
 
     }
@@ -167,6 +224,7 @@ h2{
     background: url(./recursos/fondo3.jpg) no-repeat;
     background-size: cover;
     background-position: center;
+
     //estilos del que contendra el formulario
     .wrapper {
         position: relative;
@@ -184,10 +242,10 @@ h2{
 
         min-width: 420px;
         min-height: 450px;
-        
+
         //Estilos Formulario
         .form-box {
-            
+
             width: 81%;
             padding: 40px;
 
@@ -289,8 +347,8 @@ h2{
             color: white;
 
         }
-
-        form{
+        
+        form {
             button {
                 width: 50%;
                 height: 45px;
@@ -300,6 +358,7 @@ h2{
 
             }
         }
+
         .register-link-r {
             font-size: 14.5px;
             text-align: center;
@@ -485,14 +544,14 @@ h2{
 }
 
 //Principal
-.containerPrincipal{
+.containerPrincipal {
 
     //display: flex;
-    .general{
+    .general {
         gap: 10px;
         min-height: 60vh;
 
-        .principal-2{
+        .principal-2 {
             display: flex;
             flex-direction: column;
             width: 70%;
@@ -501,97 +560,81 @@ h2{
             padding: 50px;
             padding-left: 10%;
 
-            h1,p{
+            h1,
+            p {
                 justify-content: flex-start;
             }
-    
-            .busqueda{
-    
+
+            .busqueda {
+
                 //background-color: orange;
                 padding: 5px;
                 //overflow: hidden;
-    
-                .globalRadio{
-    
+
+                .globalRadio {
+
                     //background-color: pink; 
-                    padding: 10px 0;  
+                    padding: 10px 0;
                     width: 100%;
-                    
-                    .radioClases{
+
+                    .radioClases {
 
                         overflow: hidden;
                         border-radius: 15px;
-                        box-shadow: 0 0 5px rgba(0,0,0,0.25);
+                        box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
                         //min-width: 400px;
-    
-        
-                        .radioInput{
+
+
+                        .radioInput {
                             display: none;
+
                             //cuando un input e seleccionado el selctor apuntara al siguiente elemento con la clase despues del +
-                            &:checked + .radioLabel{
+                            &:checked+.radioLabel {
                                 background: var(--ColorSecundario);
                             }
                         }
-        
-                        .radioLabel{
+
+                        .radioLabel {
                             padding: 8px 14px;
                             font-size: 14px;
                             color: var(--ColorTexto1);
                             background: var(--ColorPrincipal);
                             cursor: pointer;
-                            
-                            h3{
+
+                            h3 {
                                 padding: 3px 0 5px 0;
                             }
-    
-                            p{
+
+                            p {
                                 padding: 3px 0 5px 0;
                             }
-        
+
                             transition: backgroung 0.1s;
-        
-                            &:not(:last-of-type){
+
+                            &:not(:last-of-type) {
                                 border-right: 1px solid var(--ColorIconos); //la linia divisiora menos al ultimo
                             }
                         }
                     }
                 }
-    
-                .globalBox{
-    
+
+                .globalBox {
+
                     display: grid;
-                    grid-template-columns: repeat(2,1fr);
-                    grid-template-rows: repeat(3,1fr);
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-template-rows: repeat(3, 1fr);
                     gap: 10px;
-                    
-                    .input-box{
+
+                    .input-box {
                         flex-wrap: wrap;
+
                         //background: red;
-                        .icon{
+                        .icon {
                             margin-top: 5px;
                             margin-right: 5px;
                         }
-        
-                        input{
-                            border: unset;
-                            background-color: var(--ColorGris);
-                            padding: 0.5rem;
-                            //border-radius: 5px;
-                            width: 90%;
-                            height: 30%;
-        
-                            &::placeholder {
-                                color: black;
-                            }
-                        }
-                    }
-        
-                    .input-box-fecha{
 
-                        flex-direction: column;
-                        //background-color: green;
-    
-                        input{
+                        input {
                             border: unset;
                             background-color: var(--ColorGris);
                             padding: 0.5rem;
@@ -599,82 +642,106 @@ h2{
                             width: 90%;
                             height: 30%;
                             color: black;
-                            
+                            padding-left: 0.8rem;
+                            &::placeholder {
+                                color: black;
+                            }
+                        }
+                    }
+
+                    .input-box-fecha {
+
+                        flex-direction: column;
+                        //background-color: green;
+
+                        input {
+                            border: unset;
+                            background-color: var(--ColorGris);
+                            padding: 0.5rem;
+                            //border-radius: 5px;
+                            width: 90%;
+                            height: 30%;
+                            color: black;
+
                             //margin-left: 5px;
                         }
-        
-                        p{
+
+                        p {
                             padding: 5px;
                         }
                     }
-    
-                    .ult{
+
+                    .ult {
                         grid-column: span 2;
-                        input{
+
+                        input {
                             width: 45%;
                         }
                     }
                 }
-    
-                .enviar{
+
+                .enviar {
 
                     button {
                         width: 20%;
                         height: 25px;
                         background: var(--ColorPrincipal);
-                        box-shadow: 0 0 5px rgba(0,0,0,0.25);
+                        box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
                     }
                 }
             }
-    
-            h1, p{
+
+            h1,
+            p {
                 padding-left: 6rem;
             }
-    
+
         }
-    
-        .principal-1{
+
+        .principal-1 {
             display: flex;
             width: 30%;
             min-height: 60vh;
 
             //background-color: green;
-    
-            .otro{
+
+            .otro {
                 padding-left: 10%;
                 //background-color: yellow;
                 display: flex;
                 flex-direction: column;
                 gap: 10%;
-                .homeImages{
+
+                .homeImages {
                     display: flex;
                     //background-color: red;
                     min-height: 50%;
                     position: relative;
-            
-                    .videoDiv{
+
+                    .videoDiv {
                         width: 100%;
-        
-                        video{
+
+                        video {
                             width: 130%;
                         }
-                        .video{
+
+                        .video {
                             border-radius: 5rem;
-                            
+
                         }
                     }
-            
-                    .plane{
+
+                    .plane {
                         position: absolute;
                         width: 140%;
-                        top:-50%
+                        top: -50%
                     }
                 }
             }
         }
     }
 
-    .info{
+    .info {
         display: grid;
         gap: 10px;
         padding: 30px 30px;
@@ -690,7 +757,8 @@ h2{
             background: rgba(232, 232, 232, 0.174);
             padding: 20px 15px;
             min-height: 150px;
-            box-shadow: 5px 4px 8px rgba(232, 232, 232, 0.174);;
+            box-shadow: 5px 4px 8px rgba(232, 232, 232, 0.174);
+            ;
 
             p {
                 color: rgb(226, 224, 224);
@@ -726,7 +794,7 @@ h2{
 
         }
 
-        form{
+        form {
             button {
                 width: 50%;
                 height: 45px;
@@ -736,6 +804,7 @@ h2{
 
             }
         }
+
         .regresar {
             font-size: 14.5px;
             text-align: center;
@@ -778,6 +847,7 @@ h2{
 
             .form {
                 gap: 20px;
+
                 .input-box-edit {
                     position: relative;
                     width: 100%;
@@ -792,21 +862,21 @@ h2{
                             color: white;
                         }
 
-                        &:read-only{
+                        &:read-only {
                             color: gray;
-    
+
                         }
                     }
 
                 }
 
-                .centro{
+                .centro {
                     margin-top: 18px;
                     margin-bottom: 40px;
 
                 }
 
-                p{
+                p {
                     width: 125%;
                     font-size: .8rem;
                     padding: 0 0 4px 0px;
@@ -815,7 +885,7 @@ h2{
                     align-items: center;
                 }
 
-                .arriba{
+                .arriba {
                     margin-bottom: 0;
                 }
 
@@ -855,16 +925,16 @@ h2{
                     top: 80%;
                     translate: 0 -50%;
                     font-size: 16px;
-                    
+
                 }
 
-                .dis{
+                .dis {
                     color: gray;
                 }
-                
+
             }
 
-            
+
 
             /* Estilos para el icono del calendario en navegadores WebKit (Chrome y Safari) */
             input[type="date"]::-webkit-calendar-picker-indicator {
@@ -886,6 +956,7 @@ h2{
 
 }
 
-.radar{
+.radar {
     margin: 50px;
+    z-index: 0;
 }

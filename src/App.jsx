@@ -56,7 +56,7 @@ function App() {
   //Solo accesibles mientras no este logueado
   const PublicRoute = ({ element, ...props }) => {
     return isAuth ? (
-      <Navigate to="/acceso" replace />
+      <Navigate to="/" replace />
     ) : (
       element
     );
@@ -77,16 +77,16 @@ function App() {
       />
 
       {/* RUTA QUE NECESITA EL INICIO DE SESION */}
-      <Route path='/acceso' 
+      {/* <Route path='/acceso' 
             element={<>
             <BarraNav setAuth = {setAuth} logueado = {isAuth}/>
             <PrivateRoute element={ <AccesoAdm setAuth = {setAuth}/>}/>
             <Principal/>
             <PiePaag/>
             </>}
-      />
+      /> */}
 
-      <Route path='/acceso/perfil' 
+      <Route path='/perfil' 
             element={<>
 
             <PrivateRoute element={ <EditarPerfil/>}/>
@@ -109,7 +109,7 @@ function App() {
 
       {/* Rura Principal */}
       <Route path='/radar' element={<>
-        <BarraNav/>
+        <BarraNav setAuth = {setAuth} logueado = {isAuth}/>
         <Radar/>
         <PiePaag/>
         {/* <EditarPerfil/> */}
@@ -117,7 +117,7 @@ function App() {
 
       {/* Rura Principal */}
       <Route path='/' element={<>
-        <BarraNav/>
+        <BarraNav setAuth = {setAuth} logueado = {isAuth}/>
         <Principal/>
         <Outlet/>
         <PiePaag/>

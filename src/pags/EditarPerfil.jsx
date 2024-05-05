@@ -98,7 +98,7 @@ const EditarPerfil = () => {
             localStorage.removeItem("token")
             localStorage.setItem("token",data.token);
             toast.success("Informacion De Perfil Actualizada");
-            navigate('/acceso')
+            navigate('/')
         }else{
             console.log(data);
             toast.error(data);
@@ -212,7 +212,7 @@ const EditarPerfil = () => {
                 </form>
 
                 {/* div para regeresar a inicio */}
-                <div className='regresar flex'><p>Deseo</p> <button onClick={() => navigate('/acceso')}>Regresar</button></div>
+                <div className='regresar flex'><p>Deseo</p> <button onClick={() => navigate('/')}>Regresar</button></div>
                 
                     </>
                 )}

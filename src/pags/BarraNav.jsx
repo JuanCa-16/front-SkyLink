@@ -6,10 +6,10 @@ import { HiMenu } from "react-icons/hi";
 ///Imagenes
 import logoSky from '../recursos/LogoSkyLink.png';
 
-import {Link, useNavigate} from 'react-router-dom';
+import {Link, useNavigate, useLocation} from 'react-router-dom';
 
 const BarraNav = ({setAuth, logueado}) => {
-
+    const location = useLocation();
     const[name,setName] = useState("")
     
     async function getName(){
@@ -35,8 +35,22 @@ const BarraNav = ({setAuth, logueado}) => {
         localStorage.removeItem("token")
         localStorage.removeItem("rol")
         setAuth(false)
+        setMenuOpen(false);
     } 
     const navigate = useNavigate()
+
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
+    };
+
+    // Restablecer el estado del menú cuando se cambie de página
+    useEffect(() => {
+        setMenuOpen(false);
+    }, [location.pathname]); // Se ejecuta cada vez que cambia la ruta
+
+    const rol = localStorage.getItem('rol');
 
     return (
         //Header contendra toda la barra de navegacion Principal sin iniciar sesion
@@ -55,17 +69,62 @@ const BarraNav = ({setAuth, logueado}) => {
                     {/* //Info si esta Logueado */}
                     {logueado? (
                         <>
-                            <div className=''>
+                            <div className='flex'>
                                 <p className='usuario'>Bienvenido {name}</p>
-                                <button className='texto' onClick={() => navigate('/acceso/perfil')}>Editar Perfil</button>
-                                <button className='texto' onClick={(e)=>salir(e)}>Salir</button>
+                                {/* <button className='texto' onClick={() => navigate('/acceso/perfil')}>Editar Perfil</button> */}
+                                {/* <button className='texto' onClick={(e)=>salir(e)}>Salir</button> */}
+                                <div className="contenedor-menu">
+                                    <input type="checkbox" id="menu-toggle" className="menu-toggle" defaultChecked={menuOpen}/>
+                                        <label htmlFor="menu-toggle" ><div className='flex icono' onClick={toggleMenu}><HiMenu /></div></label>
+                                        <nav className={`menu ${menuOpen ? 'open' : ''}`}>
+                                            <ul>
+                                            <li className='primero'><div className='flex icono izq' onClick={toggleMenu}><HiMenu /></div></li>
+                                            <li><a className='texto' onClick={() => navigate('/')}>Inicio</a></li>
+                                            <li><a className='texto' onClick={() => navigate('/perfil')}>Editar Perfil</a></li>
+                                            <li><a className='texto' href="#">Tus Viajes</a></li>
+                                            <li><a className='texto' onClick={() => navigate('/radar')}>Radar</a></li>
+
+                                            {
+                                                (rol == 2) ? (<>
+                                                    <li><a className='texto' href="#">Vuelos Asigandos</a></li>
+                                                    <li><a className='texto' href="#">Edicion de vuelos</a></li>
+                                                </>) : (
+                                                    (rol == 3) ? (<>
+                                                        <li><a className='texto' href="#">Vuelos Asigandos</a></li>
+                                                        <li><a className='texto' href="#">Edicion de vuelos</a></li>
+                                                        <li><a className='texto' href="#">Creacion de vuelos</a></li>
+                                                        <li><a className='texto' href="#">Creaar Empleado</a></li>
+                                                        <li><a className='texto' href="#">Lista de Empleados</a></li>
+                                                    </>) : (<></>)
+                                                )
+                                            }
+
+                                            <li><a className='texto' onClick={(e)=>salir(e)}>Salir</a></li>
+
+                                            </ul>
+                                        </nav>
+                                </div>
                             </div>
                         </>
                     ):( 
                     // Info si no esta logueado
+                    <>
                     <button className='texto' onClick={() => navigate('/inicioSesion')}>Iniciar Sesion</button>
+                    <div className="contenedor-menu">
+                        <input type="checkbox" id="menu-toggle" className="menu-toggle" defaultChecked={menuOpen}/>
+                            <label htmlFor="menu-toggle" ><div className='flex icono' onClick={toggleMenu}><HiMenu /></div></label>
+                            <nav className={`menu ${menuOpen ? 'open' : ''}`}>
+                                <ul>
+                                <li className='primero'><div className='flex icono izq' onClick={toggleMenu}><HiMenu /></div></li>
+                                <li><a className='texto' onClick={() => navigate('/')}>Inicio</a></li>
+                                <li><a className='texto' href="#">Tus Viajes</a></li>
+                                <li><a className='texto' onClick={() => navigate('/radar')}>Radar</a></li>
+                                </ul>
+                            </nav>
+                    </div>
+                    </>
                     )}
-                    <div className='flex icono'><HiMenu /></div>
+                    {/* <div className='flex icono'><HiMenu /></div> */}
                 </div>
             </nav>
         </header>
