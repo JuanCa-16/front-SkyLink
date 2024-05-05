@@ -120,7 +120,8 @@ const EditarPerfil = () => {
                 
                 {loading ?(
                     <>
-                    <p>cargando...</p>
+                    <p>cargando...</p> 
+                    {/* {toast.success("hola")} */}
                     </>
                 ):(
                     <>

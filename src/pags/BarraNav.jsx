@@ -33,6 +33,7 @@ const BarraNav = ({setAuth, logueado}) => {
     const salir = (e) => {
         e.preventDefault()
         localStorage.removeItem("token")
+        localStorage.removeItem("rol")
         setAuth(false)
     } 
     const navigate = useNavigate()

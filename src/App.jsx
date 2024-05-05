@@ -11,6 +11,9 @@ import PiePaag from './pags/PiePaag'
 import AccesoAdm from './pags/accessoRest'
 import Principal from './pags/Principal'
 import EditarPerfil from './pags/EditarPerfil'
+import Empleado from './pags/Empleado'
+import Admin from './pags/Admin'
+import Radar from './pags/Radar'
 
 function App() {
   
@@ -78,17 +81,39 @@ function App() {
             element={<>
             <BarraNav setAuth = {setAuth} logueado = {isAuth}/>
             <PrivateRoute element={ <AccesoAdm setAuth = {setAuth}/>}/>
+            <Principal/>
             <PiePaag/>
             </>}
       />
 
       <Route path='/acceso/perfil' 
             element={<>
-            
+
             <PrivateRoute element={ <EditarPerfil/>}/>
             <PiePaag/>
             </>}
       />  
+
+      <Route path='/empleado' 
+            element={<>
+            <Empleado logueado={isAuth}/>
+            <PiePaag/>
+            </>}
+      /> 
+      <Route path='/admin' 
+            element={<>
+            <Admin logueado={isAuth}/>
+            <PiePaag/>
+            </>}
+      /> 
+
+      {/* Rura Principal */}
+      <Route path='/radar' element={<>
+        <BarraNav/>
+        <Radar/>
+        <PiePaag/>
+        {/* <EditarPerfil/> */}
+      </>}/>
 
       {/* Rura Principal */}
       <Route path='/' element={<>

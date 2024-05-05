@@ -29,9 +29,9 @@ const Login = ({setAuth}) => {
 
         const data = await res.json();
 
-        //Si se devuelve token es porque el inicio de sesion fue correcto y aautenticado se vuelve true
-        if(data.token){
-            localStorage.setItem("token",data.token);
+        if(data.llave){
+            localStorage.setItem("token",data.llave);
+            localStorage.setItem("rol",data.rol);
             setAuth(true);
             toast.success("Inicio Sesion EXITOSO");
         }else{

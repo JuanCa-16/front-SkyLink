@@ -24,8 +24,10 @@ const accessoRest = ({setAuth}) => {
   const salir = (e) => {
     e.preventDefault()
     localStorage.removeItem("token")
+    localStorage.removeItem("rol")
     setAuth(false)
   }
+
   return (
     <div>
       <h1>Bienvenido {name}</h1>

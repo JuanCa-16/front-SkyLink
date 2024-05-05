@@ -648,4 +648,8 @@ h2 {
 .editPerfil .wrapper-editar .form-box-editar input[type=date]::-webkit-inner-spin-button {
   filter: invert(1);
   /* Invertir el color del botón a blanco */
+}
+
+.radar {
+  margin: 50px;
 }/*# sourceMappingURL=estilos.css.map */
