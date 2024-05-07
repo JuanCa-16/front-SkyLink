@@ -117,11 +117,9 @@ function App() {
 
       {/* Rura Principal */}
       <Route path='/' element={<>
-        <BarraNav setAuth = {setAuth} logueado = {isAuth}/>
-        <Principal/>
-        <Outlet/>
+        <BarraNav/>
+        <Outlet/>{/* Outlet para renderizar el contenido de las subrutas */}
         <PiePaag/>
-        {/* <EditarPerfil/> */}
       </>}/>
 
     </Routes>
