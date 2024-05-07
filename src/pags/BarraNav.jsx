@@ -1,4 +1,4 @@
-import React from 'react'
+
 import {useState, useEffect} from 'react'
 //Logos
 import { HiMenu } from "react-icons/hi";
@@ -50,7 +50,11 @@ const BarraNav = ({setAuth, logueado}) => {
         setMenuOpen(false);
     }, [location.pathname]); // Se ejecuta cada vez que cambia la ruta
 
-    const rol = localStorage.getItem('rol');
+
+
+
+
+    const rol = 3;
 
     return (
         //Header contendra toda la barra de navegacion Principal sin iniciar sesion
@@ -93,7 +97,7 @@ const BarraNav = ({setAuth, logueado}) => {
                                                         <li><a className='texto' href="#">Vuelos Asigandos</a></li>
                                                         <li><a className='texto' href="#">Edicion de vuelos</a></li>
                                                         <li><a className='texto' href="#">Creacion de vuelos</a></li>
-                                                        <li><a className='texto' href="#">Creaar Empleado</a></li>
+                                                        <li><a className='texto' href="#">Crear Empleado</a></li>
                                                         <li><a className='texto' href="#">Lista de Empleados</a></li>
                                                     </>) : (<></>)
                                                 )

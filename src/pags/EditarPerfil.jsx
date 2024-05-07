@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react'
 import {useState} from 'react'
 
 
@@ -9,13 +8,13 @@ import { AiOutlinePhone } from "react-icons/ai";
 import { FaLocationDot } from "react-icons/fa6";
 import { GoMilestone } from "react-icons/go";
 import { useNavigate} from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+
 const EditarPerfil = () => {
 
     const navigate = useNavigate()
 
 
-    const[id,setId] = useState("")
+   // const[id,setId] = useState("")
 
     const [usuario,setUsuario] = useState(
         {
@@ -32,8 +31,8 @@ const EditarPerfil = () => {
         }
     );
 
-    const [loading, setLoading] = useState(true)
-
+    const loading = false
+/*
     //Se renderiza cada vez que cambie el ID solo 1 vez
     useEffect(() => {
 
@@ -80,31 +79,31 @@ const EditarPerfil = () => {
         fetchData();
 
     }, [id]); 
+*/
+    // const handleSubmit = async(e) => {
+    //     e.preventDefault(); //para que no recarge al darle al boton enviar evitar refresh
 
-    const handleSubmit = async(e) => {
-        e.preventDefault(); //para que no recarge al darle al boton enviar evitar refresh
+    //     //Peticion para actulizar
+    //     const res = await fetch(`http://localhost:4000/usuarios/${id}`, {
+    //         method: 'PUT',
+    //         body: JSON.stringify(usuario), //Para que lo detecte como string
+    //         headers: {'Content-Type': "application/json"} // Para que rellene los campos
+    //     });
 
-        //Peticion para actulizar
-        const res = await fetch(`http://localhost:4000/usuarios/${id}`, {
-            method: 'PUT',
-            body: JSON.stringify(usuario), //Para que lo detecte como string
-            headers: {'Content-Type': "application/json"} // Para que rellene los campos
-        });
+    //     const data = await res.json()
 
-        const data = await res.json()
+    //     //Se elimina el token antiguo, se agrega el nuevo
+    //     if(data.token){
+    //         localStorage.removeItem("token")
+    //         localStorage.setItem("token",data.token);
+    //         toast.success("Informacion De Perfil Actualizada");
+    //         navigate('/')
+    //     }else{
+    //         console.log(data);
+    //         toast.error(data);
+    //     }
 
-        //Se elimina el token antiguo, se agrega el nuevo
-        if(data.token){
-            localStorage.removeItem("token")
-            localStorage.setItem("token",data.token);
-            toast.success("Informacion De Perfil Actualizada");
-            navigate('/')
-        }else{
-            console.log(data);
-            toast.error(data);
-        }
-
-    };
+    // };
 
     const handleChange = e =>{
         //console.log(e.target.name, e.target.value);
@@ -125,7 +124,7 @@ const EditarPerfil = () => {
                     </>
                 ):(
                     <>
-                    <form onSubmit={handleSubmit}>
+                    <form>
                     <h1>Perfil Usuario SkyLink</h1>
 
                     {/* div que contendra el formulario */}

@@ -478,6 +478,12 @@ h2 {
 .containerPrincipal .general .principal-2 .busqueda .globalBox .input-box {
   flex-wrap: wrap;
 }
+.containerPrincipal .general .principal-2 .busqueda .globalBox .input-box .Select {
+  width: 30vh;
+}
+.containerPrincipal .general .principal-2 .busqueda .globalBox .input-box .Select input {
+  height: 100%;
+}
 .containerPrincipal .general .principal-2 .busqueda .globalBox .input-box .icon {
   margin-top: 5px;
   margin-right: 5px;

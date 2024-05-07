@@ -628,6 +628,13 @@ h2 {
                     .input-box {
                         flex-wrap: wrap;
 
+                        .Select{
+                            width: 30vh;
+                            input{
+                                height: 100%;
+                            }
+                        }
+
                         //background: red;
                         .icon {
                             margin-top: 5px;
