@@ -1,9 +1,39 @@
-import React from "react";
+import React, {useState} from "react";
 import { FaPlaneArrival, FaPlaneDeparture, FaUser } from "react-icons/fa";
+//Para autocompletar al escribir en los vuelos
+import Select from "react-select"
 
 import video from '../recursos/video.mp4';
 import avion2 from '../recursos/avion2.png';
 const Principal = () => {
+    // Estado para almacenar el valor seleccionado
+    const [opcionSeleccionadaSalida, setOpcionSeleccionadaSalida] = useState(null);
+
+    // Función para manejar cambios en la selección SALIDA
+    const handleSelectChangeSalida = (event) => {
+        setOpcionSeleccionadaSalida(event);
+    };
+
+    const [opcionSeleccionadaDestino, setOpcionSeleccionadaDestino] = useState(null);
+
+ 
+    const handleSelectChangeDestino = (event) => {
+        setOpcionSeleccionadaDestino(event);
+    };
+
+    const optionsFlies = [
+        { label: "El Dorado International Airport", value: "BOG" },
+        { label: "José María Córdova International Airport", value: "MDE" },
+        { label: "Rafael Núñez International Airport", value: "CTG" },
+        { label: "Alfonso Bonilla Aragón International Airport", value: "CLO" },
+        { label: "Ernesto Cortissoz International Airport", value: "BAQ" },
+        { label: "Matecaña International Airport", value: "PEI" },
+        { label: "Palonegro International Airport", value: "BGA" },
+        { label: "Gustavo Rojas Pinilla International Airport", value: "ADZ" },
+        { label: "Simón Bolívar International Airport", value: "SMR" },
+        { label: "Perales Airport", value: "IBE" }
+        
+    ]
 
     return (
         <div className="containerPrincipal">
@@ -36,13 +66,13 @@ const Principal = () => {
 
                         <form action="">
 
-                            <div className="globalRadio flex">
-                                <div className="radioClases flex">
-                                    <input className="radioInput" type="radio" value="Economica"name="misClases" id="opc1"/>
+                            <div className="globalRadio flex" >
+                                <div className="radioClases flex" >
+                                    <input className="radioInput" type="radio" value="Economica"name="misClases" id="opc1" required/>
                                     <label className="radioLabel"  htmlFor="opc1"><h3>Economy</h3><p>Clase Turista</p></label>
-                                    <input className="radioInput" type="radio" value="Economica"name="misClases" id="opc2"/>
+                                    <input className="radioInput" type="radio" value="Economica"name="misClases" id="opc2" required/>
                                     <label className="radioLabel"  htmlFor="opc2"><h3>Business</h3><p>Clase Ejecutiva</p></label>
-                                    <input className="radioInput" type="radio" value="Economica"name="misClases" id="opc3"/>
+                                    <input className="radioInput" type="radio" value="Economica"name="misClases" id="opc3" required/>
                                     <label className="radioLabel"  htmlFor="opc3"><h3>First Class</h3><p>Primera Clase</p></label>
                                 </div>
                             </div>
@@ -50,12 +80,30 @@ const Principal = () => {
                             <div className="globalBox">
                                 <div className='input-box flex'>
                                     <div className="icon"><FaPlaneDeparture /></div>
-                                    <input type='text' placeholder='Aeropuerto Origen' required name='aeroOrigen'/>
+                                    <Select
+                                        className="Select" 
+                                        id="salida"
+                                        options={optionsFlies} 
+                                        value={opcionSeleccionadaSalida} 
+                                        onChange={handleSelectChangeSalida}
+                                        placeholder="Aeropuerto Salida"
+                                        required
+                                    />
+                                   {/* <input type='text' placeholder='Aeropuerto Origen' required name='aeroOrigen'/>*/}
                                 </div>
 
                                 <div className='input-box flex'>
                                     <div className="icon"><FaPlaneArrival /></div>
-                                    <input type='text' placeholder='Aeropuerto Destino' required name='aeroOrigen'/>
+                                    <Select
+                                        className="Select" 
+                                        id="salida" 
+                                        options={optionsFlies} 
+                                        value={opcionSeleccionadaDestino} 
+                                        onChange={handleSelectChangeDestino}
+                                        placeholder="Aeropuerto Destino"
+                                        required
+                                    />
+                                   {/*<input type='text' placeholder='Aeropuerto Destino' required name='aeroOrigen'/>*/}
                                 </div>
 
                                 <div className='input-box-fecha flex'>
