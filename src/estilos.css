@@ -481,6 +481,7 @@ h2 {
 .containerPrincipal .general .principal-2 .busqueda .globalBox .input-box .Select input {
   height: 100%;
   margin: none !important;
+  border-radius: 0;
 }
 .containerPrincipal .general .principal-2 .busqueda .globalBox .input-box .icon {
   margin-top: 5px;

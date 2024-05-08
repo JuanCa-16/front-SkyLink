@@ -15,12 +15,10 @@ const customStyles = {
         '&::placeholder': {
           color: 'black', // Cambia el color del placeholder
         },
-        height: '100%',
         width: '30vh'
       }),
     input: (provided) => ({
       ...provided,
-      height: '100%', // Establece la altura
       color: 'black', // Establece el color de texto
       border: 0
     }),
