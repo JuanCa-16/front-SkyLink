@@ -5,6 +5,30 @@ import Select from "react-select"
 
 import video from '../recursos/video.mp4';
 import avion2 from '../recursos/avion2.png';
+
+
+const customStyles = {
+    control: (provided) => ({
+        ...provided,
+        border: '0px', // Deshace el borde predeterminado
+        backgroundColor: 'var(--ColorGris)', // Usa la variable de CSS para el color de fondo
+        '&::placeholder': {
+          color: 'black', // Cambia el color del placeholder
+        },
+        height: '100%',
+        width: '30vh'
+      }),
+    input: (provided) => ({
+      ...provided,
+      height: '100%', // Establece la altura
+      color: 'black', // Establece el color de texto
+      border: 0
+    }),
+  };
+
+
+
+
 const Principal = () => {
     // Estado para almacenar el valor seleccionado
     const [opcionSeleccionadaSalida, setOpcionSeleccionadaSalida] = useState(null);
@@ -88,6 +112,7 @@ const Principal = () => {
                                         onChange={handleSelectChangeSalida}
                                         placeholder="Aeropuerto Salida"
                                         required
+                                        styles={customStyles}
                                     />
                                    {/* <input type='text' placeholder='Aeropuerto Origen' required name='aeroOrigen'/>*/}
                                 </div>
@@ -102,6 +127,7 @@ const Principal = () => {
                                         onChange={handleSelectChangeDestino}
                                         placeholder="Aeropuerto Destino"
                                         required
+                                        styles={customStyles}
                                     />
                                    {/*<input type='text' placeholder='Aeropuerto Destino' required name='aeroOrigen'/>*/}
                                 </div>

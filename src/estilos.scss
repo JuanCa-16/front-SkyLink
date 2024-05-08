@@ -629,10 +629,16 @@ h2 {
                         flex-wrap: wrap;
 
                         .Select{
-                            width: 30vh;
                             input{
                                 height: 100%;
                             }
+
+                        }
+
+                        .react-select__input input {
+                            font-size: 20px; // Ajusta el tamaño de fuente según lo necesites
+                            height: 100%; // Ajusta la altura del input según lo necesites
+                            padding: 5px; // Ajusta el relleno (padding) según lo necesites
                         }
 
                         //background: red;

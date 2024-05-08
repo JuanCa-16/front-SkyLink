@@ -118,6 +118,7 @@ function App() {
       {/* Rura Principal */}
       <Route path='/' element={<>
         <BarraNav/>
+        <Principal/>
         <Outlet/>{/* Outlet para renderizar el contenido de las subrutas */}
         <PiePaag/>
       </>}/>
