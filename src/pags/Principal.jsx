@@ -10,7 +10,7 @@ import avion2 from '../recursos/avion2.png';
 const customStyles = {
     control: (provided) => ({
         ...provided,
-        border: '0px', // Deshace el borde predeterminado
+        borderRadius: '40px', // Deshace el borde predeterminado
         backgroundColor: 'var(--ColorGris)', // Usa la variable de CSS para el color de fondo
         '&::placeholder': {
           color: 'black', // Cambia el color del placeholder
