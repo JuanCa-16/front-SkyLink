@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { FaPlaneArrival, FaPlaneDeparture, FaUser } from "react-icons/fa";
 //Para autocompletar al escribir en los vuelos
 import Select from "react-select"
@@ -43,19 +43,17 @@ const Principal = () => {
         setOpcionSeleccionadaDestino(event);
     };
 
-    const optionsFlies = [
-        { label: "El Dorado International Airport", value: "BOG" },
-        { label: "José María Córdova International Airport", value: "MDE" },
-        { label: "Rafael Núñez International Airport", value: "CTG" },
-        { label: "Alfonso Bonilla Aragón International Airport", value: "CLO" },
-        { label: "Ernesto Cortissoz International Airport", value: "BAQ" },
-        { label: "Matecaña International Airport", value: "PEI" },
-        { label: "Palonegro International Airport", value: "BGA" },
-        { label: "Gustavo Rojas Pinilla International Airport", value: "ADZ" },
-        { label: "Simón Bolívar International Airport", value: "SMR" },
-        { label: "Perales Airport", value: "IBE" }
-        
-    ]
+    //TRAER LOS AEROPUERTOS CON SU ID
+  // Aquí debes hacer la llamada al API para obtener los aeropuertos
+    const [aeropuertos, setAeropuertos] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:4000/aeropuertos')
+        .then(response => response.json())
+        .then(data => setAeropuertos(data))
+        .catch(error => console.error('Error fetching aeropuertos:', error));
+    }, []);
+
 
     return (
         <div className="containerPrincipal">
@@ -105,7 +103,10 @@ const Principal = () => {
                                     <Select
                                         className="Select" 
                                         id="salida"
-                                        options={optionsFlies} 
+                                        options={aeropuertos.map(aeropuerto => ({
+                                            value: aeropuerto.id_aeropuerto,
+                                            label: aeropuerto.nombre
+                                        }))} 
                                         value={opcionSeleccionadaSalida} 
                                         onChange={handleSelectChangeSalida}
                                         placeholder="Aeropuerto Salida"
@@ -120,7 +121,10 @@ const Principal = () => {
                                     <Select
                                         className="Select" 
                                         id="salida" 
-                                        options={optionsFlies} 
+                                        options={aeropuertos.map(aeropuerto => ({
+                                            value: aeropuerto.id_aeropuerto,
+                                            label: aeropuerto.nombre
+                                        }))}
                                         value={opcionSeleccionadaDestino} 
                                         onChange={handleSelectChangeDestino}
                                         placeholder="Aeropuerto Destino"
