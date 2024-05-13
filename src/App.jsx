@@ -8,12 +8,11 @@ import BarraNav from './pags/BarraNav'
 import Login from './pags/Login'
 import Registro from './pags/Registro'
 import PiePaag from './pags/PiePaag'
-import AccesoAdm from './pags/accessoRest'
 import Principal from './pags/Principal'
 import EditarPerfil from './pags/EditarPerfil'
-import Empleado from './pags/Empleado'
-import Admin from './pags/Admin'
 import Radar from './pags/Radar'
+import CrearEmp from './pags/CrearEmp'
+import ListaEmp from './pags/ListaEmp'
 
 function App() {
   
@@ -88,24 +87,26 @@ function App() {
 
       <Route path='/perfil' 
             element={<>
-
             <PrivateRoute element={ <EditarPerfil/>}/>
             <PiePaag/>
             </>}
       />  
 
-      <Route path='/empleado' 
+      <Route path='/listaEmpleados' 
             element={<>
-            <Empleado logueado={isAuth}/>
+            <BarraNav setAuth = {setAuth} logueado = {isAuth}/>
+            {/* <PrivateRoute element={ <ListaEmp/>}/> */}
+            <ListaEmp logueado={isAuth}/>
             <PiePaag/>
             </>}
-      /> 
-      <Route path='/admin' 
+      />
+
+      <Route path='/crearEmpleado' 
             element={<>
-            <Admin logueado={isAuth}/>
+            <PrivateRoute element={ <CrearEmp />}/>
             <PiePaag/>
             </>}
-      /> 
+      />  
 
       {/* Rura Principal */}
       <Route path='/radar' element={<>

@@ -1,9 +1,66 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { FaPlaneArrival, FaPlaneDeparture, FaUser } from "react-icons/fa";
+import Select from 'react-select'
 
 import video from '../recursos/video.mp4';
 import avion2 from '../recursos/avion2.png';
 const Principal = () => {
+
+    // Estado para almacenar el valor seleccionado
+    const [opcionSeleccionadaSalida, setOpcionSeleccionadaSalida] = useState(null);
+
+    // Función para manejar cambios en la selección SALIDA
+    const handleSelectChangeSalida = (event) => {
+        setOpcionSeleccionadaSalida(event);
+    };
+
+    const [opcionSeleccionadaDestino, setOpcionSeleccionadaDestino] = useState(null);
+
+
+    const handleSelectChangeDestino = (event) => {
+        setOpcionSeleccionadaDestino(event);
+    };
+
+    const [aeropuertos, setAeropuertos] = useState([]);
+
+    const cargarAeropuertos = async () => {
+        const res = await fetch('http://localhost:4000/aeropuertos', {
+            method: 'GET',
+            headers: { 'Content-Type': "application/json" }
+        });
+
+        const data = await res.json()
+        setAeropuertos(data)
+    }
+
+    useEffect(() => {
+        cargarAeropuertos()
+    },[])
+
+    const customStyles = {
+        control: (provided) => ({
+            ...provided,
+            width: '40vh',
+            height: '30%',
+            backgroundColor: '#cec9c9;',
+            border: 'none',
+            outline: 'none',
+            borderRadius: '40px',
+            fontSize: '16px',
+            color: 'white',
+            border: '2px solid rgba(255, 255, 255, .1)',
+            paddingLeft: '0.8rem',
+        }),
+        input: (provided) => ({
+            ...provided,
+            border: '0',
+            color: 'black',
+        }),
+        placeholder: (provided) => ({
+            ...provided,
+            color: 'black',
+        }),
+    };
 
     return (
         <div className="containerPrincipal">
@@ -21,9 +78,9 @@ const Principal = () => {
                                 <video src={video} autoPlay muted loop className='video'></video>
                             </div>
 
-                        <img src={avion2} className='plane' alt='Avion' />
+                            <img src={avion2} className='plane' alt='Avion' />
 
-                    </div>
+                        </div>
                     </div>
                 </div>
 
@@ -38,39 +95,65 @@ const Principal = () => {
 
                             <div className="globalRadio flex">
                                 <div className="radioClases flex">
-                                    <input className="radioInput" type="radio" value="Economica"name="misClases" id="opc1"/>
-                                    <label className="radioLabel"  htmlFor="opc1"><h3>Economy</h3><p>Clase Turista</p></label>
-                                    <input className="radioInput" type="radio" value="Economica"name="misClases" id="opc2"/>
-                                    <label className="radioLabel"  htmlFor="opc2"><h3>Business</h3><p>Clase Ejecutiva</p></label>
-                                    <input className="radioInput" type="radio" value="Economica"name="misClases" id="opc3"/>
-                                    <label className="radioLabel"  htmlFor="opc3"><h3>First Class</h3><p>Primera Clase</p></label>
+                                    <input className="radioInput" type="radio" value="Economica" name="misClases" id="opc1" required />
+                                    <label className="radioLabel" htmlFor="opc1"><h3>Economy</h3><p>Clase Turista</p></label>
+                                    <input className="radioInput" type="radio" value="Economica" name="misClases" id="opc2" required />
+                                    <label className="radioLabel" htmlFor="opc2"><h3>Business</h3><p>Clase Ejecutiva</p></label>
+                                    <input className="radioInput" type="radio" value="Economica" name="misClases" id="opc3" required />
+                                    <label className="radioLabel" htmlFor="opc3"><h3>First Class</h3><p>Primera Clase</p></label>
                                 </div>
                             </div>
 
                             <div className="globalBox">
                                 <div className='input-box flex'>
                                     <div className="icon"><FaPlaneDeparture /></div>
-                                    <input type='text' placeholder='Aeropuerto Origen' required name='aeroOrigen'/>
+                                    {/* <input type='text' placeholder='Aeropuerto Origen' required name='aeroOrigen' /> */}
+                                    <Select
+                                        className="Select"
+                                        id="salida"
+                                        options={aeropuertos.map(aeropuerto => ({
+                                            value: aeropuerto.id_aeropuerto,
+                                            label: aeropuerto.nombre
+                                        }))} 
+                                        value={opcionSeleccionadaSalida}
+                                        onChange={handleSelectChangeSalida}
+                                        placeholder="Aeropuerto Salida"
+                                        styles={customStyles}
+                                        required
+                                    />
                                 </div>
 
                                 <div className='input-box flex'>
                                     <div className="icon"><FaPlaneArrival /></div>
-                                    <input type='text' placeholder='Aeropuerto Destino' required name='aeroOrigen'/>
+                                    {/* <input type='text' placeholder='Aeropuerto Destino' required name='aeroOrigen' /> */}
+                                    <Select
+                                        className="Select"
+                                        id="salida"
+                                        options={aeropuertos.map(aeropuerto => ({
+                                            value: aeropuerto.id_aeropuerto,
+                                            label: aeropuerto.nombre
+                                        }))} 
+                                        value={opcionSeleccionadaDestino}
+                                        onChange={handleSelectChangeDestino}
+                                        placeholder="Aeropuerto Destino"
+                                        styles={customStyles}
+                                        required
+                                    />
                                 </div>
 
                                 <div className='input-box-fecha flex'>
                                     <p>Fecha de Ida</p>
-                                    <input type='date' required name='fecha'/>
+                                    <input type='date' required name='fecha' />
                                 </div>
 
                                 <div className='input-box-fecha flex'>
                                     <p>Fecha de Regreso</p>
-                                    <input type='date' required name='fecha'/>
+                                    <input type='date' required name='fecha' />
                                 </div>
 
                                 <div className='input-box ult flex'>
-                                    <div className="icon"><FaUser/></div>
-                                    <input type='number' min={1} max={5} placeholder='Cantidad Pasajeros' required name='aeroOrigen'/>
+                                    <div className="icon"><FaUser /></div>
+                                    <input type='number' min={1} max={5} placeholder='Cantidad Pasajeros' required name='aeroOrigen' />
                                 </div>
                             </div>
 
@@ -83,27 +166,27 @@ const Principal = () => {
             </div>
 
             <div className='info flex'>
-            
-                    <div className="box flex">
-                        <h2>Reserva fácil y rápida de vuelos</h2>
-                        <p>Con nuestra aplicación, reservar vuelos es 
-                            simple y conveniente. Explore una amplia gama de opciones y reserve 
-                            su vuelo perfecto en solo unos pocos clics</p>
-                    </div>
 
-                    <div className="box flex">
-                        <h2>Información de vuelos en tiempo real</h2>
-                        <p>Manténgase informado sobre el estado de su vuelo, horarios de salida, 
-                            llegadas y más, para una experiencia de viaje sin preocupaciones desde el 
-                            principio hasta el final</p>
-                    </div>
+                <div className="box flex">
+                    <h2>Reserva fácil y rápida de vuelos</h2>
+                    <p>Con nuestra aplicación, reservar vuelos es
+                        simple y conveniente. Explore una amplia gama de opciones y reserve
+                        su vuelo perfecto en solo unos pocos clics</p>
+                </div>
 
-                    <div className="box flex">
-                        <h2>Gestione sus reservas en cualquier momento</h2>
-                        <p>Modifique fechas, seleccione asientos y realice el check-in en 
-                            línea con facilidad. Nuestra aplicación le da el control total sobre 
-                            su viaje, adaptándose a sus necesidades</p>
-                    </div>
+                <div className="box flex">
+                    <h2>Información de vuelos en tiempo real</h2>
+                    <p>Manténgase informado sobre el estado de su vuelo, horarios de salida,
+                        llegadas y más, para una experiencia de viaje sin preocupaciones desde el
+                        principio hasta el final</p>
+                </div>
+
+                <div className="box flex">
+                    <h2>Gestione sus reservas en cualquier momento</h2>
+                    <p>Modifique fechas, seleccione asientos y realice el check-in en
+                        línea con facilidad. Nuestra aplicación le da el control total sobre
+                        su viaje, adaptándose a sus necesidades</p>
+                </div>
 
 
             </div>

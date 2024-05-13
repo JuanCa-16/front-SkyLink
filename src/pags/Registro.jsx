@@ -43,6 +43,8 @@ const Registro = ({setAuth}) => {
 
         if(data.token){
             localStorage.setItem("token",data.token);
+            localStorage.setItem("rol",data.rol);
+            toast.success("Registro Exitoso")
             setAuth(true);
 
         }else{

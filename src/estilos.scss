@@ -329,7 +329,7 @@ h2 {
 
     //Pantall principal
     min-height: 100vh;
-    background: url(./recursos/fondo1.jpg) no-repeat;
+    background: url(./recursos/fondo5.jpg) no-repeat;
     background-size: cover;
     background-position: center;
 
@@ -647,6 +647,14 @@ h2 {
                                 color: black;
                             }
                         }
+
+                        .Select{
+                            input{
+                                height: 100%;
+                                margin: none !important;
+                                border-radius: 0;
+                            }
+                        }
                     }
 
                     .input-box-fecha {
@@ -678,6 +686,8 @@ h2 {
                             width: 45%;
                         }
                     }
+
+
                 }
 
                 .enviar {
@@ -959,4 +969,60 @@ h2 {
 .radar {
     margin: 50px;
     z-index: 0;
+}
+
+.contenedor{
+
+    background: url(./recursos/estrellas.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    .titulo{
+        color: white;
+        padding: 15px 0;
+    }
+
+    .grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 10%;
+        .listaEmp{
+        
+            .tarjeta{
+                min-width: 72%;
+                //max-width: 600px;
+                margin: 10px;
+                padding: 20px 35px;
+                border-radius: 20px;
+                //background-color: green;
+                background: rgba(255, 255, 255, 0.046);
+                border: 1px solid rgba(255, 255, 255, .1);
+                backdrop-filter: blur(100px);
+                border-radius: 35px;
+                color: white;
+                h1{
+                    color: white;
+                    padding: 20px;
+                }
+                h3{
+                    padding-bottom: 10px;
+                    font-weight: 500;
+                }
+                span{
+                    padding-left: 20px;
+                    padding-right: 10px;
+                    font-weight: 700;
+                }
+        
+                .btn{
+                    display: block;
+                    margin: auto;
+                    background: white;
+                    color: black;
+                    padding: 10px 15px;
+                }
+        
+            }
+        }
+    }
 }
