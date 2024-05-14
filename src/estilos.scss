@@ -966,11 +966,13 @@ h2 {
 
 }
 
+//Radar
 .radar {
     margin: 50px;
     z-index: 0;
 }
 
+//Lista Empleados
 .contenedor{
 
     background: url(./recursos/estrellas.png) no-repeat;
@@ -1023,6 +1025,25 @@ h2 {
                 }
         
             }
+        }
+    }
+
+    input {
+        display: block;
+        margin: auto;
+        border: unset;
+        background-color: white;
+        padding: 0.5rem;
+        //border-radius: 5px;
+        width: 20%;
+        height: 35%;
+        color: black;
+        padding-left: 0.8rem;
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+        &::placeholder {
+            color: black;
         }
     }
 }

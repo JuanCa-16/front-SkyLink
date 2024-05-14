@@ -32,6 +32,14 @@ const ListaEmp = ({ logueado }) => {
         }
     }
 
+    //Para manejar buscador
+    const [filtro, setFiltro] = useState('');
+
+    const handleFiltroChange = (event) => {
+        setFiltro(event.target.value);
+    }
+
+
     useEffect(() => {
         cargarUsuarios()
     }, [usuarios])
@@ -41,9 +49,10 @@ const ListaEmp = ({ logueado }) => {
             {
                 (logueado && (rol == 3)) ? (<>
                     <h1 className='titulo'>Lista de Empleados</h1>
+                    <input type="text" placeholder="Buscar por nombre o ID" value={filtro} onChange={handleFiltroChange} />
                     <div className="grid">
                         {usuarios
-                            .filter(user => user.rol === 2)
+                            .filter(user => user.rol === 2 && (user.nombre.toLowerCase().includes(filtro.toLowerCase()) || user.id.includes(filtro)))
                             .map(user => (
                                 <div className="listaEmp flex" key={user.id}>
                                     <div className="tarjeta">

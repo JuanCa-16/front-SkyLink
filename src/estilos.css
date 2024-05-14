@@ -754,4 +754,23 @@ h2 {
   background: white;
   color: black;
   padding: 10px 15px;
+}
+.contenedor input {
+  display: block;
+  margin: auto;
+  border: unset;
+  background-color: white;
+  padding: 0.5rem;
+  width: 20%;
+  height: 35%;
+  color: black;
+  padding-left: 0.8rem;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.contenedor input::-moz-placeholder {
+  color: black;
+}
+.contenedor input::placeholder {
+  color: black;
 }/*# sourceMappingURL=estilos.css.map */
