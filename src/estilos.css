@@ -253,7 +253,7 @@ h2 {
 
 .registros {
   min-height: 100vh;
-  background: url(./recursos/fondo1.jpg) no-repeat;
+  background: url(./recursos/fondo5.jpg) no-repeat;
   background-size: cover;
   background-position: center;
 }
@@ -316,6 +316,9 @@ h2 {
   width: 100%;
   height: 50px;
   margin: 30px 0;
+}
+.registros .wrapper-r .form-box-r .form .input-box-r .Selectr input {
+  border-radius: 0;
 }
 .registros .wrapper-r .form-box-r .form .input-box-r input {
   width: 87%;
@@ -478,11 +481,6 @@ h2 {
 .containerPrincipal .general .principal-2 .busqueda .globalBox .input-box {
   flex-wrap: wrap;
 }
-.containerPrincipal .general .principal-2 .busqueda .globalBox .input-box .Select input {
-  height: 100%;
-  margin: none !important;
-  border-radius: 0;
-}
 .containerPrincipal .general .principal-2 .busqueda .globalBox .input-box .icon {
   margin-top: 5px;
   margin-right: 5px;
@@ -501,6 +499,11 @@ h2 {
 }
 .containerPrincipal .general .principal-2 .busqueda .globalBox .input-box input::placeholder {
   color: black;
+}
+.containerPrincipal .general .principal-2 .busqueda .globalBox .input-box .Select input {
+  height: 100%;
+  margin: none !important;
+  border-radius: 0;
 }
 .containerPrincipal .general .principal-2 .busqueda .globalBox .input-box-fecha {
   flex-direction: column;
@@ -528,9 +531,58 @@ h2 {
   background: var(--ColorPrincipal);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
 }
-.containerPrincipal .general .principal-2 h1,
-.containerPrincipal .general .principal-2 p {
+.containerPrincipal .general .principal-2 h1, .containerPrincipal .general .principal-2 p {
   padding-left: 6rem;
+}
+.containerPrincipal .general .principal-2 .vuelos {
+  margin-top: 30px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.174);
+  background: rgb(232, 232, 232);
+  flex-direction: column;
+  gap: 45px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.containerPrincipal .general .principal-2 .vuelos .tarjeta {
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.174);
+  background: rgba(107, 105, 105, 0.265);
+  box-shadow: 5px 4px 8px rgba(113, 122, 132, 0.863);
+  width: 90%;
+  padding: 10px;
+}
+.containerPrincipal .general .principal-2 .vuelos .tarjeta .tituloPri {
+  padding: 10px;
+}
+.containerPrincipal .general .principal-2 .vuelos .tarjeta .tituloPri h1 {
+  padding-left: 0;
+}
+.containerPrincipal .general .principal-2 .vuelos .tarjeta .infoVuelo {
+  padding: 5px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.containerPrincipal .general .principal-2 .vuelos .tarjeta .infoVuelo .titulo {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.174);
+  background: rgba(118, 130, 142, 0.174);
+}
+.containerPrincipal .general .principal-2 .vuelos .tarjeta .infoVuelo .titulo span {
+  padding-left: 5px;
+  font-weight: 600;
+}
+.containerPrincipal .general .principal-2 .vuelos .tarjeta .btn {
+  display: block;
+  margin: auto;
+  background: rgb(63, 94, 143);
+  color: white;
+  padding: 10px 15px;
+}
+.containerPrincipal .general .principal-2 .vuelos h1 {
+  padding: 0;
 }
 .containerPrincipal .general .principal-1 {
   display: flex;
@@ -707,4 +759,70 @@ h2 {
 .radar {
   margin: 50px;
   z-index: 0;
+}
+
+.contenedor {
+  background: url(./recursos/estrellas.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.contenedor .titulo {
+  color: white;
+  padding: 15px 0;
+}
+.contenedor .grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 0 10%;
+}
+.contenedor .grid .listaEmp .tarjeta {
+  min-width: 72%;
+  margin: 10px;
+  padding: 20px 35px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.046);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(100px);
+          backdrop-filter: blur(100px);
+  border-radius: 35px;
+  color: white;
+}
+.contenedor .grid .listaEmp .tarjeta h1 {
+  color: white;
+  padding: 20px;
+}
+.contenedor .grid .listaEmp .tarjeta h3 {
+  padding-bottom: 10px;
+  font-weight: 500;
+}
+.contenedor .grid .listaEmp .tarjeta span {
+  padding-left: 20px;
+  padding-right: 10px;
+  font-weight: 700;
+}
+.contenedor .grid .listaEmp .tarjeta .btn {
+  display: block;
+  margin: auto;
+  background: white;
+  color: black;
+  padding: 10px 15px;
+}
+.contenedor input {
+  display: block;
+  margin: auto;
+  border: unset;
+  background-color: white;
+  padding: 0.5rem;
+  width: 20%;
+  height: 35%;
+  color: black;
+  padding-left: 0.8rem;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.contenedor input::-moz-placeholder {
+  color: black;
+}
+.contenedor input::placeholder {
+  color: black;
 }/*# sourceMappingURL=estilos.css.map */

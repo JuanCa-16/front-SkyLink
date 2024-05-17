@@ -329,7 +329,7 @@ h2 {
 
     //Pantall principal
     min-height: 100vh;
-    background: url(./recursos/fondo1.jpg) no-repeat;
+    background: url(./recursos/fondo5.jpg) no-repeat;
     background-size: cover;
     background-position: center;
 
@@ -406,6 +406,12 @@ h2 {
                     width: 100%;
                     height: 50px;
                     margin: 30px 0;
+
+                    .Selectr{
+                        input{
+                            border-radius: 0;
+                        }
+                    }
 
                     input {
                         width: 87%;
@@ -628,15 +634,6 @@ h2 {
                     .input-box {
                         flex-wrap: wrap;
 
-                        .Select{
-                            input{
-                                height: 100%;
-                                margin: none !important;
-                                border-radius: 0;
-                            }
-
-                        }
-
                         //background: red;
                         .icon {
                             margin-top: 5px;
@@ -654,6 +651,14 @@ h2 {
                             padding-left: 0.8rem;
                             &::placeholder {
                                 color: black;
+                            }
+                        }
+
+                        .Select{
+                            input{
+                                height: 100%;
+                                margin: none !important;
+                                border-radius: 0;
                             }
                         }
                     }
@@ -687,6 +692,8 @@ h2 {
                             width: 45%;
                         }
                     }
+
+
                 }
 
                 .enviar {
@@ -700,9 +707,73 @@ h2 {
                 }
             }
 
-            h1,
-            p {
+            h1, p {
                 padding-left: 6rem;
+            }
+
+            .vuelos{
+                margin-top: 30px;
+                border-radius: 30px;
+                border: 1px solid rgba(255, 255, 255, .174);
+                background: rgb(232, 232, 232);
+                flex-direction: column;
+                gap: 45px;
+                padding-top: 40px;
+                padding-bottom: 40px;
+            
+                .tarjeta{
+                    border-radius: 30px;
+                    border: 1px solid rgba(255, 255, 255, .174);
+                    background: rgba(107, 105, 105, 0.265);
+                    box-shadow: 5px 4px 8px rgba(113, 122, 132, 0.863);
+                    width: 90%;
+                    padding: 10px;
+            
+                    
+                    
+                    .tituloPri{
+                        padding: 10px;
+                        h1{
+                            padding-left: 0;
+                        }
+                    }
+            
+                    .infoVuelo{
+                        
+                        padding: 5px;
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        gap: 20px;
+                        .titulo{
+                        
+                            padding: 10px 15px;
+                            
+                            border-radius:10px;
+                            border: 1px solid rgba(255, 255, 255, .174);
+                            background: rgba(118, 130, 142, 0.174);
+                            
+                            span{
+                                padding-left: 5px;
+                                font-weight: 600;
+                            }
+                        }
+                    }
+
+                    .btn{
+                        display: block;
+                        margin: auto;
+                        background: rgb(63, 94, 143);
+                        color: white;
+                        padding: 10px 15px;
+                    }
+                    
+                }
+
+                h1{
+                    padding: 0;
+                }
+
+
             }
 
         }
@@ -965,7 +1036,85 @@ h2 {
 
 }
 
+//Radar
 .radar {
     margin: 50px;
     z-index: 0;
 }
+
+//Lista Empleados
+.contenedor{
+
+    background: url(./recursos/estrellas.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    .titulo{
+        color: white;
+        padding: 15px 0;
+    }
+
+    .grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 10%;
+        .listaEmp{
+        
+            .tarjeta{
+                min-width: 72%;
+                //max-width: 600px;
+                margin: 10px;
+                padding: 20px 35px;
+                border-radius: 20px;
+                //background-color: green;
+                background: rgba(255, 255, 255, 0.046);
+                border: 1px solid rgba(255, 255, 255, .1);
+                backdrop-filter: blur(100px);
+                border-radius: 35px;
+                color: white;
+                h1{
+                    color: white;
+                    padding: 20px;
+                }
+                h3{
+                    padding-bottom: 10px;
+                    font-weight: 500;
+                }
+                span{
+                    padding-left: 20px;
+                    padding-right: 10px;
+                    font-weight: 700;
+                }
+        
+                .btn{
+                    display: block;
+                    margin: auto;
+                    background: white;
+                    color: black;
+                    padding: 10px 15px;
+                }
+        
+            }
+        }
+    }
+
+    input {
+        display: block;
+        margin: auto;
+        border: unset;
+        background-color: white;
+        padding: 0.5rem;
+        //border-radius: 5px;
+        width: 20%;
+        height: 35%;
+        color: black;
+        padding-left: 0.8rem;
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+        &::placeholder {
+            color: black;
+        }
+    }
+}
+
