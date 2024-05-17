@@ -13,6 +13,7 @@ import EditarPerfil from './pags/EditarPerfil'
 import Radar from './pags/Radar'
 import CrearEmp from './pags/CrearEmp'
 import ListaEmp from './pags/ListaEmp'
+import BusquedaVuelos from './pags/BusquedaVuelos'
 
 function App() {
   
@@ -121,6 +122,13 @@ function App() {
         <BarraNav setAuth = {setAuth} logueado = {isAuth}/>
         <Principal/>
         <Outlet/>
+        <PiePaag/>
+        {/* <EditarPerfil/> */}
+      </>}/>
+
+      <Route path='/busqueda' element={<>
+        <BarraNav setAuth = {setAuth} logueado = {isAuth}/>
+        <BusquedaVuelos/>
         <PiePaag/>
         {/* <EditarPerfil/> */}
       </>}/>
