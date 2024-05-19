@@ -39,7 +39,7 @@ const Registro = ({setAuth}) => {
             const data = await response.json();
             const countryOptions = data.map(country => ({
                 value: country.cca2, // Country code
-                label: country.name.common // Country name
+                label: country.translations.spa.common || country.name.common // Country name
             }));
             setCountries(countryOptions);
         };
@@ -83,9 +83,9 @@ const Registro = ({setAuth}) => {
 
     };
 
-         // Formatear el nombre para que la primera letra sea mayúscula
-         const formatName = (name) => {
-            return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+        // Formatear el nombre para que la primera letra sea mayúscula
+        const formatName = (name) => {
+            return name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
         };
 
 
