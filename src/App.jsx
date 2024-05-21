@@ -4,6 +4,7 @@ import React, {useState, useEffect, Fragment} from 'react'
 //import PrivateRoute from './PrivateRoute'
 
 //Componentes
+import VuelosAsig from './pags/VuelosAsignados'
 import BarraNav from './pags/BarraNav'
 import Login from './pags/Login'
 import Registro from './pags/Registro'
@@ -128,6 +129,14 @@ function App() {
       <Route path='/busqueda' element={<>
         <BarraNav setAuth = {setAuth} logueado = {isAuth}/>
         <BusquedaVuelos/>
+        <PiePaag/>
+        {/* <EditarPerfil/> */}
+      </>}/>
+
+
+      <Route path='/vuelosAsignados' element={<>
+        <BarraNav setAuth = {setAuth} logueado = {isAuth}/>
+        <VuelosAsig/>
         <PiePaag/>
         {/* <EditarPerfil/> */}
       </>}/>
