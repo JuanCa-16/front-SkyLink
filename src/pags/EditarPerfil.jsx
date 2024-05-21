@@ -19,7 +19,6 @@ const EditarPerfil = () => {
     const [usuario,setUsuario] = useState(
         {
             id: '',
-            rol: 1,
             nombre: '',
             apellidos: '',
             correo: '',

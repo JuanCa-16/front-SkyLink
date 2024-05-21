@@ -7,6 +7,7 @@ import { HiMenu } from "react-icons/hi";
 import logoSky from '../recursos/LogoSkyLink.png';
 
 import {Link, useNavigate, useLocation} from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 
 const BarraNav = ({setAuth, logueado}) => {
     const location = useLocation();
@@ -34,6 +35,7 @@ const BarraNav = ({setAuth, logueado}) => {
         e.preventDefault()
         localStorage.removeItem("token")
         localStorage.removeItem("rol")
+        toast.success("Cierre de Sesion Exitoso")
         setAuth(false)
         setMenuOpen(false);
     } 
@@ -97,8 +99,8 @@ const BarraNav = ({setAuth, logueado}) => {
                                                         <li><a className='texto' href="#">Vuelos Asigandos</a></li>
                                                         <li><a className='texto' href="#">Edicion de vuelos</a></li>
                                                         <li><a className='texto' href="#">Creacion de vuelos</a></li>
-                                                        <li><a className='texto' href="#">Crear Empleado</a></li>
-                                                        <li><a className='texto' href="#">Lista de Empleados</a></li>
+                                                        <li><a className='texto' onClick={() => navigate('/crearEmpleado')}>Crear Empleado</a></li>
+                                                        <li><a className='texto' onClick={() => navigate('/listaEmpleados')}>Lista de Empleados</a></li>
                                                     </>) : (<></>)
                                                 )
                                             }
