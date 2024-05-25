@@ -66,6 +66,29 @@ h2 {
   color: var(--ColorTexto1);
 }
 
+.btnModal {
+  background: rgb(57, 57, 151);
+  padding: 5px 10px;
+  margin: 10px;
+}
+.btnModal:hover {
+  background: rgb(39, 39, 219);
+}
+.btnModal.cancelar {
+  background: rgb(197, 74, 74);
+}
+.btnModal.cancelar:hover {
+  background: rgb(209, 40, 40);
+}
+
+.visible {
+  display: block;
+}
+
+.oculto {
+  display: none;
+}
+
 .navBar {
   padding: 5px;
   background: url(./recursos/estrellas.png) no-repeat;
@@ -317,6 +340,10 @@ h2 {
   height: 50px;
   margin: 30px 0;
 }
+.registros .wrapper-r .form-box-r .form .input-box-r .Selectr input {
+  border-radius: 0;
+  margin: none !important;
+}
 .registros .wrapper-r .form-box-r .form .input-box-r input {
   width: 87%;
   padding: 0 20px;
@@ -438,7 +465,7 @@ h2 {
   padding: 5px;
 }
 .containerPrincipal .general .principal-2 .busqueda .globalRadio {
-  padding: 10px 0;
+  padding: 15px 0;
   width: 100%;
 }
 .containerPrincipal .general .principal-2 .busqueda .globalRadio .radioClases {
@@ -580,6 +607,38 @@ h2 {
 }
 .containerPrincipal .general .principal-2 .vuelos h1 {
   padding: 0;
+}
+.containerPrincipal .general .principal-2 .vuelos .globalRadio {
+  padding: 10px 0;
+  width: 100%;
+}
+.containerPrincipal .general .principal-2 .vuelos .globalRadio .radioClases {
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+}
+.containerPrincipal .general .principal-2 .vuelos .globalRadio .radioClases .radioInput {
+  display: none;
+}
+.containerPrincipal .general .principal-2 .vuelos .globalRadio .radioClases .radioInput:checked + .radioLabel {
+  background: var(--ColorSecundario);
+}
+.containerPrincipal .general .principal-2 .vuelos .globalRadio .radioClases .radioLabel {
+  padding: 8px 14px;
+  font-size: 14px;
+  color: var(--ColorTexto1);
+  background: var(--ColorPrincipal);
+  cursor: pointer;
+  transition: backgroung 0.1s;
+}
+.containerPrincipal .general .principal-2 .vuelos .globalRadio .radioClases .radioLabel h3 {
+  padding: 3px 0 5px 0;
+}
+.containerPrincipal .general .principal-2 .vuelos .globalRadio .radioClases .radioLabel p {
+  padding: 3px 0 5px 0;
+}
+.containerPrincipal .general .principal-2 .vuelos .globalRadio .radioClases .radioLabel:not(:last-of-type) {
+  border-right: 1px solid var(--ColorIconos);
 }
 .containerPrincipal .general .principal-1 {
   display: flex;
@@ -822,4 +881,232 @@ h2 {
 }
 .contenedor input::placeholder {
   color: black;
+}
+
+.principalvuelosasignados {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 60vh;
+  padding-top: 5vh;
+}
+.principalvuelosasignados h1,
+.principalvuelosasignados p {
+  justify-content: flex-start;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.principalvuelosasignados .total-vuelos {
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 10;
+  margin-left: 3vh;
+}
+.principalvuelosasignados .vuelos {
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.174);
+  background: rgb(232, 232, 232);
+  flex-direction: column;
+  gap: 45px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin: 70px;
+}
+.principalvuelosasignados .vuelos .tarjeta {
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.174);
+  background: rgba(107, 105, 105, 0.265);
+  box-shadow: 5px 4px 8px rgba(113, 122, 132, 0.863);
+  width: 90%;
+  padding: 10px;
+}
+.principalvuelosasignados .vuelos .tarjeta .tituloPri {
+  padding: 10px;
+}
+.principalvuelosasignados .vuelos .tarjeta .tituloPri h1 {
+  padding-left: 0;
+}
+.principalvuelosasignados .vuelos .tarjeta .infoVuelo {
+  padding: 5px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.principalvuelosasignados .vuelos .tarjeta .infoVuelo .titulo {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.174);
+  background: rgba(118, 130, 142, 0.174);
+}
+.principalvuelosasignados .vuelos .tarjeta .infoVuelo .titulo span {
+  padding-left: 5px;
+  font-weight: 600;
+}
+.principalvuelosasignados .vuelos .tarjeta .btn {
+  display: block;
+  margin: auto;
+  background: rgb(63, 94, 143);
+  color: white;
+  padding: 10px 15px;
+}
+.principalvuelosasignados .vuelos h1 {
+  padding: 0;
+}
+
+.bodyAsientos {
+  background: url(./recursos/estrellas.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+.bodyAsientos .container {
+  perspective: 1000px;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.046);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(100px);
+          backdrop-filter: blur(100px);
+  border-radius: 35px;
+}
+.bodyAsientos .seat {
+  background-color: #444451;
+  height: 17px;
+  width: 22px;
+  margin: 3px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.bodyAsientos .seat.selected {
+  background-color: rgb(66, 72, 156);
+}
+.bodyAsientos .seat.sold {
+  background-color: white;
+}
+.bodyAsientos .seat:nth-of-type(3) {
+  margin-right: 18px;
+}
+.bodyAsientos .seat:nth-last-of-type(3) {
+  margin-left: 18px;
+}
+.bodyAsientos .seat:not(.sold):hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+.bodyAsientos .showcase {
+  background: rgba(255, 255, 255, 0.046);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(100px);
+          backdrop-filter: blur(100px);
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: gray;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+.bodyAsientos .showcase li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+}
+.bodyAsientos .showcase li small {
+  margin-left: 3px;
+}
+.bodyAsientos .showcase .seat:not(.sold):hover {
+  cursor: default;
+  transform: scale(1);
+}
+.bodyAsientos .row {
+  display: flex;
+}
+.bodyAsientos p.text {
+  margin: 5px 0;
+}
+.bodyAsientos p.text span {
+  color: rgb(90, 100, 237);
+  font-weight: 700;
+}
+.bodyAsientos .botones {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+.bodyAsientos .botones .btn {
+  background-color: rgb(66, 72, 156);
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.bodyAbordaje {
+  background: url(./recursos/estrellas.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+.bodyAbordaje .pase-de-abordaje {
+  background-color: #fff;
+  width: 700px;
+  border: 2px solid rgba(19, 37, 127, 0.8);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative; /* Agregado para posicionar elementos internamente */
+}
+.bodyAbordaje .encabezado {
+  background-color: rgba(19, 37, 127, 0.8);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  align-items: center;
+}
+.bodyAbordaje .aerolinea {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.bodyAbordaje .titulo-pase {
+  font-size: 1.2em;
+}
+.bodyAbordaje .detalles {
+  padding: 20px;
+}
+.bodyAbordaje .info-pasajero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.bodyAbordaje .info {
+  width: 45%;
+  margin-bottom: 10px;
+  position: relative; /* Agregar posición relativa para alinear la línea */
+}
+.bodyAbordaje .info span {
+  font-weight: bold;
+}
+.bodyAbordaje .info + .info {
+  margin-top: 10px;
+}
+.bodyAbordaje .info::after {
+  content: ""; /* Agregar contenido para la línea */
+  position: absolute; /* Posicionar absolutamente en relación con .info */
+  bottom: -5px; /* Ajustar la posición vertical de la línea */
+  left: 0; /* Alinear la línea con el borde izquierdo de .info */
+  width: 100%; /* Hacer que la línea ocupe todo el ancho de .info */
+  border-bottom: 1px solid #ccc; /* Estilo de la línea gris */
+}
+.bodyAbordaje .codigo-barra {
+  text-align: center;
+  padding:  20px 0;
 }/*# sourceMappingURL=estilos.css.map */

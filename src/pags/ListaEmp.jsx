@@ -31,7 +31,7 @@ const ListaEmp = ({ logueado }) => {
         if (data.eliminado) {
             setModalIsOpen(false)
             toast.success(`${nombre} eliminado con exito`)
-            setUsuarios([])
+            setUsuarios(prevUsuarios => prevUsuarios.filter(user => user.id !== id));
         }
     }
 
@@ -44,10 +44,15 @@ const ListaEmp = ({ logueado }) => {
 
 
     useEffect(() => {
-        cargarUsuarios()
-    }, [usuarios])
+        if (logueado && rol === '3') {
+            cargarUsuarios();
+        } else {
+            navigate("/inicioSesion");
+        }
+    }, [logueado, rol]);
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [selectedUser, setSelectedUser] = useState('');
 
     return (
         <div className='contenedor'>
@@ -57,7 +62,7 @@ const ListaEmp = ({ logueado }) => {
                     <input type="text" placeholder="Buscar por nombre o ID" value={filtro} onChange={handleFiltroChange} />
                     <div className="grid">
                         {usuarios
-                            .filter(user => user.rol === 2 && (user.nombre.toLowerCase().includes(filtro.toLowerCase()) || user.id.includes(filtro)))
+                            .filter(user => user.rol === 2 && (user.nombre.toLowerCase().includes(filtro.toLowerCase()) || user.apellidos.toLowerCase().includes(filtro.toLowerCase()) || user.id.includes(filtro)))
                             .map(user => (
                                 <div className="listaEmp flex" key={user.id}>
                                     <div className="tarjeta">
@@ -67,8 +72,8 @@ const ListaEmp = ({ logueado }) => {
                                         <h3><span>Telefono:</span> {user.telefono}</h3>
                                         <h3><span>Fecha:</span> {user.fecha.substring(0, 10)}</h3>
                                         <h3><span>Pais:</span> {user.pais}</h3>
-                                        <button className='btn' onClick={() => eliminar(user.id, user.nombre)}>Eliminar</button>
-                                        <button className='btn' onClick={() => setModalIsOpen(true)}>MODAL</button>
+                                        {/* <button className='btn' onClick={() => eliminar(user.id, user.nombre)}>Eliminar</button> */}
+                                        <button className='btn' onClick={() => { setModalIsOpen(true); setSelectedUser(user); }}>Eliminar</button>
                                         <ReactModal
                                             
                                             isOpen={modalIsOpen}
@@ -78,7 +83,7 @@ const ListaEmp = ({ logueado }) => {
                                                     backgroundColor: 'rgba(107, 105, 105, 0.1)', // Fondo oscuro con opacidad
                                                 },
                                                 content: {
-                                                    width: '30%',
+                                                    width: '18%',
                                                     height: '30%',
                                                     margin: 'auto',
                                                     backgroundColor: '#ffffff', // Color de fondo del modal
@@ -87,14 +92,14 @@ const ListaEmp = ({ logueado }) => {
                                                     padding: '20px', // Espaciado interno para el contenido del modal
                                                     overflow: 'auto', // Agrega un desplazamiento si el contenido del modal es demasiado grande
                                                     lineHeight: '1.5',
-                                                }
+                                                },
                                             }}
 
                                         >
                                             <h1>ELIMINAR </h1>
-                                            <p>Estas seguro que quieres eliminar a {user.nombre} {user.apellidos} con identificacion {user.id} de tu lista de empleados?</p>
-                                            <button className='btn modal' onClick={() => setModalIsOpen(false)}>Cancelar</button>
-                                            <button className='btn modal' onClick={() => eliminar(user.id, user.nombre)}>Eliminar</button>
+                                            <p>Estas seguro que quieres eliminar a {selectedUser.nombre} {selectedUser.apellidos} con identificacion {selectedUser.id} de tu lista de empleados?</p>
+                                            <button className='btnModal cancelar' onClick={() => setModalIsOpen(false)}>Cancelar</button>
+                                            <button className='btnModal' onClick={() => eliminar(selectedUser.id, selectedUser.nombre)}>Eliminar</button>
                                         </ReactModal>
                                     </div>
                                 </div>

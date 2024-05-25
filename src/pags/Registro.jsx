@@ -1,5 +1,6 @@
 import React from 'react'
-import {useState} from 'react'
+import Select from 'react-select';
+import {useState, useEffect} from 'react'
 //Iconos importados
 import { HiOutlineMail } from "react-icons/hi";
 import { MdPassword } from "react-icons/md";
@@ -11,6 +12,22 @@ import {useNavigate} from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 
 const Registro = ({setAuth}) => {
+
+    const [countries, setCountries] = useState([]);
+
+    useEffect(() => {
+        const fetchCountries = async () => {
+            const response = await fetch('https://restcountries.com/v3.1/all');
+            const data = await response.json();
+            const countryOptions = data.map(country => ({
+                value: country.cca2, // Country code
+                label: country.translations.spa.common || country.name.common // Country name
+            }));
+            setCountries(countryOptions);
+        };
+
+        fetchCountries();
+    }, []);
 
     //React Routing
     const navigate = useNavigate();
@@ -32,6 +49,9 @@ const Registro = ({setAuth}) => {
     //Manejo del formulario, envia la peticion al dar click en el boton del form
     const handleSubmit = async(e) => {
         e.preventDefault(); //para que no recarge al darle al boton enviar evitar refresh
+
+        usuario.nombre = formatName(usuario.nombre);
+        usuario.apellidos = formatName(usuario.apellidos);
 
         const res = await fetch('http://localhost:4000/usuarios', {
             method: 'POST',
@@ -56,6 +76,12 @@ const Registro = ({setAuth}) => {
 
     };
 
+    // Formatear el nombre para que la primera letra sea mayúscula
+    const formatName = (name) => {
+        return name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
+    };
+
+    
     //ir actualizando el json usuario a enviar en la peticion
     const handleChange = e =>{
         //console.log(e.target.name, e.target.value);
@@ -63,6 +89,71 @@ const Registro = ({setAuth}) => {
 
     };
 
+    //Manejar el cambio de la seleccion del pais
+    const handleCountryChange = (selectedOption) => {
+        setUsuario({ ...usuario, pais: selectedOption.value });
+    };
+
+    //Estilos del SELECT
+    const customStyles = {
+        container: (base) => ({
+            ...base,
+            position: 'relative',
+            width: '80%',
+            border:'0',
+            height: '100%',
+            margin: '30px 0',
+            borderRadius:'0',
+        }),
+        control: (provided) => ({
+            ...provided,
+            height: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            backgroundColor: 'transparent',
+            outline: 'none',
+            borderRadius: '40px',
+            fontSize: '16px',
+            color: 'white',
+            border: '2px solid rgba(255, 255, 255, .1)',
+            paddingLeft: '0.8rem',
+        }),
+        valueContainer: (base) => ({
+            ...base,
+            padding: '0 20px',
+            borderRadius:'0',
+            color: 'white',
+            border: '0'
+        }),
+        input: (base) => ({
+            ...base,
+            width: '100%',
+            margin: 'none !important',
+            borderRadius: 0,
+            color: 'white',
+        }),
+        placeholder: (provided) => ({
+            ...provided,
+            color: 'white', // Establece el color del placeholder a blanco
+          }),
+        singleValue: (base) => ({
+            ...base,
+            color: 'white',
+            borderRadius:'0',
+        }),
+        menu: (base) => ({
+            ...base,
+            backgroundColor: 'white',
+            color: 'white',
+            borderRadius:'0',
+        }),
+        option: (base, { isFocused, isSelected }) => ({
+            ...base,
+            backgroundColor: isFocused ? '#eee' : isSelected ? '#ddd' : 'white',
+            color: 'black',
+            height: '20%'
+        })
+    };
     return (
         //Div de la pantalla Principal
         <div className='registros flex'>
@@ -86,7 +177,7 @@ const Registro = ({setAuth}) => {
                                 </div>
 
                                 <div className='input-box-r'>
-                                    <input type='text' placeholder='Numero de Documento' required name='id'onChange={handleChange}/>
+                                    <input type='text' placeholder='Numero de Documento' required name='id' inputMode="numeric" pattern="\d*" onChange={handleChange}/>
                                     <PiIdentificationBadge className='icon-r' />
                                 </div>
 
@@ -96,7 +187,7 @@ const Registro = ({setAuth}) => {
                                 </div>
 
                                 <div className='input-box-r'>
-                                    <input type='text' placeholder='Telefono' required name='telefono'onChange={handleChange}/>
+                                    <input type='text' placeholder='Telefono' required name='telefono' inputMode="numeric" pattern="\d*" onChange={handleChange}/>
                                     <AiOutlinePhone className='icon-r' />
                                 </div>
                             </div>
@@ -123,7 +214,14 @@ const Registro = ({setAuth}) => {
                                 </div>
                                 
                                 <div className='input-box-r'>
-                                    <input type='text' placeholder='Pais' required name='pais'onChange={handleChange}/>
+                                <Select 
+                                        className="Selectr"
+                                        options={countries}
+                                        styles={customStyles}
+                                        placeholder='Selecciona tu país'
+                                        onChange={handleCountryChange}
+                                        required
+                                    />
                                     <FaLocationDot className='icon-r' />
                                 </div>
                             </div>

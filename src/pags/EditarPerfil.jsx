@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import {useState} from 'react'
-
-
+import Select from 'react-select';
 import { HiOutlineMail } from "react-icons/hi";
 import { MdPassword } from "react-icons/md";
 import { PiIdentificationBadge } from "react-icons/pi";
@@ -11,6 +10,22 @@ import { GoMilestone } from "react-icons/go";
 import { useNavigate} from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 const EditarPerfil = () => {
+
+    const [countries, setCountries] = useState([]);
+
+    useEffect(() => {
+        const fetchCountries = async () => {
+            const response = await fetch('https://restcountries.com/v3.1/all');
+            const data = await response.json();
+            const countryOptions = data.map(country => ({
+                value: country.cca2, // Country code
+                label: country.translations.spa.common || country.name.common // Country name
+            }));
+            setCountries(countryOptions);
+        };
+
+        fetchCountries();
+    }, []);
 
     const navigate = useNavigate()
 
@@ -82,7 +97,9 @@ const EditarPerfil = () => {
 
     const handleSubmit = async(e) => {
         e.preventDefault(); //para que no recarge al darle al boton enviar evitar refresh
-
+        // Formatear los nombres antes de enviarlos
+        usuario.nombre = formatName(usuario.nombre);
+        usuario.apellidos = formatName(usuario.apellidos);
         //Peticion para actulizar
         const res = await fetch(`http://localhost:4000/usuarios/${id}`, {
             method: 'PUT',
@@ -105,12 +122,83 @@ const EditarPerfil = () => {
 
     };
 
+     // Formatear el nombre para que la primera letra sea mayúscula
+    const formatName = (name) => {
+        return name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
+    };
+
     const handleChange = e =>{
         //console.log(e.target.name, e.target.value);
         setUsuario({...usuario, [e.target.name]: e.target.value});
 
     };
 
+    //Manejar el cambio de la seleccion del pais
+    const handleCountryChange = (selectedOption) => {
+        setUsuario({ ...usuario, pais: selectedOption.value });
+    };
+
+    const customStyles = {
+        container: (base) => ({
+            ...base,
+            position: 'relative',
+            //width: '80%',
+            border:'0',
+            height: '100%',
+            //margin: '30px 0',
+            borderRadius:'0',
+        }),
+        control: (provided) => ({
+            ...provided,
+            height: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            backgroundColor: 'transparent',
+            outline: 'none',
+            borderRadius: '40px',
+            fontSize: '16px',
+            color: 'white',
+            border: '2px solid rgba(255, 255, 255, .1)',
+            paddingLeft: '0.8rem',
+        }),
+        valueContainer: (base) => ({
+            ...base,
+            padding: '0 20px',
+            borderRadius:'0',
+            color: 'white',
+            border: '0'
+        }),
+        input: (base) => ({
+            ...base,
+            width: '100%',
+            margin: 'none !important',
+            borderRadius: 0,
+            color: 'white',
+        }),
+        placeholder: (provided) => ({
+            ...provided,
+            color: 'white', // Establece el color del placeholder a blanco
+          }),
+        singleValue: (base) => ({
+            ...base,
+            color: 'white',
+            borderRadius:'0',
+        }),
+        menu: (base) => ({
+            ...base,
+            backgroundColor: 'white',
+            color: 'white',
+            borderRadius:'0',
+        }),
+        option: (base, { isFocused, isSelected }) => ({
+            ...base,
+            backgroundColor: isFocused ? '#eee' : isSelected ? '#ddd' : 'white',
+            color: 'black',
+            height: '20%'
+        })
+    };
+
+    
     return (
         <div className='editPerfil flex'>
 
@@ -186,13 +274,22 @@ const EditarPerfil = () => {
 
                                 <div className='input-box-edit'>
                                     <p>Telefono</p>
-                                    <input type='text' value={usuario.telefono} required name='telefono' onChange={handleChange}/>
+                                    <input type='text' value={usuario.telefono} required name='telefono' inputMode="numeric" pattern="\d*" onChange={handleChange}/>
                                     <AiOutlinePhone className='icon-edit' />
                                 </div>
 
                                 <div className='input-box-edit arriba'>
                                     <p>Pais</p>
-                                    <input type='text' value={usuario.pais} required name='pais' onChange={handleChange}/>
+                                    <Select 
+                                        className="Selectr"
+                                        options={countries}
+                                        styles={customStyles}
+                                        placeholder='Selecciona tu país'
+                                        onChange={handleCountryChange}
+                                        value={countries.find(country => country.value === usuario.pais)}
+                                        required
+                                    />
+                                    {/* <input type='text' value={usuario.pais} required name='pais' onChange={handleChange}/> */}
                                     <FaLocationDot className='icon-edit' />
                                 </div>
 

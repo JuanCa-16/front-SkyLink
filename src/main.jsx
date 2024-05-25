@@ -4,6 +4,9 @@ import App from './App.jsx'
 import './estilos.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Modal from 'react-modal';
+
+Modal.setAppElement('#root');
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

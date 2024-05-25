@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { FaPlaneArrival, FaPlaneDeparture, FaUser } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 import Select from 'react-select'
 
 import video from '../recursos/video.mp4';
 import avion2 from '../recursos/avion2.png';
 import { ToastContainer, toast } from 'react-toastify';
-const BusquedaVuelos = () => {
+const BusquedaVuelos = ({logueado}) => {
     // Estado para almacenar el valor seleccionado
-
+    const navigate = useNavigate()
     const busqueda = JSON.parse(localStorage.getItem("busqueda"));
-
-
 
     const [opcionSeleccionadaSalida, setOpcionSeleccionadaSalida] = useState(busqueda.opcInicialSalida);
 
@@ -77,7 +76,8 @@ const BusquedaVuelos = () => {
         misClases: busqueda.misClases,
         cant: busqueda.cant,
         opcInicialSalida: busqueda.opcInicialSalida,
-        opcInicialLlegada: busqueda.opcInicialLlegada
+        opcInicialLlegada: busqueda.opcInicialLlegada,
+        misComidas:'Sin Comida'
     })
 
 
@@ -103,7 +103,7 @@ const BusquedaVuelos = () => {
                 // No flights found
                 setVuelos([]); // Set vuelos state to an empty array
                 toast.error("LO SENTIMOS, No tenemos vuelos con estos requisitos");
-                
+
             } else {
                 // Flights found, parse response as JSON
                 const data = await res.json();
@@ -116,6 +116,7 @@ const BusquedaVuelos = () => {
 
     }
 
+
     useEffect(() => {
         const cargarBusquedaGuardada = async () => {
             const busquedaGuardada = JSON.parse(localStorage.getItem("busqueda"));
@@ -127,14 +128,15 @@ const BusquedaVuelos = () => {
                         body: JSON.stringify(busquedaGuardada), //Para que lo detecte como string
                         headers: { 'Content-Type': "application/json" } // Para que rellene los campos
                     });
-        
+
                     if (res.status === 404) {
                         // No flights found
                         setVuelos([]); // Set vuelos state to an empty array
-                        toast.error("LO SENTIMOS, No tenemos vuelos con estos requisitos");
+                        //toast.error("LO SENTIMOS, No tenemos vuelos con estos requisitos nue");
                     } else {
                         // Flights found, parse response as JSON
                         const data = await res.json();
+                        
                         setVuelos(data);
                     }
                 } catch (err) {
@@ -148,7 +150,18 @@ const BusquedaVuelos = () => {
     ///MANEJO DE LA LISTA DE VUELOS 
     const [vuelos, setVuelos] = useState([])
 
+    const [mostrarDiv, setMostrarDiv] = useState(false);
 
+    const handleCompraClick = (v) => {
+
+        if(logueado){
+            
+            let cantAsi = infoVuelo.cant
+            navigate('/asientos', { state: { v, cantAsi} });
+        }else{
+            toast.error("Para comprar Vuelos debes Iniciar Sesion")
+        }
+    };
 
     return (
         <div className="containerPrincipal">
@@ -256,6 +269,7 @@ const BusquedaVuelos = () => {
                     </div>
 
                     <div className="vuelos flex">
+                        
                         {Array.isArray(vuelos) && vuelos.length > 0 ? (
                             vuelos.map(vuelo => (
                                 <div key={vuelo.id_vuelo} className="tarjeta">
@@ -267,8 +281,31 @@ const BusquedaVuelos = () => {
                                         <h3 className="titulo">CIUDAD LLEGADA:<span>{vuelo.ciudad_llegada}</span></h3>
                                         <h3 className="titulo">FECHA:<span>{vuelo.fecha.substring(0, 10)}</span></h3>
                                         <h3 className="titulo">HORA VUELO:<span>{vuelo.hora}</span></h3>
-                                        <h3 className="titulo">PRECIO:<span>$$</span></h3>
-                                        <button className='btn' >Seleccionar</button>
+                                        <h3 className="titulo">CLASE<span>{busqueda.misClases}</span></h3>
+                                        <h3 className="titulo">PRECIO: $<span>{busqueda.misClases === 'Economica' ? 100000 : busqueda.misClases === 'Ejecutiva' ? 200000 : 250000}</span></h3>
+
+
+                                        <button className="btn" onClick={() => setVuelos(vuelos.map(v => v.id_vuelo === vuelo.id_vuelo ? { ...v, mostrarDiv: !v.mostrarDiv } : v))}>
+                                            {vuelo.mostrarDiv ? 'Ocultar' : 'Seleccionar'}
+                                        </button>
+                                        <div className={vuelo.mostrarDiv ? "visible" : "oculto"}>
+                                            <p>Selecciona un Menú</p>
+                                            <div className="globalRadio flex">
+                                                <div className="radioClases flex">
+                                                    <input className="radioInput" type="radio" value="Sin Comida" name={'misComidas'} id={`opc7-${vuelo.id_vuelo}`} required onChange={handleChange} />
+                                                    <label className="radioLabel" htmlFor= {`opc7-${vuelo.id_vuelo}`}><h3>Sin comida</h3><p>Menue pa los pobres</p></label>
+                                                    <input className="radioInput" type="radio" value="Saludable" name={'misComidas'} id={`opc4-${vuelo.id_vuelo}`} required onChange={handleChange}  />
+                                                    <label className="radioLabel" htmlFor= {`opc4-${vuelo.id_vuelo}`}><h3>Sana</h3><p>Comida saludable y deliciosa</p></label>
+                                                    <input className="radioInput" type="radio" value="Fast Food" name={'misComidas'} id={`opc5-${vuelo.id_vuelo}`}required onChange={handleChange} />
+                                                    <label className="radioLabel" htmlFor= {`opc5-${vuelo.id_vuelo}`}><h3>Fast Food</h3><p>Comida chatarra</p></label>
+                                                    <input className="radioInput" type="radio" value="A la Carta" name={'misComidas'} id={`opc6-${vuelo.id_vuelo}`} required onChange={handleChange}/>
+                                                    <label className="radioLabel" htmlFor= {`opc6-${vuelo.id_vuelo}`}><h3>A la Carta</h3><p>Menue ejecutivo</p></label>
+                                                    
+                                                </div>
+                                            </div>
+                                            <button className="btn" onClick={() => handleCompraClick(vuelo)}>Comprar</button>
+
+                                        </div>
                                     </div>
                                 </div>
                             ))
@@ -277,6 +314,7 @@ const BusquedaVuelos = () => {
                                 <h1>No se encontraron vuelos.</h1>
                             </div>
                         )}
+                        
                     </div>
 
                 </div>

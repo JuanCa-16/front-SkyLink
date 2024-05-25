@@ -14,6 +14,9 @@ import Radar from './pags/Radar'
 import CrearEmp from './pags/CrearEmp'
 import ListaEmp from './pags/ListaEmp'
 import BusquedaVuelos from './pags/BusquedaVuelos'
+import VuelosAsig from './pags/VuelosAsignados'
+import Asientos from './pags/Asientos'
+import PaseDeAbordaje from './pags/PaseDeAbordaje'
 
 function App() {
   
@@ -109,6 +112,25 @@ function App() {
             </>}
       />  
 
+      <Route path='/vuelosAsignados' element={<>
+        <BarraNav setAuth = {setAuth} logueado = {isAuth}/>
+        <VuelosAsig  logueado={isAuth}/>
+        <PiePaag/>
+        {/* <EditarPerfil/> */}
+      </>}/>
+      
+      <Route path='/asientos' element={<>
+            <PrivateRoute element={ <Asientos />}/>
+            <PiePaag/>
+            </>}/>
+
+      <Route path='/paseabordaje' element={<>
+        
+        <PaseDeAbordaje/>
+        <PiePaag/>
+        {/* <EditarPerfil/> */}
+      </>}/>
+
       {/* Rura Principal */}
       <Route path='/radar' element={<>
         <BarraNav setAuth = {setAuth} logueado = {isAuth}/>
@@ -128,7 +150,7 @@ function App() {
 
       <Route path='/busqueda' element={<>
         <BarraNav setAuth = {setAuth} logueado = {isAuth}/>
-        <BusquedaVuelos/>
+        <BusquedaVuelos logueado = {isAuth}/>
         <PiePaag/>
         {/* <EditarPerfil/> */}
       </>}/>

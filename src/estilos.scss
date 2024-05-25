@@ -68,6 +68,30 @@ h2 {
     color: var(--ColorTexto1);
 }
 
+.btnModal{
+
+    background: rgb(57, 57, 151);
+    padding: 5px 10px;
+    margin: 10px;
+
+    &:hover{
+        background: rgb(39, 39, 219);
+    }
+    &.cancelar{
+        background: rgb(197, 74, 74);
+        &:hover{
+            background: rgb(209, 40, 40);
+        }
+    }
+}
+
+.visible {
+    display: block;
+}
+
+.oculto {
+    display: none;
+}
 //Estilos de la barra de navegacion
 .navBar {
     padding: 5px;
@@ -407,6 +431,14 @@ h2 {
                     height: 50px;
                     margin: 30px 0;
 
+                    .Selectr{
+                        input{
+                            border-radius: 0;
+                            margin: none !important;
+                            
+                        }
+                    }
+
                     input {
                         width: 87%;
                         padding: 0 20px;
@@ -574,7 +606,7 @@ h2 {
                 .globalRadio {
 
                     //background-color: pink; 
-                    padding: 10px 0;
+                    padding: 15px 0;
                     width: 100%;
 
                     .radioClases {
@@ -765,6 +797,53 @@ h2 {
 
                 h1{
                     padding: 0;
+                }
+
+                .globalRadio {
+
+                    //background-color: pink; 
+                    padding: 10px 0;
+                    width: 100%;
+
+                    .radioClases {
+
+                        overflow: hidden;
+                        border-radius: 15px;
+                        box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+                        //min-width: 400px;
+
+
+                        .radioInput {
+                            display: none;
+
+                            //cuando un input e seleccionado el selctor apuntara al siguiente elemento con la clase despues del +
+                            &:checked+.radioLabel {
+                                background: var(--ColorSecundario);
+                            }
+                        }
+
+                        .radioLabel {
+                            padding: 8px 14px;
+                            font-size: 14px;
+                            color: var(--ColorTexto1);
+                            background: var(--ColorPrincipal);
+                            cursor: pointer;
+
+                            h3 {
+                                padding: 3px 0 5px 0;
+                            }
+
+                            p {
+                                padding: 3px 0 5px 0;
+                            }
+
+                            transition: backgroung 0.1s;
+
+                            &:not(:last-of-type) {
+                                border-right: 1px solid var(--ColorIconos); //la linia divisiora menos al ultimo
+                            }
+                        }
+                    }
                 }
 
 
@@ -1110,5 +1189,274 @@ h2 {
             color: black;
         }
     }
+
+    
 }
+
+.principalvuelosasignados {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 60vh;
+    padding-top: 5vh;
+
+
+    h1,
+    p {
+        justify-content: flex-start;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .total-vuelos{
+        text-align: left; // Alinea el texto a la izquierda
+        margin-top: 10px;
+        margin-bottom: 10;
+        margin-left: 3vh;
+    }
+
+    .vuelos {
+        border-radius: 30px;
+        border: 1px solid rgba(255, 255, 255, .174);
+        background: rgb(232, 232, 232);
+        flex-direction: column;
+        gap: 45px;
+        padding-top: 40px; // Mueve esta línea aquí dentro
+        padding-bottom: 40px;
+        margin: 70px;
+
+        .tarjeta {
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, .174);
+            background: rgba(107, 105, 105, 0.265);
+            box-shadow: 5px 4px 8px rgba(113, 122, 132, 0.863);
+            width: 90%;
+            padding: 10px;
+
+            .tituloPri {
+                padding: 10px;
+
+                h1 {
+                    padding-left: 0;
+                }
+            }
+
+            .infoVuelo {
+                padding: 5px;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+
+                .titulo {
+                    padding: 10px 15px;
+                    border-radius: 10px;
+                    border: 1px solid rgba(255, 255, 255, .174);
+                    background: rgba(118, 130, 142, 0.174);
+
+                    span {
+                        padding-left: 5px;
+                        font-weight: 600;
+                    }
+                }
+            }
+
+            .btn {
+                display: block;
+                margin: auto;
+                background: rgb(63, 94, 143);
+                color: white;
+                padding: 10px 15px;
+            }
+        }
+
+        h1 {
+            padding: 0;
+        }
+    }
+}
+
+.bodyAsientos{
+    //background-color: #242333;
+    background: url(./recursos/estrellas.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+
+    .container{
+        perspective: 1000px;
+        margin-bottom: 30px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.046);
+        border: 1px solid rgba(255, 255, 255, .1);
+        backdrop-filter: blur(100px);
+        border-radius: 35px;
+    }
+
+    .seat{
+        background-color: #444451;
+        height: 17px;
+        width: 22px;
+        margin: 3px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+
+        &.selected{
+            background-color: rgb(66, 72, 156);
+        }
+        &.sold{
+            background-color: white;
+        }
+
+        &:nth-of-type(3){
+            margin-right: 18px;
+        }
+        &:nth-last-of-type(3){
+            margin-left: 18px;
+        }
+
+        &:not(.sold):hover{
+            cursor: pointer;
+            transform: scale(1.2);
+        }
+        
+    }
+
+    .showcase{
+        background: rgba(255, 255, 255, 0.046);
+        border: 1px solid rgba(255, 255, 255, .1);
+        backdrop-filter: blur(100px);
+
+        padding: 5px 10px;
+        border-radius: 5px;
+        color: gray;
+        list-style-type: none;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 40px;
+
+        & li{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+
+            small{
+                margin-left: 3px;
+            }
+        }
+    }
+
+    .showcase .seat:not(.sold):hover{
+        cursor: default;
+        transform: scale(1);
+    }
+    .row{
+        display: flex;
+    }
+
+    p{
+        &.text{
+            margin: 5px 0;
+
+            span{
+                color: rgb(90, 100, 237);
+                font-weight: 700;
+            }
+        }
+    }
+
+    .botones{
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        .btn{
+            background-color: rgb(66, 72, 156);
+            margin-top: 10px;
+            padding: 10px;
+        }
+    }
+}
+
+.bodyAbordaje{
+    background: url(./recursos/estrellas.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+
+    .pase-de-abordaje {
+        background-color: #fff;
+        width: 700px;
+        border: 2px solid #13257fcc;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        position: relative; /* Agregado para posicionar elementos internamente */
+    }
+    
+    .encabezado {
+        background-color: #13257fcc;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 20px;
+        align-items: center;
+    }
+    
+    .aerolinea {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+    
+    .titulo-pase {
+        font-size: 1.2em;
+    }
+    
+    .detalles {
+        padding: 20px;
+    }
+    
+    .info-pasajero {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    .info {
+        width: 45%;
+        margin-bottom: 10px;
+        position: relative; /* Agregar posición relativa para alinear la línea */
+    }
+    
+    .info span {
+        font-weight: bold;
+    }
+    .info + .info {
+        margin-top: 10px;
+    }
+    .info::after {
+        content: ''; /* Agregar contenido para la línea */
+        position: absolute; /* Posicionar absolutamente en relación con .info */
+        bottom: -5px; /* Ajustar la posición vertical de la línea */
+        left: 0; /* Alinear la línea con el borde izquierdo de .info */
+        width: 100%; /* Hacer que la línea ocupe todo el ancho de .info */
+        border-bottom: 1px solid #ccc; /* Estilo de la línea gris */
+    }
+    
+    .codigo-barra {
+        text-align: center;
+        padding: 20px 0;
+    }
+}
+
+
+
 
