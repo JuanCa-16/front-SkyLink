@@ -6,6 +6,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useState, useEffect } from 'react'
 const PaseDeAbordaje = () => {
 
+    const navigate = useNavigate()
+
     const location = useLocation();
     const { v, selectedSeats } = location.state || {};
     const busqueda = JSON.parse(localStorage.getItem("busqueda"));
@@ -36,7 +38,6 @@ const PaseDeAbordaje = () => {
     const puerta = `${letraAleatoria()}${cadenaNumerosAleatoria(2)}`;
 
     const [name, setName] = useState("")
-    const [id, setId] = useState("")
 
     async function getName() {
         try {
@@ -47,40 +48,32 @@ const PaseDeAbordaje = () => {
 
             const data = await response.json();
             setName(data.nombre + ' ' + data.apellidos);
-            setId(data.id);
-            return data.id;
-        } catch (err) {
-            console.error(err.message);
-        }
-    }
-
-    async function millas(userId) {
-        try {
-            console.log("mi id:" + userId);
-            const response = await fetch(`http://localhost:4000/millas/${userId}`, {
-                method: 'PUT',
-            });
-
+            
             if (response.ok) {
-                const data = await response.json();
-                console.log('Respuesta del servidor:', data.message);
-                toast.success(data.message + data.usuario.millas);
-            } else {
-                const errorData = await response.json();
-                console.error('Error millas:', errorData);
+
+                const res = await fetch(`http://localhost:4000/millas/${data.id}`, {
+                    method: 'PUT',
+                });
+
+                if (res.ok) {
+                    const data = await res.json();
+                    console.log('Respuesta del servidor:', data.message, data.usuario.millas);
+                    toast.success(data.message + data.usuario.millas);
+                } else {
+                    const errorData = await res.json();
+                    console.error('Error millas:', errorData);
+                }
             }
+
         } catch (err) {
             console.error(err.message);
         }
     }
 
     useEffect(() => {
-        getName().then((userId) => {
-            if (userId) {
-                millas(userId);
-            }
-        });
+        getName()
     }, []);
+
     return (
         <div className="bodyAbordaje">
             <div className="pase-de-abordaje">
@@ -117,7 +110,7 @@ const PaseDeAbordaje = () => {
                 </div>
             </div>
 
-            <button>Continuar</button>
+            <button onClick={() => navigate('/')}>Continuar</button>
         </div>
     );
 }

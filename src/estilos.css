@@ -1054,6 +1054,7 @@ h2 {
   align-items: center;
   height: 100vh;
   margin: 0;
+  flex-direction: column;
 }
 .bodyAbordaje .pase-de-abordaje {
   background-color: #fff;
@@ -1109,4 +1110,128 @@ h2 {
 .bodyAbordaje .codigo-barra {
   text-align: center;
   padding:  20px 0;
+}
+.bodyAbordaje button {
+  background: rgba(19, 37, 127, 0.8);
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.crearVuelo {
+  min-height: 100vh;
+  background: url(./recursos/fondo4.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.crearVuelo .principal-r {
+  flex-direction: column;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(100px);
+          backdrop-filter: blur(100px);
+  border-radius: 35px;
+  width: 40%;
+}
+.crearVuelo .principal-r h1 {
+  margin-top: 30px;
+  color: white;
+  margin-bottom: 15px;
+}
+.crearVuelo .principal-r form button {
+  width: 50%;
+  height: 45px;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+.crearVuelo .principal-r .register-link-r {
+  font-size: 14.5px;
+  text-align: center;
+  font-weight: 600;
+  padding: 20px;
+}
+.crearVuelo .principal-r .register-link-r p {
+  color: white;
+  font-weight: 300;
+  white-space: nowrap;
+}
+.crearVuelo .principal-r .register-link-r button {
+  background-color: transparent;
+  text-decoration: none;
+}
+.crearVuelo .principal-r .register-link-r button:hover {
+  text-decoration: underline;
+}
+.crearVuelo .principal-r .btn-registro {
+  margin-top: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.crearVuelo .wrapper-r {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  color: white;
+  display: flex;
+}
+.crearVuelo .wrapper-r .form-box-r {
+  /* Estilos para el icono del calendario en navegadores WebKit (Chrome y Safari) */
+  /* Estilos para el botón de aumento/descenso en navegadores WebKit (Chrome y Safari) */
+}
+.crearVuelo .wrapper-r .form-box-r .form .input-box-r {
+  position: relative;
+  width: 100%;
+  height: 50px;
+}
+.crearVuelo .wrapper-r .form-box-r .form .input-box-r .Select input {
+  border-radius: 0;
+  margin: none !important;
+}
+.crearVuelo .wrapper-r .form-box-r .form .input-box-r input {
+  width: 87%;
+  padding: 0 20px;
+}
+.crearVuelo .wrapper-r .form-box-r .form .input-box-r input::-moz-placeholder {
+  color: white;
+}
+.crearVuelo .wrapper-r .form-box-r .form .input-box-r input::placeholder {
+  color: white;
+}
+.crearVuelo .wrapper-r .form-box-r .form .input-box-fecha-r {
+  flex-direction: rows;
+  position: relative;
+  width: 100%;
+  height: 40px;
+  margin: 25px 0;
+}
+.crearVuelo .wrapper-r .form-box-r .form .input-box-fecha-r input {
+  width: 50%;
+  padding: 0 15px 0 20px;
+}
+.crearVuelo .wrapper-r .form-box-r .form .input-box-fecha-r input::-moz-placeholder {
+  color: white;
+}
+.crearVuelo .wrapper-r .form-box-r .form .input-box-fecha-r input::placeholder {
+  color: white;
+}
+.crearVuelo .wrapper-r .form-box-r .form .input-box-fecha-r p {
+  padding: 15px 10px;
+}
+.crearVuelo .wrapper-r .form-box-r .icon-r {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  translate: 0 -50%;
+  font-size: 16px;
+}
+.crearVuelo .wrapper-r .form-box-r input[type=date]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  /* Invertir el color del icono a blanco */
+}
+.crearVuelo .wrapper-r .form-box-r input[type=date]::-webkit-inner-spin-button {
+  filter: invert(1);
+  /* Invertir el color del botón a blanco */
+}
+.crearVuelo .wrapper-r .form-box-r input[type=time]::-webkit-calendar-picker-indicator {
+  filter: invert(1); /* Invertir colores */
 }/*# sourceMappingURL=estilos.css.map */

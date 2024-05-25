@@ -89,12 +89,10 @@ const BarraNav = ({setAuth, logueado}) => {
                                             {
                                                 (rol == 2) ? (<>
                                                     <li><a className='texto' onClick={() => navigate('/vuelosAsignados')}>Vuelos Asigandos</a></li>
-                                                    <li><a className='texto' href="#">Edicion de vuelos</a></li>
                                                 </>) : (
                                                     (rol == 3) ? (<>
                                                         <li><a className='texto' onClick={() => navigate('/vuelosAsignados')}>Vuelos Asigandos</a></li>
-                                                        <li><a className='texto' href="#">Edicion de vuelos</a></li>
-                                                        <li><a className='texto' href="#">Creacion de vuelos</a></li>
+                                                        <li><a className='texto' onClick={() => navigate('/crearVuelos')}>Creacion de vuelos</a></li>
                                                         <li><a className='texto' onClick={() => navigate('/crearEmpleado')}>Crear Empleado</a></li>
                                                         <li><a className='texto' onClick={() => navigate('/listaEmpleados')}>Lista de Empleados</a></li>
                                                     </>) : (<></>)

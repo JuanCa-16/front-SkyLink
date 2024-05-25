@@ -1391,6 +1391,7 @@ h2 {
     align-items: center;
     height: 100vh;
     margin: 0;
+    flex-direction: column;
 
     .pase-de-abordaje {
         background-color: #fff;
@@ -1455,6 +1456,169 @@ h2 {
         text-align: center;
         padding: 20px 0;
     }
+
+    button{
+        background: #13257fcc;
+        padding: 10px;
+        margin-top: 10px;
+    }
+}
+
+//Estilo de registros
+.crearVuelo {
+
+    //Pantall principal
+    min-height: 100vh;
+    background: url(./recursos/fondo4.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    //Estilos del que contendra el formulario
+    .principal-r {
+        flex-direction: column;
+        background: transparent;
+        border: 2px solid rgba(255, 255, 255, .1);
+        backdrop-filter: blur(100px);
+        border-radius: 35px;
+        width: 40%;
+
+
+        h1 {
+            margin-top: 30px;
+            color: white;
+            margin-bottom: 15px;
+
+        }
+        
+        form {
+            button {
+                width: 50%;
+                height: 45px;
+                background: white;
+                box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+                color: #333;
+
+            }
+        }
+
+        .register-link-r {
+            font-size: 14.5px;
+            text-align: center;
+            font-weight: 600;
+            padding: 20px;
+
+            p {
+                color: white;
+                font-weight: 300;
+                white-space: nowrap; //Para que ocupe toda la linea
+            }
+
+            button {
+                background-color: transparent;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .btn-registro {
+            margin-top: 10px;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    //Estilos de las 2 columnas del formulario
+    .wrapper-r {
+        position: relative;
+        width: 100%;
+        height: 340px;
+        color: white;
+        display: flex;
+
+        .form-box-r {
+            //width: 81%;
+            //padding: 5px 40px;
+
+            .form {
+
+                .input-box-r {
+                    position: relative;
+                    width: 100%;
+                    height: 50px;
+                    //margin: 30px 0;
+
+                    .Select{
+                        input{
+                            border-radius: 0;
+                            margin: none !important;
+                            
+                        }
+                    }
+
+                    input {
+                        width: 87%;
+                        padding: 0 20px;
+
+                        &::placeholder {
+                            color: white;
+                        }
+                    }
+                }
+
+                .input-box-fecha-r {
+                    flex-direction: rows;
+                    position: relative;
+                    width: 100%;
+                    height: 40px;
+                    margin: 25px 0;
+
+                    input {
+                        width: 50%;
+                        padding: 0 15px 0 20px;
+
+                        &::placeholder {
+                            color: white;
+                        }
+                    }
+
+                    p {
+                        padding: 15px 10px;
+                    }
+                }
+            }
+
+            .icon-r {
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                translate: 0 -50%;
+                font-size: 16px;
+            }
+
+            /* Estilos para el icono del calendario en navegadores WebKit (Chrome y Safari) */
+            input[type="date"]::-webkit-calendar-picker-indicator {
+                filter: invert(1);
+                /* Invertir el color del icono a blanco */
+            }
+
+            /* Estilos para el botón de aumento/descenso en navegadores WebKit (Chrome y Safari) */
+            input[type="date"]::-webkit-inner-spin-button {
+                filter: invert(1);
+                /* Invertir el color del botón a blanco */
+            }
+
+            input[type="time"]::-webkit-calendar-picker-indicator {
+                filter: invert(1); /* Invertir colores */
+            }
+
+        }
+    }
+
+
+
 }
 
 

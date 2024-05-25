@@ -17,6 +17,7 @@ import BusquedaVuelos from './pags/BusquedaVuelos'
 import VuelosAsig from './pags/VuelosAsignados'
 import Asientos from './pags/Asientos'
 import PaseDeAbordaje from './pags/PaseDeAbordaje'
+import CrearVuelo from './pags/CrearVuelo'
 
 function App() {
   
@@ -115,6 +116,13 @@ function App() {
       <Route path='/vuelosAsignados' element={<>
         <BarraNav setAuth = {setAuth} logueado = {isAuth}/>
         <VuelosAsig  logueado={isAuth}/>
+        <PiePaag/>
+        {/* <EditarPerfil/> */}
+      </>}/>
+      
+      <Route path='/crearvuelos' element={<>
+        <PrivateRoute element={ <CrearVuelo/>}/>
+        
         <PiePaag/>
         {/* <EditarPerfil/> */}
       </>}/>
