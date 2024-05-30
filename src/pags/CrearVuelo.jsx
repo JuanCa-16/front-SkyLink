@@ -7,11 +7,39 @@ import { MdPassword } from "react-icons/md";
 import { PiIdentificationBadge } from "react-icons/pi";
 import { AiOutlinePhone } from "react-icons/ai";
 import { FaLocationDot } from "react-icons/fa6";
-import { FaPlaneArrival, FaPlaneDeparture, FaUser } from "react-icons/fa";
+import { FaPlaneArrival, FaPlaneDeparture, FaUsers } from "react-icons/fa";
 import {useNavigate} from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 
 const CrearVuelo = () => {
+
+    //PARA TRAER LOS USUARIOS EMPLEADOS
+    const [usuarios, setUsuarios] = useState([]);
+    const [selectedUsers, setSelectedUsers] = useState([]);
+
+    const cargarUsuarios = async () => {
+        const res = await fetch('http://localhost:4000/usuarios', {
+            method: 'GET',
+            headers: { 'Content-Type': "application/json" }
+        });
+
+        const data = await res.json();
+        
+        // Filtrar usuarios con rol 2 o 3
+        const empleados = data.filter(user => user.rol === 2 || user.rol === 3);
+        
+        // Mapear los datos para usarlos en react-select
+        const options = empleados.map(user => ({
+            value: user.id,   // id como value
+            label: `${user.nombre} ${user.apellidos}` // Concatenar nombre y apellidos
+        }));
+
+        setUsuarios(options);
+    };
+
+    useEffect(() => {
+        cargarUsuarios();
+    }, []);
 
 
     const [opcionSeleccionadaSalida, setOpcionSeleccionadaSalida] = useState(null);
@@ -133,7 +161,8 @@ const CrearVuelo = () => {
             backgroundColor: isFocused ? '#eee' : isSelected ? '#ddd' : 'white',
             color: 'black',
             height: '20%'
-        })
+        }),
+
     };
     return (
         //Div de la pantalla Principal
@@ -203,6 +232,20 @@ const CrearVuelo = () => {
                                 <div className='input-box-fecha-r flex'>
                 
                                     <input type='number' min={1} max={4} placeholder='Numero Avion' required name='id' onChange={handleChange}/>
+                                </div>
+
+                                <div className='input-box flex'>
+                                    <div className="icon"><FaUsers /></div>
+                                    {/* <input type='text' placeholder='Aeropuerto Destino' required name='aeroOrigen' /> */}
+                                    <Select
+                                        isMulti
+                                        options={usuarios}
+                                        value={selectedUsers}
+                                        onChange={setSelectedUsers}
+                                        placeholder="Usuario/s encargados"
+                                        styles={customStyles}
+                                        required
+                                    />
                                 </div>
 
                             </div>
