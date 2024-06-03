@@ -50,7 +50,6 @@ const BusquedaVuelos = ({logueado}) => {
             width: '40vh',
             height: '30%',
             backgroundColor: '#cec9c9;',
-            border: 'none',
             outline: 'none',
             borderRadius: '40px',
             fontSize: '16px',

@@ -2,6 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import PDFDocument from './PDFDocument';
 
 import { useState, useEffect } from 'react'
 const PaseDeAbordaje = () => {
@@ -74,6 +76,18 @@ const PaseDeAbordaje = () => {
         getName()
     }, []);
 
+    //ESTILOS del boton para imprimir
+    const buttonStyle= {
+        background: '#13257fcc',
+        padding: '10px',
+        marginTop: '10px',
+        color: 'white', // Asegúrate de agregar el color de texto para que sea visible
+        textDecoration: 'none', // Para eliminar la subrayado del enlace
+        display: 'inline-block',
+        borderRadius: '20px',
+        cursor: 'pointer',
+    }
+
     return (
         <div className="bodyAbordaje">
             <div className="pase-de-abordaje">
@@ -109,8 +123,19 @@ const PaseDeAbordaje = () => {
                     </div>
                 </div>
             </div>
+            
+            <div >
+                <PDFDownloadLink
+                    document={<PDFDocument name={name} busqueda={busqueda} v={v} eTicket={eTicket} selectedSeats={selectedSeats} puerta={puerta} />}
+                    fileName="pase_de_abordaje.pdf"
+                    style={buttonStyle}
+                >
+                    {({ blob, url, loading, error }) => (loading ? 'Cargando documento...' : 'Imprimir TIQUETE')}
+                </PDFDownloadLink>
 
-            <button onClick={() => navigate('/')}>Continuar</button>
+                <button onClick={() => navigate('/')}>Continuar</button>
+
+            </div>
         </div>
     );
 }
