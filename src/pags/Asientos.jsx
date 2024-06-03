@@ -1,22 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
+
 const Asientos = () => {
 
-    const location = useLocation();
-    const { v, cantAsi } = location.state || {};
-    const navigate = useNavigate()
-    const cantidadAsientos = cantAsi; // Variable que controla la cantidad de asientos que se pueden seleccionar
-    const [selectedSeats, setSelectedSeats] = useState([]);
-    const [totalPrice, setTotalPrice] = useState(0);
-    const [occupiedSeats, setOccupiedSeats] = useState([]);
+    const navigate = useNavigate();
 
+    // Obtiene el estado pasado desde el componente anterior
+    const location = useLocation();
+    const { v, cantAsi } = location.state || {}; // Desestructurando el estado pasado
+    const cantidadAsientos = cantAsi; // Variable que controla la cantidad de asientos que se pueden seleccionar
+    const [selectedSeats, setSelectedSeats] = useState([]); // Estado para los asientos seleccionados
+    const [occupiedSeats, setOccupiedSeats] = useState([]); // Estado para los asientos ocupados
+
+    //useEffect se utiliza para cargar los datos iniciales de los asientos ocupados desde el backend
     useEffect(() => {
-        // Simula la carga de datos iniciales desde la base de datos
-        // Aquí deberías llamar a una función para cargar los asientos ocupados desde tu backend
+
         const loadInitialData = async () => {
-            // Supongamos que los asientos ocupados se obtienen de la base de datos y son [0-1, 1-2]
 
             try {
                 const res = await fetch(`http://localhost:4000/asientosvuelo/${v.id_vuelo}`, {
@@ -24,67 +25,58 @@ const Asientos = () => {
                     headers: { 'Content-Type': "application/json" }
                 });
                 const data = await res.json();
+
+                // Transforma los datos obtenidos para obtener una lista de asientos ocupados
                 const occupiedSeatNumbers = data.map(item => item.numero_asiento);
-                console.log(occupiedSeatNumbers)
                 setOccupiedSeats(occupiedSeatNumbers);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
-
-
         };
 
-        loadInitialData();
+        loadInitialData(); // Llama a la función para cargar los datos iniciales
     }, []);
 
+    // Función para manejar la selección y deselección de asientos
     const toggleSeat = (rowIndex, seatIndex) => {
-        const seat = `${rowIndex}-${seatIndex}`;
+        const seat = `${rowIndex}-${seatIndex}`;// Identificador único para cada asiento
 
         // Verifica si el asiento está ocupado
         if (occupiedSeats.includes(seat)) {
             toast.error("Este asiento ya está ocupado.")
-            //alert("Este asiento ya está ocupado.");
-            return; // Si el asiento está ocupado, no hagas nada
+            return; // Si el asiento está ocupado, no hace nada
         }
 
-        const seatIndexInArray = selectedSeats.indexOf(seat);
+        const seatIndexInArray = selectedSeats.indexOf(seat); // Verifica si el asiento ya está seleccionado
         console.log('aqui' + seatIndexInArray)
 
-        //Cuando toco asiento disponible
+        // Añade el asiento a la selección si no está ya seleccionado y no se ha alcanzado el límite
+        //Retorna -1 porque al no estar seleccionado u ocupado todavia, no encuentra ese asiento en el array.
         if (seatIndexInArray === -1 && selectedSeats.length < cantidadAsientos) {
             setSelectedSeats([...selectedSeats, seat]);
-            setTotalPrice(totalPrice + calculatePrice(rowIndex, seatIndex));
+
             //Para deseleccionar el asiento que escogi
         } else if (seatIndexInArray !== -1) {
-            const updatedSeats = [...selectedSeats];
-            updatedSeats.splice(seatIndexInArray, 1);
-            setSelectedSeats(updatedSeats);
-            setTotalPrice(totalPrice - calculatePrice(rowIndex, seatIndex));
+            const updatedSeats = [...selectedSeats]; //Clona el arreglo
+            updatedSeats.splice(seatIndexInArray, 1); //Elimina el Seleccionado
+            setSelectedSeats(updatedSeats); //Actualiza
         } else {
             toast.error("Ya has seleccionado el máximo de asientos.")
-            //alert("Ya has seleccionado el máximo de asientos.");
         }
     };
 
-    const calculatePrice = (rowIndex, seatIndex) => {
-        // Implementa la lógica real para calcular el precio según la fila y el asiento seleccionado
-        // Por ahora, simplemente devuelve un precio fijo de 10
-        return 10;
-    };
-
-    
-
+    // Maneja el clic en el botón "Escoger" para enviar la selección al backend
     const handleEscogerClick = async () => {
-        if (selectedSeats.length == cantidadAsientos) {
-            console.log("Asientos seleccionados:", selectedSeats);
+        if (selectedSeats.length == cantidadAsientos) { //Verifica que se hayan seleccionado la cantidad correcta de asientos
+            //console.log("Asientos seleccionados:", selectedSeats);
 
             const body = JSON.stringify({
-                idVuelo: v.id_vuelo, // Asegúrate de que v.id_vuelo contiene el ID del vuelo
+                idVuelo: v.id_vuelo,
                 asientos: selectedSeats
             });
 
             try {
-                // Enviar la petición al backend
+
                 const res = await fetch('http://localhost:4000/ocuparasientos', {
                     method: 'PUT',
                     headers: {
@@ -92,16 +84,14 @@ const Asientos = () => {
                     },
                     body: body
                 });
-    
+
                 if (res.ok) {
-                    // Manejar la respuesta exitosa del servidor
                     const responseData = await res.json();
                     console.log('Respuesta del servidor:', responseData);
                     toast.success('Asientos seleccionados correctamente');
-                    navigate('/paseabordaje',{ state: { v, selectedSeats} })
-                    // Redirigir o realizar cualquier otra acción necesaria
+                    navigate('/paseabordaje', { state: { v, selectedSeats, cantAsi } })
+
                 } else {
-                    // Manejar errores de la respuesta del servidor
                     const errorData = await res.json();
                     console.error('Error en la selección de asientos:', errorData);
                     toast.error('Hubo un problema al seleccionar los asientos');
@@ -111,11 +101,8 @@ const Asientos = () => {
                 console.error('Error en la petición:', error);
                 toast.error('Error al comunicarse con el servidor');
             }
-
-            // Aquí agregarías la lógica para realizar la compra
         } else {
             toast.error(`Debes seleccionar ${cantidadAsientos} asientos.`)
-            //alert(`Debes seleccionar ${cantidadAsientos} asientos.`);
         }
     };
 

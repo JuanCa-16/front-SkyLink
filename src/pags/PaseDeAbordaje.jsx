@@ -9,7 +9,7 @@ const PaseDeAbordaje = () => {
     const navigate = useNavigate()
 
     const location = useLocation();
-    const { v, selectedSeats } = location.state || {};
+    const { v, selectedSeats, cantAsi } = location.state || {};
     const busqueda = JSON.parse(localStorage.getItem("busqueda"));
 
     // Función para generar un número entero aleatorio entre min (incluido) y max (excluido)
@@ -38,6 +38,7 @@ const PaseDeAbordaje = () => {
     const puerta = `${letraAleatoria()}${cadenaNumerosAleatoria(2)}`;
 
     const [name, setName] = useState("")
+    const [id,setId] = useState("")
 
     async function getName() {
         try {
@@ -50,7 +51,7 @@ const PaseDeAbordaje = () => {
             setName(data.nombre + ' ' + data.apellidos);
             
             if (response.ok) {
-
+                setId(data.id)
                 const res = await fetch(`http://localhost:4000/millas/${data.id}`, {
                     method: 'PUT',
                 });
@@ -70,9 +71,42 @@ const PaseDeAbordaje = () => {
         }
     }
 
+
+    async function siguiente(){
+        let pre = busqueda.misClases === 'Economica' ? (100000 * cantAsi) : busqueda.misClases === 'Ejecutiva' ? (200000 * cantAsi) : (250000*cantAsi)
+                
+                const body = JSON.stringify({
+                    precio: pre,
+                    id_vuelo:v.id_vuelo,
+                    id_usuario: id,
+                    asientos: selectedSeats,
+                    clase: busqueda.misClases
+                });
+
+                console.log(body)
+
+                const pase = await fetch('http://localhost:4000/paseAbordaje', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: body
+                });
+
+                if (pase.ok) {
+                    const data = await pase.json();
+                    toast.success(data.message);
+                    navigate('/')
+                } else {
+                    const errorData = await pase.json()
+                }
+    }
+
+
     useEffect(() => {
         getName()
     }, []);
+
 
     return (
         <div className="bodyAbordaje">
@@ -110,7 +144,7 @@ const PaseDeAbordaje = () => {
                 </div>
             </div>
 
-            <button onClick={() => navigate('/')}>Continuar</button>
+            <button onClick={() => siguiente()}>Continuar</button>
         </div>
     );
 }

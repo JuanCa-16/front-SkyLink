@@ -1,36 +1,42 @@
 import React, { useState, useEffect } from "react";
-import { FaPlaneArrival, FaPlaneDeparture, FaUser } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import Select from 'react-select'
+import { toast } from 'react-toastify';
 
-import video from '../recursos/video.mp4';
-import avion2 from '../recursos/avion2.png';
-import { ToastContainer, toast } from 'react-toastify';
-const BusquedaVuelos = ({logueado}) => {
-    // Estado para almacenar el valor seleccionado
+// Iconos
+import { FaPlaneArrival, FaPlaneDeparture, FaUser } from "react-icons/fa";
+
+const BusquedaVuelos = ({ logueado }) => {
+
+   // Hook para navegación
     const navigate = useNavigate()
+
+    // Estado para almacenar la búsqueda guardada
     const busqueda = JSON.parse(localStorage.getItem("busqueda"));
 
+    // Estado para el aeropuerto de salida seleccionado
     const [opcionSeleccionadaSalida, setOpcionSeleccionadaSalida] = useState(busqueda.opcInicialSalida);
 
-    // Función para manejar cambios en la selección SALIDA
+    // Función para manejar cambios en la selección de aeropuerto de salida
     const handleSelectChangeSalida = (e) => {
         setOpcionSeleccionadaSalida(e);
         setInfoVuelo({ ...infoVuelo, aeropuertoSalida: e.value, opcInicialSalida: e });
-
     };
 
+    // Estado para el aeropuerto de destino seleccionado
     const [opcionSeleccionadaDestino, setOpcionSeleccionadaDestino] = useState(busqueda.opcInicialLlegada);
 
-
+    // Función para manejar cambios en la selección de aeropuerto de destino
     const handleSelectChangeDestino = (e) => {
         setOpcionSeleccionadaDestino(e);
         setInfoVuelo({ ...infoVuelo, aeropuertoLlegada: e.value, opcInicialLlegada: e });
     };
 
+    // Estado para almacenar la lista de aeropuertos
     const [aeropuertos, setAeropuertos] = useState([]);
 
     const cargarAeropuertos = async () => {
+
         const res = await fetch('http://localhost:4000/aeropuertos', {
             method: 'GET',
             headers: { 'Content-Type': "application/json" }
@@ -44,6 +50,7 @@ const BusquedaVuelos = ({logueado}) => {
         cargarAeropuertos()
     }, [])
 
+    // Estilos personalizados para el componente Select
     const customStyles = {
         control: (provided) => ({
             ...provided,
@@ -69,6 +76,7 @@ const BusquedaVuelos = ({logueado}) => {
         }),
     };
 
+    // Estado para almacenar la información del vuelo
     const [infoVuelo, setInfoVuelo] = useState({
         aeropuertoSalida: busqueda.aeropuertoSalida,
         aeropuertoLlegada: busqueda.aeropuertoLlegada,
@@ -77,18 +85,19 @@ const BusquedaVuelos = ({logueado}) => {
         cant: busqueda.cant,
         opcInicialSalida: busqueda.opcInicialSalida,
         opcInicialLlegada: busqueda.opcInicialLlegada,
-        misComidas:'Sin Comida'
+        misComidas: 'Sin Comida'
     })
 
-
+    // Función para manejar cambios en los inputs
     const handleChange = e => {
-
         setInfoVuelo({ ...infoVuelo, [e.target.name]: e.target.value });
-
     };
 
+    // Función para manejar el envío del formulario de búsqueda
     const handleSubmit = async (e) => {
         e.preventDefault(); //para que no recarge al darle al boton enviar evitar refresh
+        
+        //Se actuliza el valor de busqueda por la nueva
         localStorage.removeItem("busqueda")
         localStorage.setItem("busqueda", JSON.stringify(infoVuelo));
 
@@ -100,28 +109,28 @@ const BusquedaVuelos = ({logueado}) => {
             });
 
             if (res.status === 404) {
-                // No flights found
-                setVuelos([]); // Set vuelos state to an empty array
+                setVuelos([]); 
                 toast.error("LO SENTIMOS, No tenemos vuelos con estos requisitos");
-
             } else {
-                // Flights found, parse response as JSON
                 const data = await res.json();
                 setVuelos(data);
             }
         } catch (err) {
             console.log(err.message)
         }
-
-
     }
 
-
+    // Cargar búsqueda guardada al cargar el componente (La busqueda que trae de principal)
     useEffect(() => {
+
         const cargarBusquedaGuardada = async () => {
+
             const busquedaGuardada = JSON.parse(localStorage.getItem("busqueda"));
+
             if (busquedaGuardada) {
+
                 setInfoVuelo(busquedaGuardada);
+
                 try {
                     const res = await fetch('http://localhost:4000/vuelos', {
                         method: 'POST',
@@ -130,13 +139,9 @@ const BusquedaVuelos = ({logueado}) => {
                     });
 
                     if (res.status === 404) {
-                        // No flights found
-                        setVuelos([]); // Set vuelos state to an empty array
-                        //toast.error("LO SENTIMOS, No tenemos vuelos con estos requisitos nue");
+                        setVuelos([]); 
                     } else {
-                        // Flights found, parse response as JSON
                         const data = await res.json();
-                        
                         setVuelos(data);
                     }
                 } catch (err) {
@@ -144,21 +149,24 @@ const BusquedaVuelos = ({logueado}) => {
                 }
             }
         };
+
         cargarBusquedaGuardada();
     }, []);
 
-    ///MANEJO DE LA LISTA DE VUELOS 
+    // Estado para la lista de vuelos
     const [vuelos, setVuelos] = useState([])
 
+    // Estado para mostrar u ocultar detalles de vuelo
     const [mostrarDiv, setMostrarDiv] = useState(false);
 
+    // Función para manejar la compra de vuelos
     const handleCompraClick = (v) => {
 
-        if(logueado){
-            
+        if (logueado) {
             let cantAsi = infoVuelo.cant
-            navigate('/asientos', { state: { v, cantAsi} });
-        }else{
+            console.log(v)
+            navigate('/asientos', { state: { v, cantAsi } });
+        } else {
             toast.error("Para comprar Vuelos debes Iniciar Sesion")
         }
     };
@@ -269,7 +277,7 @@ const BusquedaVuelos = ({logueado}) => {
                     </div>
 
                     <div className="vuelos flex">
-                        
+
                         {Array.isArray(vuelos) && vuelos.length > 0 ? (
                             vuelos.map(vuelo => (
                                 <div key={vuelo.id_vuelo} className="tarjeta">
@@ -282,7 +290,7 @@ const BusquedaVuelos = ({logueado}) => {
                                         <h3 className="titulo">FECHA:<span>{vuelo.fecha.substring(0, 10)}</span></h3>
                                         <h3 className="titulo">HORA VUELO:<span>{vuelo.hora}</span></h3>
                                         <h3 className="titulo">CLASE<span>{busqueda.misClases}</span></h3>
-                                        <h3 className="titulo">PRECIO: $<span>{busqueda.misClases === 'Economica' ? 100000 : busqueda.misClases === 'Ejecutiva' ? 200000 : 250000}</span></h3>
+                                        <h3 className="titulo">PRECIO: $<span>{busqueda.misClases === 'Economica' ? (100000 * infoVuelo.cant) : busqueda.misClases === 'Ejecutiva' ? (200000 * infoVuelo.cant) : (250000*infoVuelo.cant)}</span></h3>
 
 
                                         <button className="btn" onClick={() => setVuelos(vuelos.map(v => v.id_vuelo === vuelo.id_vuelo ? { ...v, mostrarDiv: !v.mostrarDiv } : v))}>
@@ -293,14 +301,14 @@ const BusquedaVuelos = ({logueado}) => {
                                             <div className="globalRadio flex">
                                                 <div className="radioClases flex">
                                                     <input className="radioInput" type="radio" value="Sin Comida" name={'misComidas'} id={`opc7-${vuelo.id_vuelo}`} required onChange={handleChange} />
-                                                    <label className="radioLabel" htmlFor= {`opc7-${vuelo.id_vuelo}`}><h3>Sin comida</h3><p>Menue pa los pobres</p></label>
-                                                    <input className="radioInput" type="radio" value="Saludable" name={'misComidas'} id={`opc4-${vuelo.id_vuelo}`} required onChange={handleChange}  />
-                                                    <label className="radioLabel" htmlFor= {`opc4-${vuelo.id_vuelo}`}><h3>Sana</h3><p>Comida saludable y deliciosa</p></label>
-                                                    <input className="radioInput" type="radio" value="Fast Food" name={'misComidas'} id={`opc5-${vuelo.id_vuelo}`}required onChange={handleChange} />
-                                                    <label className="radioLabel" htmlFor= {`opc5-${vuelo.id_vuelo}`}><h3>Fast Food</h3><p>Comida chatarra</p></label>
-                                                    <input className="radioInput" type="radio" value="A la Carta" name={'misComidas'} id={`opc6-${vuelo.id_vuelo}`} required onChange={handleChange}/>
-                                                    <label className="radioLabel" htmlFor= {`opc6-${vuelo.id_vuelo}`}><h3>A la Carta</h3><p>Menue ejecutivo</p></label>
-                                                    
+                                                    <label className="radioLabel" htmlFor={`opc7-${vuelo.id_vuelo}`}><h3>Sin comida</h3><p>Menue pa los pobres</p></label>
+                                                    <input className="radioInput" type="radio" value="Saludable" name={'misComidas'} id={`opc4-${vuelo.id_vuelo}`} required onChange={handleChange} />
+                                                    <label className="radioLabel" htmlFor={`opc4-${vuelo.id_vuelo}`}><h3>Sana</h3><p>Comida saludable y deliciosa</p></label>
+                                                    <input className="radioInput" type="radio" value="Fast Food" name={'misComidas'} id={`opc5-${vuelo.id_vuelo}`} required onChange={handleChange} />
+                                                    <label className="radioLabel" htmlFor={`opc5-${vuelo.id_vuelo}`}><h3>Fast Food</h3><p>Comida chatarra</p></label>
+                                                    <input className="radioInput" type="radio" value="A la Carta" name={'misComidas'} id={`opc6-${vuelo.id_vuelo}`} required onChange={handleChange} />
+                                                    <label className="radioLabel" htmlFor={`opc6-${vuelo.id_vuelo}`}><h3>A la Carta</h3><p>Menue ejecutivo</p></label>
+
                                                 </div>
                                             </div>
                                             <button className="btn" onClick={() => handleCompraClick(vuelo)}>Comprar</button>
@@ -314,7 +322,7 @@ const BusquedaVuelos = ({logueado}) => {
                                 <h1>No se encontraron vuelos.</h1>
                             </div>
                         )}
-                        
+
                     </div>
 
                 </div>

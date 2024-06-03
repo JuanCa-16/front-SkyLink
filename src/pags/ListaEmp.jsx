@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from 'react'
-import { ToastContainer, toast } from 'react-toastify';
-import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 import ReactModal from 'react-modal';
-
 
 const ListaEmp = ({ logueado }) => {
 
+    // Obtener el rol del usuario desde el almacenamiento local
     const rol = localStorage.getItem('rol');
+
     const navigate = useNavigate()
 
+    // Estado para almacenar la lista de usuarios
     const [usuarios, setUsuarios] = useState([])
+
+    // Función para cargar la lista de usuarios
     const cargarUsuarios = async () => {
+
         const res = await fetch('http://localhost:4000/usuarios', {
             method: 'GET',
             headers: { 'Content-Type': "application/json" }
@@ -18,9 +23,12 @@ const ListaEmp = ({ logueado }) => {
 
         const data = await res.json()
         setUsuarios(data)
+        console.log(data)
     }
 
+    // Función para eliminar un usuario
     const eliminar = async (id, nombre) => {
+
         const res = await fetch(`http://localhost:4000/usuarios/${id}`, {
             method: 'DELETE',
             headers: { 'Content-Type': "application/json" } // Para que rellene los campos
@@ -42,8 +50,8 @@ const ListaEmp = ({ logueado }) => {
         setFiltro(event.target.value);
     }
 
-
     useEffect(() => {
+        // Cargar la lista de usuarios si el usuario está logueado y tiene rol de administrador
         if (logueado && rol === '3') {
             cargarUsuarios();
         } else {
@@ -51,7 +59,9 @@ const ListaEmp = ({ logueado }) => {
         }
     }, [logueado, rol]);
 
+    // Estado y función para controlar la apertura y cierre del modal
     const [modalIsOpen, setModalIsOpen] = useState(false);
+    
     const [selectedUser, setSelectedUser] = useState('');
 
     return (
@@ -75,7 +85,7 @@ const ListaEmp = ({ logueado }) => {
                                         {/* <button className='btn' onClick={() => eliminar(user.id, user.nombre)}>Eliminar</button> */}
                                         <button className='btn' onClick={() => { setModalIsOpen(true); setSelectedUser(user); }}>Eliminar</button>
                                         <ReactModal
-                                            
+
                                             isOpen={modalIsOpen}
                                             onRequestClose={() => setModalIsOpen(false)}
                                             style={{
