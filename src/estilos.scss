@@ -1624,10 +1624,91 @@ h2 {
 
     }
 
-
-
 }
 
-
+.principalvuelosasignados {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 60vh;
+  
+    h1,
+    p {
+      justify-content: flex-start;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+  
+  
+    .vuelos {
+      display: flex;
+      flex-direction: column;
+      align-items: top;
+      padding-top: 20px;
+      padding-bottom: 40px;
+  
+      .tarjeta {
+        background-color: #fff;
+        width: 800px;
+        height: 220px;
+        border: 2px solid #13257fcc;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+  
+        .header {
+          background-color: #13257fcc;
+          color: white;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          padding: 10px;
+          align-items: center;
+  
+          .airline {
+            font-size: 24px;
+            font-weight: bold;
+          }
+  
+          .boardingPassTitle {
+            font-size: 18px;
+          }
+        }
+  
+        .details {
+          padding: 20px;
+          flex-grow: 1;
+  
+          .passengerInfo {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+  
+            .info {
+              width: 45%;
+              margin-bottom: 10px;
+              position: relative;
+  
+              .infoText {
+                font-weight: bold;
+              }
+  
+              .infoAfter {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 100%;
+                border-bottom: 1px solid #ccc;
+            }
+           }
+         }
+      }
+    }
+   }
+}
+  
 
 

@@ -1238,4 +1238,76 @@ h2 {
 }
 .crearVuelo .horizontal {
   display: flex;
+}
+
+.principalvuelosasignados {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 60vh;
+}
+.principalvuelosasignados h1,
+.principalvuelosasignados p {
+  justify-content: flex-start;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.principalvuelosasignados .vuelos {
+  display: flex;
+  flex-direction: column;
+  align-items: top;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+.principalvuelosasignados .vuelos .tarjeta {
+  background-color: #fff;
+  width: 800px;
+  height: 220px;
+  border: 2px solid rgba(19, 37, 127, 0.8);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+.principalvuelosasignados .vuelos .tarjeta .header {
+  background-color: rgba(19, 37, 127, 0.8);
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+}
+.principalvuelosasignados .vuelos .tarjeta .header .airline {
+  font-size: 24px;
+  font-weight: bold;
+}
+.principalvuelosasignados .vuelos .tarjeta .header .boardingPassTitle {
+  font-size: 18px;
+}
+.principalvuelosasignados .vuelos .tarjeta .details {
+  padding: 20px;
+  flex-grow: 1;
+}
+.principalvuelosasignados .vuelos .tarjeta .details .passengerInfo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.principalvuelosasignados .vuelos .tarjeta .details .passengerInfo .info {
+  width: 45%;
+  margin-bottom: 10px;
+  position: relative;
+}
+.principalvuelosasignados .vuelos .tarjeta .details .passengerInfo .info .infoText {
+  font-weight: bold;
+}
+.principalvuelosasignados .vuelos .tarjeta .details .passengerInfo .info .infoAfter {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
 }/*# sourceMappingURL=estilos.css.map */

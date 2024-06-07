@@ -18,6 +18,7 @@ import VuelosAsig from './pags/VuelosAsignados'
 import Asientos from './pags/Asientos'
 import PaseDeAbordaje from './pags/PaseDeAbordaje'
 import CrearVuelo from './pags/CrearVuelo'
+import TusVuelos from './pags/TusVuelos'
 
 function App() {
   
@@ -119,6 +120,16 @@ function App() {
         <PiePaag/>
         {/* <EditarPerfil/> */}
       </>}/>
+
+      {/*TUS VUELOS -> TIQUETES*/}
+      <Route path='/tusvuelos' 
+            element={<>
+            <BarraNav setAuth = {setAuth} logueado = {isAuth}/>
+            {/* <PrivateRoute element={ <ListaEmp/>}/> */}
+            <TusVuelos logueado={isAuth}/>
+            <PiePaag/>
+            </>}
+      />
       
       <Route path='/crearvuelos' element={<>
         <PrivateRoute element={ <CrearVuelo/>}/>
@@ -139,7 +150,7 @@ function App() {
         {/* <EditarPerfil/> */}
       </>}/>
 
-      {/* Rura Principal */}
+      {/* Rura radar */}
       <Route path='/radar' element={<>
         <BarraNav setAuth = {setAuth} logueado = {isAuth}/>
         <Radar/>

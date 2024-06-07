@@ -166,7 +166,8 @@ const PaseDeAbordaje = () => {
                     {({ blob, url, loading, error }) => (loading ? 'Cargando documento...' : 'Imprimir TIQUETE')}
                 </PDFDownloadLink>
 
-            <button onClick={() => navigate('/')}>Continuar</button>
+                <button onClick={() => siguiente()}>Continuar</button>
+            </div>
         </div>
     );
 }
