@@ -1,5 +1,6 @@
 import React from 'react'
-import {useState,useEffect} from 'react'
+import { useState, useEffect } from 'react'
+
 //Iconos importados
 import Select from 'react-select';
 import { HiOutlineMail } from "react-icons/hi";
@@ -8,16 +9,20 @@ import { PiIdentificationBadge } from "react-icons/pi";
 import { AiOutlinePhone } from "react-icons/ai";
 import { FaLocationDot } from "react-icons/fa6";
 
-import {useNavigate} from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const CrearEmp = () => {
 
+    // Obtiene el rol del usuario almacenado en el almacenamiento local
     const rol = localStorage.getItem('rol');
 
+    // Estado para almacenar la lista de países
     const [countries, setCountries] = useState([]);
 
+    // Efecto para cargar la lista de países al cargar el componente
     useEffect(() => {
+
         const fetchCountries = async () => {
             const response = await fetch('https://restcountries.com/v3.1/all');
             const data = await response.json();
@@ -34,6 +39,7 @@ const CrearEmp = () => {
     //React Routing
     const navigate = useNavigate();
 
+    // Estado para almacenar los datos del empleado
     const [empleado, setEmpleado] = useState(
         {
             id: '',
@@ -50,9 +56,13 @@ const CrearEmp = () => {
 
     //Manejo del formulario, envia la peticion al dar click en el boton del form
     const handleSubmit = async (e) => {
+
         e.preventDefault(); //para que no recarge al darle al boton enviar evitar refresh
+
+        //Acomodo los nombres y apellidos
         empleado.nombre = formatName(empleado.nombre);
         empleado.apellidos = formatName(empleado.apellidos);
+
         const res = await fetch('http://localhost:4000/usuarios', {
             method: 'POST',
             body: JSON.stringify(empleado), //Para que lo detecte como string
@@ -68,29 +78,32 @@ const CrearEmp = () => {
             toast.error(data)
         }
     };
+
+    // Formatea el nombre capitalizando la primera letra de cada palabra
     const formatName = (name) => {
         return name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
     };
-    //ir actualizando el json usuario a enviar en la peticion
+
+    // Manejador de cambio en los campos del formulario
     const handleChange = e => {
-        //console.log(e.target.name, e.target.value);
         setEmpleado({ ...empleado, [e.target.name]: e.target.value });
     };
 
+    // Manejador de cambio en la selección de país
     const handleCountryChange = (selectedOption) => {
         setEmpleado({ ...empleado, pais: selectedOption.value });
     };
 
-    //Estilos del SELECT
+    // Estilos personalizados para el componente Select
     const customStyles = {
         container: (base) => ({
             ...base,
             position: 'relative',
             width: '80%',
-            border:'0',
+            border: '0',
             height: '100%',
             margin: '30px 0',
-            borderRadius:'0',
+            borderRadius: '0',
         }),
         control: (provided) => ({
             ...provided,
@@ -108,7 +121,7 @@ const CrearEmp = () => {
         valueContainer: (base) => ({
             ...base,
             padding: '0 20px',
-            borderRadius:'0',
+            borderRadius: '0',
             color: 'white',
             border: '0'
         }),
@@ -122,17 +135,17 @@ const CrearEmp = () => {
         placeholder: (provided) => ({
             ...provided,
             color: 'white', // Establece el color del placeholder a blanco
-          }),
+        }),
         singleValue: (base) => ({
             ...base,
             color: 'white',
-            borderRadius:'0',
+            borderRadius: '0',
         }),
         menu: (base) => ({
             ...base,
             backgroundColor: 'white',
             color: 'white',
-            borderRadius:'0',
+            borderRadius: '0',
         }),
         option: (base, { isFocused, isSelected }) => ({
             ...base,
@@ -141,13 +154,17 @@ const CrearEmp = () => {
             height: '20%'
         })
     };
+
     return (
-        
         <>
-        {(rol==3)? (//Div de la pantalla Principal
+            {(rol == 3) ? (
+                
+                //Div de la pantalla Principal
                 <div className='registros flex'>
+
                     {/* div que contendra todo el crear cuenta */}
                     <div className='principal-r flex'>
+                        
                         <form onSubmit={handleSubmit}>
                             <h1>EMPLEADO SkyLink</h1>
 
@@ -202,14 +219,14 @@ const CrearEmp = () => {
                                         </div>
 
                                         <div className='input-box-r'>
-                                        <Select 
-                                        className="Selectr"
-                                        options={countries}
-                                        styles={customStyles}
-                                        placeholder='Selecciona tu país'
-                                        onChange={handleCountryChange}
-                                        required
-                                    />
+                                            <Select
+                                                className="Selectr"
+                                                options={countries}
+                                                styles={customStyles}
+                                                placeholder='Selecciona tu país'
+                                                onChange={handleCountryChange}
+                                                required
+                                            />
                                             {/* <input type='text' placeholder='Pais' required name='pais' onChange={handleChange} /> */}
                                             <FaLocationDot className='icon-r' />
                                         </div>
@@ -226,8 +243,8 @@ const CrearEmp = () => {
 
                     </div>
                 </div>
-        ):(navigate("/inicioSesion"))
-        }
+            ) : (navigate("/inicioSesion"))
+            }
         </>
     )
 }

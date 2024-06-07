@@ -1,17 +1,100 @@
 import React from 'react'
 import Select from 'react-select';
-import {useState, useEffect} from 'react'
-//Iconos importados
-import { HiOutlineMail } from "react-icons/hi";
-import { MdPassword } from "react-icons/md";
-import { PiIdentificationBadge } from "react-icons/pi";
-import { AiOutlinePhone } from "react-icons/ai";
-import { FaLocationDot } from "react-icons/fa6";
-import { FaPlaneArrival, FaPlaneDeparture, FaUsers } from "react-icons/fa";
-import {useNavigate} from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 
+//Iconos importados
+import { FaPlaneArrival, FaPlaneDeparture, FaUsers } from "react-icons/fa";
 const CrearVuelo = () => {
+
+    // Estado para almacenar la opción seleccionada de salida
+    const [opcionSeleccionadaSalida, setOpcionSeleccionadaSalida] = useState(null);
+
+    // Función para manejar cambios en la selección SALIDA
+    const handleSelectChangeSalida = (e) => {
+        setOpcionSeleccionadaSalida(e);
+        setInfoVuelo({ ...infoVuelo, aeropuertoSalida: e.value, opcInicialSalida: e });
+    };
+
+    // Estado para almacenar la opción seleccionada de destino
+    const [opcionSeleccionadaDestino, setOpcionSeleccionadaDestino] = useState(null);
+
+    // Función para manejar cambios en la selección de destino
+    const handleSelectChangeDestino = (e) => {
+        setOpcionSeleccionadaDestino(e);
+        setInfoVuelo({ ...infoVuelo, aeropuertoLlegada: e.value, opcInicialLlegada: e });
+    };
+
+    // Estado para almacenar la lista de aeropuertos
+    const [aeropuertos, setAeropuertos] = useState([]);
+
+    // Función para cargar la lista de aeropuertos
+    const cargarAeropuertos = async () => {
+
+        const res = await fetch('http://localhost:4000/aeropuertos', {
+            method: 'GET',
+            headers: { 'Content-Type': "application/json" }
+        });
+
+        const data = await res.json()
+        setAeropuertos(data)
+    }
+
+    useEffect(() => {
+        cargarAeropuertos()
+    }, [])
+
+    //React Routing
+    const navigate = useNavigate();
+
+    // Estado para almacenar la información del vuelo
+    const [infoVuelo, setInfoVuelo] = useState({
+        aeropuertoSalida: '',
+        aeropuertoLlegada: '',
+        fecha: '',
+        hora: '',
+        id: '',
+        opcInicialSalida: '',
+        opcInicialLlegada: '',
+    })
+
+    // Manejador de envío del formulario
+    const handleSubmit = async (e) => {
+        e.preventDefault(); //para que no recarge al darle al boton enviar evitar refresh
+        const body = JSON.stringify({
+            infoVuelo,
+            listaEmp: selectedUsers
+        });
+
+        try {
+            const res = await fetch('http://localhost:4000/vuelo', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: body
+                });
+
+                if (res.ok) {
+                    const responseData = await res.json();
+                    console.log('Respuesta del servidor:', responseData);
+                    
+
+                } else {
+                    const errorData = await res.json();
+                    console.error('Error en la selección de asientos:', errorData);
+                    
+                }
+        } catch (error) {
+            
+        }
+    };
+
+    // Manejador de cambio en los campos del formulario
+    const handleChange = e => {
+        setInfoVuelo({ ...infoVuelo, [e.target.name]: e.target.value });
+    };
+
 
     //PARA TRAER LOS USUARIOS EMPLEADOS
     const [usuarios, setUsuarios] = useState([]);
@@ -24,10 +107,10 @@ const CrearVuelo = () => {
         });
 
         const data = await res.json();
-        
+
         // Filtrar usuarios con rol 2 o 3
         const empleados = data.filter(user => user.rol === 2 || user.rol === 3);
-        
+
         // Mapear los datos para usarlos en react-select
         const options = empleados.map(user => ({
             value: user.id,   // id como value
@@ -41,78 +124,16 @@ const CrearVuelo = () => {
         cargarUsuarios();
     }, []);
 
-
-    const [opcionSeleccionadaSalida, setOpcionSeleccionadaSalida] = useState(null);
-
-    // Función para manejar cambios en la selección SALIDA
-    const handleSelectChangeSalida = (e) => {
-        setOpcionSeleccionadaSalida(e);
-        setInfoVuelo({...infoVuelo, aeropuertoSalida: e.value, opcInicialSalida: e});
-    };
-
-    const [opcionSeleccionadaDestino, setOpcionSeleccionadaDestino] = useState(null);
-
-
-    const handleSelectChangeDestino = (e) => {
-        setOpcionSeleccionadaDestino(e);
-        setInfoVuelo({...infoVuelo, aeropuertoLlegada: e.value, opcInicialLlegada: e});
-    };
-
-
-
-    const [aeropuertos, setAeropuertos] = useState([]);
-
-    const cargarAeropuertos = async () => {
-        const res = await fetch('http://localhost:4000/aeropuertos', {
-            method: 'GET',
-            headers: { 'Content-Type': "application/json" }
-        });
-
-        const data = await res.json()
-        setAeropuertos(data)
-    }
-
-    useEffect(() => {
-        cargarAeropuertos()
-    },[])
-
-
-    //React Routing
-    const navigate = useNavigate();
-
-    const [infoVuelo, setInfoVuelo] = useState({
-        aeropuertoSalida : '',
-        aeropuertoLlegada : '',
-        fecha: '',
-        hora:'',
-        id:'',
-        opcInicialSalida: '',
-        opcInicialLlegada: ''
-    })
-
-    //Manejo del formulario, envia la peticion al dar click en el boton del form
-    const handleSubmit = async(e) => {
-        e.preventDefault(); //para que no recarge al darle al boton enviar evitar refresh
-        console.log(infoVuelo)
-    };
-
-    //ir actualizando el json usuario a enviar en la peticion
-    const handleChange = e =>{
-        //console.log(e.target.name, e.target.value);
-        setInfoVuelo({...infoVuelo, [e.target.name]: e.target.value});
-
-    };
-
-    //Estilos del SELECT
+    // Estilos personalizados para el componente Select
     const customStyles = {
         container: (base) => ({
             ...base,
             position: 'relative',
             width: '400px',
-            border:'0',
+            border: '0',
             height: '100%',
             margin: '15px 5px',
-            borderRadius:'0',
+            borderRadius: '0',
         }),
         control: (provided) => ({
             ...provided,
@@ -130,7 +151,7 @@ const CrearVuelo = () => {
         valueContainer: (base) => ({
             ...base,
             padding: '0 20px',
-            borderRadius:'0',
+            borderRadius: '0',
             color: 'white',
             border: '0'
         }),
@@ -144,17 +165,17 @@ const CrearVuelo = () => {
         placeholder: (provided) => ({
             ...provided,
             color: 'white', // Establece el color del placeholder a blanco
-          }),
+        }),
         singleValue: (base) => ({
             ...base,
             color: 'white',
-            borderRadius:'0',
+            borderRadius: '0',
         }),
         menu: (base) => ({
             ...base,
             backgroundColor: 'white',
             color: 'white',
-            borderRadius:'0',
+            borderRadius: '0',
         }),
         option: (base, { isFocused, isSelected }) => ({
             ...base,
@@ -164,6 +185,7 @@ const CrearVuelo = () => {
         }),
 
     };
+
     return (
         //Div de la pantalla Principal
         <div className='crearVuelo flex'>
@@ -176,12 +198,11 @@ const CrearVuelo = () => {
                     {/* div que contendra el formulario */}
                     <div className='wrapper-r'>
 
-                        {/* div del formulario izq */}
                         <div className="form-box-r">
 
                             <div className='form'>
 
-                            <div className='input-box flex'>
+                                <div className='input-box flex'>
                                     <div className="icon"><FaPlaneDeparture /></div>
                                     {/* <input type='text' placeholder='Aeropuerto Origen' required name='aeroOrigen' /> */}
                                     <Select
@@ -190,7 +211,7 @@ const CrearVuelo = () => {
                                         options={aeropuertos.map(aeropuerto => ({
                                             value: aeropuerto.id_aeropuerto,
                                             label: aeropuerto.nombre + " - " + aeropuerto.ciudad
-                                        }))} 
+                                        }))}
                                         value={opcionSeleccionadaSalida}
                                         name="aeropuertoSalida"
                                         onChange={handleSelectChangeSalida}
@@ -209,7 +230,7 @@ const CrearVuelo = () => {
                                         options={aeropuertos.map(aeropuerto => ({
                                             value: aeropuerto.id_aeropuerto,
                                             label: aeropuerto.nombre + " - " + aeropuerto.ciudad
-                                        }))} 
+                                        }))}
                                         value={opcionSeleccionadaDestino}
                                         name="aeropuertoLlegada"
                                         onChange={handleSelectChangeDestino}
@@ -217,21 +238,6 @@ const CrearVuelo = () => {
                                         styles={customStyles}
                                         required
                                     />
-                                </div>
-
-                                <div className='input-box-fecha-r flex'>
-                                    <p>Fecha del Vuelo</p>
-                                    <input type='date' required name='fecha'onChange={handleChange}/>
-                                </div>
-
-                                <div className='input-box-fecha-r flex'>
-                                    <p>Hora del Vuelo</p>
-                                    <input type='time' required name='hora'onChange={handleChange}/>
-                                </div>
-
-                                <div className='input-box-fecha-r flex'>
-                
-                                    <input type='number' min={1} max={4} placeholder='Numero Avion' required name='id' onChange={handleChange}/>
                                 </div>
 
                                 <div className='input-box flex'>
@@ -248,9 +254,27 @@ const CrearVuelo = () => {
                                     />
                                 </div>
 
+                                <div className='input-box-fecha-r flex'>
+                                    <p>Fecha del Vuelo</p>
+                                    <input type='date' required name='fecha' onChange={handleChange} />
+                                </div>
+
+                                <div className="horizontal">
+                                    <div className='input-box-fecha-r flex'>
+                                        <p>Hora del Vuelo</p>
+                                        <input type='time' required name='hora' onChange={handleChange} />
+                                    </div>
+
+                                    <div className='input-box-fecha-r flex'>
+
+                                        <input type='number' min={1} max={4} placeholder='Num Avion' required name='id' onChange={handleChange} />
+                                    </div>
+                                </div>
+
+                                
+
                             </div>
                         </div>
-
 
                     </div>
 
@@ -259,7 +283,7 @@ const CrearVuelo = () => {
 
                 {/* div para regeresar a inicio */}
                 <div className='register-link-r flex'><p>Deseo</p> <button onClick={() => navigate('/')}>Regresar</button></div>
-                
+
             </div>
         </div>
     )

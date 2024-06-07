@@ -1575,7 +1575,7 @@ h2 {
                     position: relative;
                     width: 100%;
                     height: 40px;
-                    margin: 25px 0;
+                    margin: 10px 0;
 
                     input {
                         width: 50%;
@@ -1617,6 +1617,11 @@ h2 {
             }
 
         }
+    }
+
+    .horizontal{
+        display: flex;
+
     }
 
 
