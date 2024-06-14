@@ -2,7 +2,7 @@ import React from 'react'
 import Select from 'react-select';
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
-
+import { toast } from 'react-toastify';
 //Iconos importados
 import { FaPlaneArrival, FaPlaneDeparture, FaUsers } from "react-icons/fa";
 const CrearVuelo = () => {
@@ -75,15 +75,14 @@ const CrearVuelo = () => {
                     body: body
                 });
 
+
                 if (res.ok) {
                     const responseData = await res.json();
-                    console.log('Respuesta del servidor:', responseData);
-                    
-
+                    toast.success(responseData.message);
+                    navigate('/')
                 } else {
                     const errorData = await res.json();
-                    console.error('Error en la selección de asientos:', errorData);
-                    
+                    toast.error(errorData);
                 }
         } catch (error) {
             

@@ -9,7 +9,7 @@ const PaseDeAbordaje = () => {
     const navigate = useNavigate()
 
     const location = useLocation();
-    const { v, selectedSeats, cantAsi } = location.state || {};
+    const { v, selectedSeats, cantAsi, menu, equi } = location.state || {};
     const busqueda = JSON.parse(localStorage.getItem("busqueda"));
 
     // Función para generar un número entero aleatorio entre min (incluido) y max (excluido)
@@ -38,7 +38,7 @@ const PaseDeAbordaje = () => {
     const puerta = `${letraAleatoria()}${cadenaNumerosAleatoria(2)}`;
 
     const [name, setName] = useState("")
-    const [id,setId] = useState("")
+    const [id, setId] = useState("")
 
     async function getName() {
         try {
@@ -49,7 +49,7 @@ const PaseDeAbordaje = () => {
 
             const data = await response.json();
             setName(data.nombre + ' ' + data.apellidos);
-            
+
             if (response.ok) {
                 setId(data.id)
                 const res = await fetch(`http://localhost:4000/millas/${data.id}`, {
@@ -72,34 +72,59 @@ const PaseDeAbordaje = () => {
     }
 
 
-    async function siguiente(){
-        let pre = busqueda.misClases === 'Economica' ? (100000 * cantAsi) : busqueda.misClases === 'Ejecutiva' ? (200000 * cantAsi) : (250000*cantAsi)
-                
-                const body = JSON.stringify({
-                    precio: pre,
-                    id_vuelo:v.id_vuelo,
-                    id_usuario: id,
-                    asientos: selectedSeats,
-                    clase: busqueda.misClases
-                });
+    async function siguiente() {
+        let cantAsientos = parseInt(cantAsi);
 
-                console.log(body)
+        let pre = busqueda.misClases === 'Economica'
+            ? (100000 * cantAsientos)
+            : busqueda.misClases === 'Ejecutiva'
+                ? (200000 * cantAsientos)
+                : (250000 * cantAsientos);
 
-                const pase = await fetch('http://localhost:4000/paseAbordaje', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: body
-                });
+        let precioC = menu === 'Sin Comida'
+            ? 0
+            : menu === 'Saludable'
+                ? (100000 * cantAsientos)
+                : (menu === 'Fast Food'
+                    ? (200000 * cantAsientos)
+                    : (300000 * cantAsientos));
 
-                if (pase.ok) {
-                    const data = await pase.json();
-                    toast.success(data.message);
-                    navigate('/')
-                } else {
-                    const errorData = await pase.json()
-                }
+        let preE = equi === 'Sin Equipaje'
+            ? 0
+            : equi === 'Equipaje Mano'
+                ? (100000 * cantAsientos)
+                : (200000 * cantAsientos);
+
+        let total = parseInt(precioC) + parseInt(preE) + parseInt(pre);
+
+        console.log(total)
+        const body = JSON.stringify({
+            precio: total,
+            id_vuelo: v.id_vuelo,
+            id_usuario: id,
+            asientos: selectedSeats,
+            clase: busqueda.misClases,
+            comida: menu,
+            maleta: equi
+        });
+
+        console.log(body)
+
+        const pase = await fetch('http://localhost:4000/paseAbordaje', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: body
+        });
+
+        if (pase.ok) {
+            const data = await pase.json();
+            toast.success(data.message);
+            navigate('/')
+        } else {
+            const errorData = await pase.json()
+        }
     }
 
 
@@ -123,7 +148,8 @@ const PaseDeAbordaje = () => {
                         <div className="info"><span>Destino</span><br />{v.nombre_aeropuerto_llegada}</div>
                         <div className="info"><span>Transportadora</span><br /> AC</div>
                         <div className="info"><span>N° de Vuelo</span><br /> {v.id_vuelo}</div>
-                        <div className="info"><span>Equipaje</span><br />S</div>
+                        <div className="info"><span>Equipaje</span><br />{equi}</div>
+                        <div className="info"><span>Comida</span><br />{menu}</div>
                         <div className="info"><span>E-ticket</span><br />{eTicket}</div>
                         <div className="info"><span>Clase</span><br />{busqueda.misClases}</div>
                         <div className="info">

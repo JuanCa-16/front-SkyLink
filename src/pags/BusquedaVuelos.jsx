@@ -85,7 +85,8 @@ const BusquedaVuelos = ({ logueado }) => {
         cant: busqueda.cant,
         opcInicialSalida: busqueda.opcInicialSalida,
         opcInicialLlegada: busqueda.opcInicialLlegada,
-        misComidas: 'Sin Comida'
+        misComidas: 'Sin Comida',
+        misMaletas: ''
     })
 
     // Función para manejar cambios en los inputs
@@ -164,8 +165,11 @@ const BusquedaVuelos = ({ logueado }) => {
 
         if (logueado) {
             let cantAsi = infoVuelo.cant
-            console.log(v)
-            navigate('/asientos', { state: { v, cantAsi } });
+            let menu = infoVuelo.misComidas
+            let equi = infoVuelo.misMaletas
+            //console.log(v)
+            //console.log(infoVuelo)
+            navigate('/asientos', { state: { v, cantAsi, menu, equi} });
         } else {
             toast.error("Para comprar Vuelos debes Iniciar Sesion")
         }
@@ -301,13 +305,25 @@ const BusquedaVuelos = ({ logueado }) => {
                                             <div className="globalRadio flex">
                                                 <div className="radioClases flex">
                                                     <input className="radioInput" type="radio" value="Sin Comida" name={'misComidas'} id={`opc7-${vuelo.id_vuelo}`} required onChange={handleChange} />
-                                                    <label className="radioLabel" htmlFor={`opc7-${vuelo.id_vuelo}`}><h3>Sin comida</h3><p>Menue pa los pobres</p></label>
+                                                    <label className="radioLabel" htmlFor={`opc7-${vuelo.id_vuelo}`}><h3>Sin comida</h3><p>Menue pa los pobres +0</p></label>
                                                     <input className="radioInput" type="radio" value="Saludable" name={'misComidas'} id={`opc4-${vuelo.id_vuelo}`} required onChange={handleChange} />
-                                                    <label className="radioLabel" htmlFor={`opc4-${vuelo.id_vuelo}`}><h3>Sana</h3><p>Comida saludable y deliciosa</p></label>
+                                                    <label className="radioLabel" htmlFor={`opc4-${vuelo.id_vuelo}`}><h3>Sana</h3><p>Comida saludable y deliciosa +100</p></label>
                                                     <input className="radioInput" type="radio" value="Fast Food" name={'misComidas'} id={`opc5-${vuelo.id_vuelo}`} required onChange={handleChange} />
-                                                    <label className="radioLabel" htmlFor={`opc5-${vuelo.id_vuelo}`}><h3>Fast Food</h3><p>Comida chatarra</p></label>
+                                                    <label className="radioLabel" htmlFor={`opc5-${vuelo.id_vuelo}`}><h3>Fast Food</h3><p>Comida chatarra +200</p></label>
                                                     <input className="radioInput" type="radio" value="A la Carta" name={'misComidas'} id={`opc6-${vuelo.id_vuelo}`} required onChange={handleChange} />
-                                                    <label className="radioLabel" htmlFor={`opc6-${vuelo.id_vuelo}`}><h3>A la Carta</h3><p>Menue ejecutivo</p></label>
+                                                    <label className="radioLabel" htmlFor={`opc6-${vuelo.id_vuelo}`}><h3>A la Carta</h3><p>Menue ejecutivo +300</p></label>
+                                                </div>
+                                            </div>
+
+                                            <p>Selecciona Equipaje</p>
+                                            <div className="globalRadio flex">
+                                                <div className="radioClases flex">
+                                                    <input className="radioInput" type="radio" value="Sin Equipaje" name={'misMaletas'} id={`opc8-${vuelo.id_vuelo}`} required onChange={handleChange} />
+                                                    <label className="radioLabel" htmlFor={`opc8-${vuelo.id_vuelo}`}><h3>Sin Equipaje</h3><p>Viaja libre +0 c/u</p></label>
+                                                    <input className="radioInput" type="radio" value="Equipaje Mano" name={'misMaletas'} id={`opc9-${vuelo.id_vuelo}`} required onChange={handleChange} />
+                                                    <label className="radioLabel" htmlFor={`opc9-${vuelo.id_vuelo}`}><h3>Equipaje de Mano</h3><p>Maelta pequeña +100 c/u</p></label>
+                                                    <input className="radioInput" type="radio" value="Equipaje Bodeja" name={'misMaletas'} id={`opc10-${vuelo.id_vuelo}`} required onChange={handleChange} />
+                                                    <label className="radioLabel" htmlFor={`opc10-${vuelo.id_vuelo}`}><h3>Equipaje Bodega</h3><p>Para viajes largos +200 c/u</p></label>
 
                                                 </div>
                                             </div>

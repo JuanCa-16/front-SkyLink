@@ -68,18 +68,20 @@ h2 {
     color: var(--ColorTexto1);
 }
 
-.btnModal{
+.btnModal {
 
     background: rgb(57, 57, 151);
     padding: 5px 10px;
     margin: 10px;
 
-    &:hover{
+    &:hover {
         background: rgb(39, 39, 219);
     }
-    &.cancelar{
+
+    &.cancelar {
         background: rgb(197, 74, 74);
-        &:hover{
+
+        &:hover {
             background: rgb(209, 40, 40);
         }
     }
@@ -92,6 +94,7 @@ h2 {
 .oculto {
     display: none;
 }
+
 //Estilos de la barra de navegacion
 .navBar {
     padding: 5px;
@@ -170,7 +173,7 @@ h2 {
             .menu-toggle {
                 display: none; // Oculta el input por defecto
             }
-            
+
             .menu {
 
                 position: fixed;
@@ -184,10 +187,12 @@ h2 {
                 padding-top: 50px;
                 transition: right 0.3s ease; // Cambia la transición a la propiedad right
                 z-index: 9999;
+
                 &.open {
                     padding-top: 0;
                     right: 0; // Muestra el menú al moverlo a la posición 0 a la derecha
-                    .izq{
+
+                    .izq {
                         display: flex;
                         justify-content: flex-end;
                     }
@@ -217,7 +222,7 @@ h2 {
                     }
                 }
 
-                .primero{
+                .primero {
                     padding-top: 10px;
                 }
             }
@@ -371,7 +376,7 @@ h2 {
             color: white;
 
         }
-        
+
         form {
             button {
                 width: 50%;
@@ -431,11 +436,11 @@ h2 {
                     height: 50px;
                     margin: 30px 0;
 
-                    .Selectr{
-                        input{
+                    .Selectr {
+                        input {
                             border-radius: 0;
                             margin: none !important;
-                            
+
                         }
                     }
 
@@ -675,13 +680,14 @@ h2 {
                             height: 30%;
                             color: black;
                             padding-left: 0.8rem;
+
                             &::placeholder {
                                 color: black;
                             }
                         }
 
-                        .Select{
-                            input{
+                        .Select {
+                            input {
                                 height: 100%;
                                 margin: none !important;
                                 border-radius: 0;
@@ -733,11 +739,12 @@ h2 {
                 }
             }
 
-            h1, p {
+            h1,
+            p {
                 padding-left: 6rem;
             }
 
-            .vuelos{
+            .vuelos {
                 margin-top: 30px;
                 border-radius: 30px;
                 border: 1px solid rgba(255, 255, 255, .174);
@@ -746,56 +753,58 @@ h2 {
                 gap: 45px;
                 padding-top: 40px;
                 padding-bottom: 40px;
-            
-                .tarjeta{
+
+                .tarjeta {
                     border-radius: 30px;
                     border: 1px solid rgba(255, 255, 255, .174);
                     background: rgba(107, 105, 105, 0.265);
                     box-shadow: 5px 4px 8px rgba(113, 122, 132, 0.863);
                     width: 90%;
                     padding: 10px;
-            
-                    
-                    
-                    .tituloPri{
+
+
+
+                    .tituloPri {
                         padding: 10px;
-                        h1{
+
+                        h1 {
                             padding-left: 0;
                         }
                     }
-            
-                    .infoVuelo{
-                        
+
+                    .infoVuelo {
+
                         padding: 5px;
                         display: grid;
                         grid-template-columns: repeat(2, 1fr);
                         gap: 20px;
-                        .titulo{
-                        
+
+                        .titulo {
+
                             padding: 10px 15px;
-                            
-                            border-radius:10px;
+
+                            border-radius: 10px;
                             border: 1px solid rgba(255, 255, 255, .174);
                             background: rgba(118, 130, 142, 0.174);
-                            
-                            span{
+
+                            span {
                                 padding-left: 5px;
                                 font-weight: 600;
                             }
                         }
                     }
 
-                    .btn{
+                    .btn {
                         display: block;
                         margin: auto;
                         background: rgb(63, 94, 143);
                         color: white;
                         padding: 10px 15px;
                     }
-                    
+
                 }
 
-                h1{
+                h1 {
                     padding: 0;
                 }
 
@@ -1116,24 +1125,25 @@ h2 {
 }
 
 //Lista Empleados
-.contenedor{
+.contenedor {
 
     background: url(./recursos/estrellas.png) no-repeat;
     background-size: cover;
     background-position: center;
 
-    .titulo{
+    .titulo {
         color: white;
         padding: 15px 0;
     }
 
-    .grid{
+    .grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         padding: 0 10%;
-        .listaEmp{
-        
-            .tarjeta{
+
+        .listaEmp {
+
+            .tarjeta {
                 min-width: 72%;
                 //max-width: 600px;
                 margin: 10px;
@@ -1145,28 +1155,31 @@ h2 {
                 backdrop-filter: blur(100px);
                 border-radius: 35px;
                 color: white;
-                h1{
+
+                h1 {
                     color: white;
                     padding: 20px;
                 }
-                h3{
+
+                h3 {
                     padding-bottom: 10px;
                     font-weight: 500;
                 }
-                span{
+
+                span {
                     padding-left: 20px;
                     padding-right: 10px;
                     font-weight: 700;
                 }
-        
-                .btn{
+
+                .btn {
                     display: block;
                     margin: auto;
                     background: white;
                     color: black;
                     padding: 10px 15px;
                 }
-        
+
             }
         }
     }
@@ -1190,7 +1203,7 @@ h2 {
         }
     }
 
-    
+
 }
 
 .principalvuelosasignados {
@@ -1207,7 +1220,7 @@ h2 {
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 
-    .total-vuelos{
+    .total-vuelos {
         text-align: left; // Alinea el texto a la izquierda
         margin-top: 10px;
         margin-bottom: 10;
@@ -1274,7 +1287,7 @@ h2 {
     }
 }
 
-.bodyAsientos{
+.bodyAsientos {
     //background-color: #242333;
     background: url(./recursos/estrellas.png) no-repeat;
     background-size: cover;
@@ -1287,7 +1300,7 @@ h2 {
     height: 100vh;
     margin: 0;
 
-    .container{
+    .container {
         perspective: 1000px;
         margin-bottom: 30px;
         padding: 20px;
@@ -1297,7 +1310,7 @@ h2 {
         border-radius: 35px;
     }
 
-    .seat{
+    .seat {
         background-color: #444451;
         height: 17px;
         width: 22px;
@@ -1305,28 +1318,30 @@ h2 {
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
 
-        &.selected{
+        &.selected {
             background-color: rgb(66, 72, 156);
         }
-        &.sold{
+
+        &.sold {
             background-color: white;
         }
 
-        &:nth-of-type(3){
+        &:nth-of-type(3) {
             margin-right: 18px;
         }
-        &:nth-last-of-type(3){
+
+        &:nth-last-of-type(3) {
             margin-left: 18px;
         }
 
-        &:not(.sold):hover{
+        &:not(.sold):hover {
             cursor: pointer;
             transform: scale(1.2);
         }
-        
+
     }
 
-    .showcase{
+    .showcase {
         background: rgba(255, 255, 255, 0.046);
         border: 1px solid rgba(255, 255, 255, .1);
         backdrop-filter: blur(100px);
@@ -1339,42 +1354,44 @@ h2 {
         justify-content: space-between;
         margin-bottom: 40px;
 
-        & li{
+        & li {
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 10px;
 
-            small{
+            small {
                 margin-left: 3px;
             }
         }
     }
 
-    .showcase .seat:not(.sold):hover{
+    .showcase .seat:not(.sold):hover {
         cursor: default;
         transform: scale(1);
     }
-    .row{
+
+    .row {
         display: flex;
     }
 
-    p{
-        &.text{
+    p {
+        &.text {
             margin: 5px 0;
 
-            span{
+            span {
                 color: rgb(90, 100, 237);
                 font-weight: 700;
             }
         }
     }
 
-    .botones{
+    .botones {
         display: flex;
         justify-content: space-between;
         gap: 30px;
-        .btn{
+
+        .btn {
             background-color: rgb(66, 72, 156);
             margin-top: 10px;
             padding: 10px;
@@ -1382,7 +1399,7 @@ h2 {
     }
 }
 
-.bodyAbordaje{
+.bodyAbordaje {
     background: url(./recursos/estrellas.png) no-repeat;
     background-size: cover;
     background-position: center;
@@ -1399,10 +1416,11 @@ h2 {
         border: 2px solid #13257fcc;
         border-radius: 10px;
         overflow: hidden;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        position: relative; /* Agregado para posicionar elementos internamente */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        /* Agregado para posicionar elementos internamente */
     }
-    
+
     .encabezado {
         background-color: #13257fcc;
         color: white;
@@ -1411,53 +1429,62 @@ h2 {
         padding: 10px 20px;
         align-items: center;
     }
-    
+
     .aerolinea {
         font-size: 1.5em;
         font-weight: bold;
     }
-    
+
     .titulo-pase {
         font-size: 1.2em;
     }
-    
+
     .detalles {
         padding: 20px;
     }
-    
+
     .info-pasajero {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
     }
-    
+
     .info {
         width: 45%;
         margin-bottom: 10px;
-        position: relative; /* Agregar posición relativa para alinear la línea */
+        position: relative;
+        /* Agregar posición relativa para alinear la línea */
     }
-    
+
     .info span {
         font-weight: bold;
     }
-    .info + .info {
+
+    .info+.info {
         margin-top: 10px;
     }
+
     .info::after {
-        content: ''; /* Agregar contenido para la línea */
-        position: absolute; /* Posicionar absolutamente en relación con .info */
-        bottom: -5px; /* Ajustar la posición vertical de la línea */
-        left: 0; /* Alinear la línea con el borde izquierdo de .info */
-        width: 100%; /* Hacer que la línea ocupe todo el ancho de .info */
-        border-bottom: 1px solid #ccc; /* Estilo de la línea gris */
-    }
-    
-    .codigo-barra {
-        text-align: center;
-        padding: 20px 0;
+        content: '';
+        /* Agregar contenido para la línea */
+        position: absolute;
+        /* Posicionar absolutamente en relación con .info */
+        bottom: -5px;
+        /* Ajustar la posición vertical de la línea */
+        left: 0;
+        /* Alinear la línea con el borde izquierdo de .info */
+        width: 100%;
+        /* Hacer que la línea ocupe todo el ancho de .info */
+        border-bottom: 1px solid #ccc;
+        /* Estilo de la línea gris */
     }
 
-    button{
+    .codigo-barra {
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    button {
         background: #13257fcc;
         padding: 10px;
         margin-top: 10px;
@@ -1489,7 +1516,7 @@ h2 {
             margin-bottom: 15px;
 
         }
-        
+
         form {
             button {
                 width: 50%;
@@ -1550,11 +1577,11 @@ h2 {
                     height: 50px;
                     //margin: 30px 0;
 
-                    .Select{
-                        input{
+                    .Select {
+                        input {
                             border-radius: 0;
                             margin: none !important;
-                            
+
                         }
                     }
 
@@ -1611,13 +1638,14 @@ h2 {
             }
 
             input[type="time"]::-webkit-calendar-picker-indicator {
-                filter: invert(1); /* Invertir colores */
+                filter: invert(1);
+                /* Invertir colores */
             }
 
         }
     }
 
-    .horizontal{
+    .horizontal {
         display: flex;
 
     }
@@ -1626,6 +1654,96 @@ h2 {
 
 }
 
+.tusVuelos {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 60vh;
+    margin-top: 20px;
+
+    h1,
+    p {
+        justify-content: flex-start;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
 
 
+    .vuelos {
+        display: flex;
+        flex-direction: column;
+        align-items: top;
+        padding-top: 20px;
+        padding-bottom: 40px;
+        gap: 30px;
 
+        .tarjeta {
+            background-color: #fff;
+            width: 800px;
+            height: 280px;
+            border: 2px solid #13257fcc;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+
+            .header {
+                background-color: #13257fcc;
+                color: white;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 10px;
+                align-items: center;
+
+                .airline {
+                    font-size: 24px;
+                    font-weight: bold;
+                }
+
+                .boardingPassTitle {
+                    font-size: 18px;
+                }
+            }
+
+            .details {
+                padding: 20px;
+                flex-grow: 1;
+
+                .passengerInfo {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+
+                    .infoBefore{
+                        width: 45%;
+                        height: 4vh;
+                        margin-bottom: 10px;
+                        font-size: 30px;
+                        font-weight: bold;
+                    }
+
+                    .info {
+                        width: 45%;
+                        margin-bottom: 10px;
+                        position: relative;
+
+                        .infoText {
+                            font-weight: bold;
+                        }
+
+                        .infoAfter {
+                            content: '';
+                            position: absolute;
+                            bottom: -5px;
+                            left: 0;
+                            width: 100%;
+                            border-bottom: 1px solid #ccc;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

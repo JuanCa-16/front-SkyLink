@@ -9,7 +9,7 @@ const Asientos = () => {
 
     // Obtiene el estado pasado desde el componente anterior
     const location = useLocation();
-    const { v, cantAsi } = location.state || {}; // Desestructurando el estado pasado
+    const { v, cantAsi, menu, equi } = location.state || {}; // Desestructurando el estado pasado
     const cantidadAsientos = cantAsi; // Variable que controla la cantidad de asientos que se pueden seleccionar
     const [selectedSeats, setSelectedSeats] = useState([]); // Estado para los asientos seleccionados
     const [occupiedSeats, setOccupiedSeats] = useState([]); // Estado para los asientos ocupados
@@ -89,7 +89,7 @@ const Asientos = () => {
                     const responseData = await res.json();
                     console.log('Respuesta del servidor:', responseData);
                     toast.success('Asientos seleccionados correctamente');
-                    navigate('/paseabordaje', { state: { v, selectedSeats, cantAsi } })
+                    navigate('/paseabordaje', { state: { v, selectedSeats, cantAsi,menu,equi } })
 
                 } else {
                     const errorData = await res.json();

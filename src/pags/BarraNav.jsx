@@ -101,7 +101,7 @@ const BarraNav = ({ setAuth, logueado }) => {
                                             <li className='primero'><div className='flex icono izq' onClick={toggleMenu}><HiMenu /></div></li>
                                             <li><a className='texto' onClick={() => navigate('/')}>Inicio</a></li>
                                             <li><a className='texto' onClick={() => navigate('/perfil')}>Editar Perfil</a></li>
-                                            <li><a className='texto' href="#">Tus Viajes</a></li>
+                                            <li><a className='texto' onClick={() => navigate('/tusvuelos')}>Tus Viajes</a></li>
                                             <li><a className='texto' onClick={() => navigate('/radar')}>Radar</a></li>
 
                                             {
@@ -135,7 +135,7 @@ const BarraNav = ({ setAuth, logueado }) => {
                                     <ul>
                                         <li className='primero'><div className='flex icono izq' onClick={toggleMenu}><HiMenu /></div></li>
                                         <li><a className='texto' onClick={() => navigate('/')}>Inicio</a></li>
-                                        <li><a className='texto' href="#">Tus Viajes</a></li>
+                                        <li><a className='texto' onClick={() => navigate('/tusvuelos')}>Tus Viajes</a></li>
                                         <li><a className='texto' onClick={() => navigate('/radar')}>Radar</a></li>
                                     </ul>
                                 </nav>

@@ -555,7 +555,8 @@ h2 {
   background: var(--ColorPrincipal);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
 }
-.containerPrincipal .general .principal-2 h1, .containerPrincipal .general .principal-2 p {
+.containerPrincipal .general .principal-2 h1,
+.containerPrincipal .general .principal-2 p {
   padding-left: 6rem;
 }
 .containerPrincipal .general .principal-2 .vuelos {
@@ -1063,7 +1064,8 @@ h2 {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  position: relative; /* Agregado para posicionar elementos internamente */
+  position: relative;
+  /* Agregado para posicionar elementos internamente */
 }
 .bodyAbordaje .encabezado {
   background-color: rgba(19, 37, 127, 0.8);
@@ -1091,7 +1093,8 @@ h2 {
 .bodyAbordaje .info {
   width: 45%;
   margin-bottom: 10px;
-  position: relative; /* Agregar posición relativa para alinear la línea */
+  position: relative;
+  /* Agregar posición relativa para alinear la línea */
 }
 .bodyAbordaje .info span {
   font-weight: bold;
@@ -1100,16 +1103,22 @@ h2 {
   margin-top: 10px;
 }
 .bodyAbordaje .info::after {
-  content: ""; /* Agregar contenido para la línea */
-  position: absolute; /* Posicionar absolutamente en relación con .info */
-  bottom: -5px; /* Ajustar la posición vertical de la línea */
-  left: 0; /* Alinear la línea con el borde izquierdo de .info */
-  width: 100%; /* Hacer que la línea ocupe todo el ancho de .info */
-  border-bottom: 1px solid #ccc; /* Estilo de la línea gris */
+  content: "";
+  /* Agregar contenido para la línea */
+  position: absolute;
+  /* Posicionar absolutamente en relación con .info */
+  bottom: -5px;
+  /* Ajustar la posición vertical de la línea */
+  left: 0;
+  /* Alinear la línea con el borde izquierdo de .info */
+  width: 100%;
+  /* Hacer que la línea ocupe todo el ancho de .info */
+  border-bottom: 1px solid #ccc;
+  /* Estilo de la línea gris */
 }
 .bodyAbordaje .codigo-barra {
   text-align: center;
-  padding:  20px 0;
+  padding: 20px 0;
 }
 .bodyAbordaje button {
   background: rgba(19, 37, 127, 0.8);
@@ -1233,8 +1242,90 @@ h2 {
   /* Invertir el color del botón a blanco */
 }
 .crearVuelo .wrapper-r .form-box-r input[type=time]::-webkit-calendar-picker-indicator {
-  filter: invert(1); /* Invertir colores */
+  filter: invert(1);
+  /* Invertir colores */
 }
 .crearVuelo .horizontal {
   display: flex;
+}
+
+.tusVuelos {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 60vh;
+  margin-top: 20px;
+}
+.tusVuelos h1,
+.tusVuelos p {
+  justify-content: flex-start;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.tusVuelos .vuelos {
+  display: flex;
+  flex-direction: column;
+  align-items: top;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  gap: 30px;
+}
+.tusVuelos .vuelos .tarjeta {
+  background-color: #fff;
+  width: 800px;
+  height: 280px;
+  border: 2px solid rgba(19, 37, 127, 0.8);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+.tusVuelos .vuelos .tarjeta .header {
+  background-color: rgba(19, 37, 127, 0.8);
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+}
+.tusVuelos .vuelos .tarjeta .header .airline {
+  font-size: 24px;
+  font-weight: bold;
+}
+.tusVuelos .vuelos .tarjeta .header .boardingPassTitle {
+  font-size: 18px;
+}
+.tusVuelos .vuelos .tarjeta .details {
+  padding: 20px;
+  flex-grow: 1;
+}
+.tusVuelos .vuelos .tarjeta .details .passengerInfo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.tusVuelos .vuelos .tarjeta .details .passengerInfo .infoBefore {
+  width: 45%;
+  height: 4vh;
+  margin-bottom: 10px;
+  font-size: 30px;
+  font-weight: bold;
+}
+.tusVuelos .vuelos .tarjeta .details .passengerInfo .info {
+  width: 45%;
+  margin-bottom: 10px;
+  position: relative;
+}
+.tusVuelos .vuelos .tarjeta .details .passengerInfo .info .infoText {
+  font-weight: bold;
+}
+.tusVuelos .vuelos .tarjeta .details .passengerInfo .info .infoAfter {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
 }/*# sourceMappingURL=estilos.css.map */
