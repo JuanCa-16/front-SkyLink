@@ -27,8 +27,8 @@ const TusVuelos = ({ logueado }) => {
       const vuelosData = await vuelosResponse.json();
 
       if (vuelosResponse.status === 200) {
-        setVuelos(vuelosData);
-        console.log(vuelosData);
+        const filteredVuelos = vuelosData.filter(vuelo => new Date(vuelo.fecha) < new Date());
+        setVuelos(filteredVuelos);
       }
     } catch (error) {
       console.error(error.message);
@@ -91,6 +91,9 @@ const TusVuelos = ({ logueado }) => {
                           <div className="infoText">Precio</div>
                           <div>{vuelo.precio}</div>
                           <div className="infoAfter"></div>
+                        </div>
+                        <div className="infoBefore">
+                          <div>{new Date(vuelo.fecha) < new Date() && <div className="realizado">REALIZADO</div>}</div>
                         </div>
                       </div>
                     </div>

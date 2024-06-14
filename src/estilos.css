@@ -1295,6 +1295,13 @@ h2 {
   flex-wrap: wrap;
   justify-content: space-between;
 }
+.principalvuelosasignados .vuelos .tarjeta .details .passengerInfo .infoBefore {
+  width: 45%;
+  height: 4vh;
+  margin-bottom: 10px;
+  font-size: 30px;
+  font-weight: bold;
+}
 .principalvuelosasignados .vuelos .tarjeta .details .passengerInfo .info {
   width: 45%;
   margin-bottom: 10px;

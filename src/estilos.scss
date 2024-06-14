@@ -1685,6 +1685,14 @@ h2 {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
+
+            .infoBefore{
+              width: 45%;
+              height: 4vh;
+              margin-bottom: 10px;
+              font-size: 30px;
+              font-weight: bold;
+            }
   
             .info {
               width: 45%;
