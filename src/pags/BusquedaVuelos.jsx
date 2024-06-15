@@ -37,7 +37,7 @@ const BusquedaVuelos = ({ logueado }) => {
 
     const cargarAeropuertos = async () => {
 
-        const res = await fetch('http://localhost:4000/aeropuertos', {
+        const res = await fetch(`https://login-skl.vercel.app/aeropuertos`, {
             method: 'GET',
             headers: { 'Content-Type': "application/json" }
         });
@@ -103,7 +103,7 @@ const BusquedaVuelos = ({ logueado }) => {
         localStorage.setItem("busqueda", JSON.stringify(infoVuelo));
 
         try {
-            const res = await fetch('http://localhost:4000/vuelos', {
+            const res = await fetch(`https://login-skl.vercel.app/vuelos`, {
                 method: 'POST',
                 body: JSON.stringify(infoVuelo), //Para que lo detecte como string
                 headers: { 'Content-Type': "application/json" } // Para que rellene los campos
@@ -133,7 +133,7 @@ const BusquedaVuelos = ({ logueado }) => {
                 setInfoVuelo(busquedaGuardada);
 
                 try {
-                    const res = await fetch('http://localhost:4000/vuelos', {
+                    const res = await fetch(`https://login-skl.vercel.app/vuelos`, {
                         method: 'POST',
                         body: JSON.stringify(busquedaGuardada), //Para que lo detecte como string
                         headers: { 'Content-Type': "application/json" } // Para que rellene los campos

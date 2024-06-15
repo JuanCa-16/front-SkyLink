@@ -20,7 +20,7 @@ const Asientos = () => {
         const loadInitialData = async () => {
 
             try {
-                const res = await fetch(`http://localhost:4000/asientosvuelo/${v.id_vuelo}`, {
+                const res = await fetch(`https://login-skl.vercel.app/asientosvuelo/${v.id_vuelo}`, {
                     method: 'GET',
                     headers: { 'Content-Type': "application/json" }
                 });
@@ -77,7 +77,7 @@ const Asientos = () => {
 
             try {
 
-                const res = await fetch('http://localhost:4000/ocuparasientos', {
+                const res = await fetch(`https://login-skl.vercel.app/ocuparasientos`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'

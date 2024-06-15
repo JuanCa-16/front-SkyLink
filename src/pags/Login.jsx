@@ -21,7 +21,7 @@ const Login = ({setAuth}) => {
     const handleSubmit = async(e) => {
         e.preventDefault(); //para que no recarge al darle al boton enviar evitar refresh
 
-        const res = await fetch('http://localhost:4000/login', {
+        const res = await fetch(`https://login-skl.vercel.app/login`, {
             method: 'POST',
             body: JSON.stringify(usuario), //Para que lo detecte como string
             headers: {'Content-Type': "application/json"} // Para que rellene los campos

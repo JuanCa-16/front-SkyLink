@@ -53,7 +53,7 @@ const Registro = ({setAuth}) => {
         usuario.nombre = formatName(usuario.nombre);
         usuario.apellidos = formatName(usuario.apellidos);
 
-        const res = await fetch('http://localhost:4000/usuarios', {
+        const res = await fetch(`https://login-skl.vercel.app/usuarios`, {
             method: 'POST',
             body: JSON.stringify(usuario), //Para que lo detecte como string
             headers: {'Content-Type': "application/json"} // Para que rellene los campos

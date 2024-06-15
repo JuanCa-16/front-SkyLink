@@ -31,7 +31,7 @@ const CrearVuelo = () => {
     // Función para cargar la lista de aeropuertos
     const cargarAeropuertos = async () => {
 
-        const res = await fetch('http://localhost:4000/aeropuertos', {
+        const res = await fetch(`https://login-skl.vercel.app/aeropuertos`, {
             method: 'GET',
             headers: { 'Content-Type': "application/json" }
         });
@@ -67,7 +67,7 @@ const CrearVuelo = () => {
         });
 
         try {
-            const res = await fetch('http://localhost:4000/vuelo', {
+            const res = await fetch(`https://login-skl.vercel.app/vuelo`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -100,7 +100,7 @@ const CrearVuelo = () => {
     const [selectedUsers, setSelectedUsers] = useState([]);
 
     const cargarUsuarios = async () => {
-        const res = await fetch('http://localhost:4000/usuarios', {
+        const res = await fetch(`https://login-skl.vercel.app/usuarios`, {
             method: 'GET',
             headers: { 'Content-Type': "application/json" }
         });

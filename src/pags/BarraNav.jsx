@@ -25,7 +25,7 @@ const BarraNav = ({ setAuth, logueado }) => {
     async function getName() {
 
         try {
-            const response = await fetch('http://localhost:4000/usuarioLogin', {
+            const response = await fetch(`https://login-skl.vercel.app/usuarioLogin`, {
                 method: 'GET',
                 headers: { token: localStorage.token } // Para que rellene los campos
             });

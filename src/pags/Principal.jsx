@@ -27,7 +27,7 @@ const Principal = () => {
     const [aeropuertos, setAeropuertos] = useState([]);
 
     const cargarAeropuertos = async () => {
-        const res = await fetch('http://localhost:4000/aeropuertos', {
+        const res = await fetch(`https://login-skl.vercel.app/aeropuertos`, {
             method: 'GET',
             headers: { 'Content-Type': "application/json" }
         });

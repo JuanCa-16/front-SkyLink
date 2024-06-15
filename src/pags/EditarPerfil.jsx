@@ -65,7 +65,7 @@ const EditarPerfil = () => {
 
             try {
                 //Traer el id del usuario que esta Logueado
-                const response = await fetch('http://localhost:4000/usuarioLogin', {
+                const response = await fetch(`https://login-skl.vercel.app/usuarioLogin`, {
                     method: 'GET',
                     headers: { token: localStorage.token }
                 });
@@ -74,7 +74,7 @@ const EditarPerfil = () => {
                 setId(dat.id); //La variable id ya almacena el id del usuario a mostrar
 
                 //Traer todo del usuario que esta Logueado
-                const res = await fetch(`http://localhost:4000/usuarios/${id}`, {
+                const res = await fetch(`https://login-skl.vercel.app/usuarios/${id}`, {
                     method: 'GET',
                     headers: { 'Content-Type': "application/json" }
                 });
@@ -115,7 +115,7 @@ const EditarPerfil = () => {
         usuario.apellidos = formatName(usuario.apellidos);
 
         //Peticion para actulizar
-        const res = await fetch(`http://localhost:4000/usuarios/${id}`, {
+        const res = await fetch(`https://login-skl.vercel.app/usuarios/${id}`, {
             method: 'PUT',
             body: JSON.stringify(usuario), //Para que lo detecte como string
             headers: { 'Content-Type': "application/json" } // Para que rellene los campos

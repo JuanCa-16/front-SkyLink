@@ -1328,4 +1328,258 @@ h2 {
   left: 0;
   width: 100%;
   border-bottom: 1px solid #ccc;
+}
+
+@media only screen and (max-width: 768px) {
+  .navBar {
+    width: 100%;
+  }
+  .containerPrincipal .general {
+    display: flex;
+    flex-direction: column;
+  }
+  .containerPrincipal .general .principal-2 {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    min-height: 60vh;
+    padding: 50px;
+    padding-left: 10%;
+  }
+  .containerPrincipal .general .principal-2 h1,
+  .containerPrincipal .general .principal-2 p {
+    justify-content: flex-start;
+  }
+  .containerPrincipal .general .principal-2 .busqueda {
+    padding: 5px;
+  }
+  .containerPrincipal .general .principal-2 .busqueda .globalRadio {
+    padding: 15px 0;
+    width: 100%;
+  }
+  .containerPrincipal .general .principal-2 .busqueda .globalRadio .radioClases {
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+  }
+  .containerPrincipal .general .principal-2 .busqueda .globalRadio .radioClases .radioInput {
+    display: none;
+  }
+  .containerPrincipal .general .principal-2 .busqueda .globalRadio .radioClases .radioInput:checked + .radioLabel {
+    background: var(--ColorSecundario);
+  }
+  .containerPrincipal .general .principal-2 .busqueda .globalRadio .radioClases .radioLabel {
+    padding: 8px 14px;
+    font-size: 14px;
+    color: var(--ColorTexto1);
+    background: var(--ColorPrincipal);
+    cursor: pointer;
+    transition: backgroung 0.1s;
+  }
+  .containerPrincipal .general .principal-2 .busqueda .globalRadio .radioClases .radioLabel h3 {
+    padding: 3px 0 5px 0;
+  }
+  .containerPrincipal .general .principal-2 .busqueda .globalRadio .radioClases .radioLabel p {
+    padding: 3px 0 5px 0;
+  }
+  .containerPrincipal .general .principal-2 .busqueda .globalRadio .radioClases .radioLabel:not(:last-of-type) {
+    border-right: 1px solid var(--ColorIconos);
+  }
+  .containerPrincipal .general .principal-2 .busqueda .globalBox {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .containerPrincipal .general .principal-2 .busqueda .globalBox .input-box {
+    flex-wrap: wrap;
+  }
+  .containerPrincipal .general .principal-2 .busqueda .globalBox .input-box .icon {
+    margin-top: 5px;
+    margin-right: 5px;
+  }
+  .containerPrincipal .general .principal-2 .busqueda .globalBox .input-box input {
+    border: unset;
+    background-color: var(--ColorGris);
+    padding: 0.5rem;
+    width: 90%;
+    height: 30%;
+    color: black;
+    padding-left: 0.8rem;
+  }
+  .containerPrincipal .general .principal-2 .busqueda .globalBox .input-box input::-moz-placeholder {
+    color: black;
+  }
+  .containerPrincipal .general .principal-2 .busqueda .globalBox .input-box input::placeholder {
+    color: black;
+  }
+  .containerPrincipal .general .principal-2 .busqueda .globalBox .input-box .Select input {
+    height: 100%;
+    margin: none !important;
+    border-radius: 0;
+  }
+  .containerPrincipal .general .principal-2 .busqueda .globalBox .input-box-fecha {
+    flex-direction: column;
+  }
+  .containerPrincipal .general .principal-2 .busqueda .globalBox .input-box-fecha input {
+    border: unset;
+    background-color: var(--ColorGris);
+    padding: 0.5rem;
+    width: 90%;
+    height: 30%;
+    color: black;
+  }
+  .containerPrincipal .general .principal-2 .busqueda .globalBox .input-box-fecha p {
+    padding: 5px;
+  }
+  .containerPrincipal .general .principal-2 .busqueda .globalBox .ult {
+    grid-column: span 2;
+  }
+  .containerPrincipal .general .principal-2 .busqueda .globalBox .ult input {
+    width: 45%;
+  }
+  .containerPrincipal .general .principal-2 .busqueda .enviar button {
+    width: 20%;
+    height: 25px;
+    background: var(--ColorPrincipal);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+  }
+  .containerPrincipal .general .principal-2 h1,
+  .containerPrincipal .general .principal-2 p {
+    padding-left: 6rem;
+  }
+  .containerPrincipal .general .principal-2 .vuelos {
+    margin-top: 30px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.174);
+    background: rgb(232, 232, 232);
+    flex-direction: column;
+    gap: 45px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .containerPrincipal .general .principal-2 .vuelos .tarjeta {
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.174);
+    background: rgba(107, 105, 105, 0.265);
+    box-shadow: 5px 4px 8px rgba(113, 122, 132, 0.863);
+    width: 90%;
+    padding: 10px;
+  }
+  .containerPrincipal .general .principal-2 .vuelos .tarjeta .tituloPri {
+    padding: 10px;
+  }
+  .containerPrincipal .general .principal-2 .vuelos .tarjeta .tituloPri h1 {
+    padding-left: 0;
+  }
+  .containerPrincipal .general .principal-2 .vuelos .tarjeta .infoVuelo {
+    padding: 5px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .containerPrincipal .general .principal-2 .vuelos .tarjeta .infoVuelo .titulo {
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.174);
+    background: rgba(118, 130, 142, 0.174);
+  }
+  .containerPrincipal .general .principal-2 .vuelos .tarjeta .infoVuelo .titulo span {
+    padding-left: 5px;
+    font-weight: 600;
+  }
+  .containerPrincipal .general .principal-2 .vuelos .tarjeta .btn {
+    display: block;
+    margin: auto;
+    background: rgb(63, 94, 143);
+    color: white;
+    padding: 10px 15px;
+  }
+  .containerPrincipal .general .principal-2 .vuelos h1 {
+    padding: 0;
+  }
+  .containerPrincipal .general .principal-2 .vuelos .globalRadio {
+    padding: 10px 0;
+    width: 100%;
+  }
+  .containerPrincipal .general .principal-2 .vuelos .globalRadio .radioClases {
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+  }
+  .containerPrincipal .general .principal-2 .vuelos .globalRadio .radioClases .radioInput {
+    display: none;
+  }
+  .containerPrincipal .general .principal-2 .vuelos .globalRadio .radioClases .radioInput:checked + .radioLabel {
+    background: var(--ColorSecundario);
+  }
+  .containerPrincipal .general .principal-2 .vuelos .globalRadio .radioClases .radioLabel {
+    padding: 8px 14px;
+    font-size: 14px;
+    color: var(--ColorTexto1);
+    background: var(--ColorPrincipal);
+    cursor: pointer;
+    transition: backgroung 0.1s;
+  }
+  .containerPrincipal .general .principal-2 .vuelos .globalRadio .radioClases .radioLabel h3 {
+    padding: 3px 0 5px 0;
+  }
+  .containerPrincipal .general .principal-2 .vuelos .globalRadio .radioClases .radioLabel p {
+    padding: 3px 0 5px 0;
+  }
+  .containerPrincipal .general .principal-2 .vuelos .globalRadio .radioClases .radioLabel:not(:last-of-type) {
+    border-right: 1px solid var(--ColorIconos);
+  }
+  .containerPrincipal .general .principal-1 {
+    display: flex;
+    width: 30%;
+    min-height: 60vh;
+  }
+  .containerPrincipal .general .principal-1 .otro {
+    padding-left: 10%;
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+  }
+  .containerPrincipal .general .principal-1 .otro .homeImages {
+    display: flex;
+    min-height: 50%;
+    position: relative;
+  }
+  .containerPrincipal .general .principal-1 .otro .homeImages .videoDiv {
+    width: 100%;
+  }
+  .containerPrincipal .general .principal-1 .otro .homeImages .videoDiv video {
+    width: 130%;
+  }
+  .containerPrincipal .general .principal-1 .otro .homeImages .videoDiv .video {
+    border-radius: 5rem;
+  }
+  .containerPrincipal .general .principal-1 .otro .homeImages .plane {
+    position: absolute;
+    width: 140%;
+    top: -50%;
+  }
+  .containerPrincipal .info {
+    display: grid;
+    gap: 10px;
+    padding: 30px 30px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    background-color: var(--ColorPrincipal);
+  }
+  .containerPrincipal .info .box {
+    flex-direction: column;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.174);
+    background: rgba(232, 232, 232, 0.174);
+    padding: 20px 15px;
+    min-height: 150px;
+    box-shadow: 5px 4px 8px rgba(232, 232, 232, 0.174);
+  }
+  .containerPrincipal .info .box p {
+    color: rgb(226, 224, 224);
+    text-align: left;
+    line-height: var(--Interlineado);
+  }
 }/*# sourceMappingURL=estilos.css.map */

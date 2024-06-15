@@ -42,7 +42,7 @@ const PaseDeAbordaje = () => {
 
     async function getName() {
         try {
-            const response = await fetch('http://localhost:4000/usuarioLogin', {
+            const response = await fetch(`https://login-skl.vercel.app/usuarioLogin`, {
                 method: 'GET',
                 headers: { token: localStorage.token }
             });
@@ -52,7 +52,7 @@ const PaseDeAbordaje = () => {
 
             if (response.ok) {
                 setId(data.id)
-                const res = await fetch(`http://localhost:4000/millas/${data.id}`, {
+                const res = await fetch(`https://login-skl.vercel.app/millas/${data.id}`, {
                     method: 'PUT',
                 });
 
@@ -110,7 +110,7 @@ const PaseDeAbordaje = () => {
 
         console.log(body)
 
-        const pase = await fetch('http://localhost:4000/paseAbordaje', {
+        const pase = await fetch(`https://login-skl.vercel.app/paseAbordaje`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

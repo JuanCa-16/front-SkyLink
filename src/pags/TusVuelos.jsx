@@ -10,7 +10,7 @@ const TusVuelos = ({ logueado }) => {
   const fetchData = async () => {
     try {
       // Obtener el id del usuario que está logueado
-      const response = await fetch('http://localhost:4000/usuarioLogin', {
+      const response = await fetch(`https://login-skl.vercel.app/usuarioLogin`, {
         method: 'GET',
         headers: { token: localStorage.token }
       });
@@ -20,7 +20,7 @@ const TusVuelos = ({ logueado }) => {
       setId(userId);
 
       // Obtener los vuelos asignados al usuario
-      const vuelosResponse = await fetch(`http://localhost:4000/obtenerCompras/${userId}`, {
+      const vuelosResponse = await fetch(`https://login-skl.vercel.app/obtenerCompras/${userId}`, {
         method: 'GET'
       });
 

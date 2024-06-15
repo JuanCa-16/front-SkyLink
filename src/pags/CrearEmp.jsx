@@ -63,7 +63,7 @@ const CrearEmp = () => {
         empleado.nombre = formatName(empleado.nombre);
         empleado.apellidos = formatName(empleado.apellidos);
 
-        const res = await fetch('http://localhost:4000/usuarios', {
+        const res = await fetch(`https://login-skl.vercel.app/usuarios`, {
             method: 'POST',
             body: JSON.stringify(empleado), //Para que lo detecte como string
             headers: { 'Content-Type': "application/json" } // Para que rellene los campos

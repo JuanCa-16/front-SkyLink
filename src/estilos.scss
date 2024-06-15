@@ -1747,3 +1747,364 @@ h2 {
         }
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .navBar {
+        width: 100%;
+
+    }
+
+    //Principal
+.containerPrincipal {
+
+    //display: none;
+    .general {
+
+        display: flex;
+        flex-direction: column;
+        //gap: 10px;
+        //min-height: 60vh;
+
+        .principal-2 {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            min-height: 60vh;
+            //background-color: blueviolet;
+            padding: 50px;
+            padding-left: 10%;
+
+            h1,
+            p {
+                justify-content: flex-start;
+            }
+
+            .busqueda {
+
+                //background-color: orange;
+                padding: 5px;
+                //overflow: hidden;
+
+                .globalRadio {
+
+                    //background-color: pink; 
+                    padding: 15px 0;
+                    width: 100%;
+
+                    .radioClases {
+
+                        overflow: hidden;
+                        border-radius: 15px;
+                        box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+                        //min-width: 400px;
+
+
+                        .radioInput {
+                            display: none;
+
+                            //cuando un input e seleccionado el selctor apuntara al siguiente elemento con la clase despues del +
+                            &:checked+.radioLabel {
+                                background: var(--ColorSecundario);
+                            }
+                        }
+
+                        .radioLabel {
+                            padding: 8px 14px;
+                            font-size: 14px;
+                            color: var(--ColorTexto1);
+                            background: var(--ColorPrincipal);
+                            cursor: pointer;
+
+                            h3 {
+                                padding: 3px 0 5px 0;
+                            }
+
+                            p {
+                                padding: 3px 0 5px 0;
+                            }
+
+                            transition: backgroung 0.1s;
+
+                            &:not(:last-of-type) {
+                                border-right: 1px solid var(--ColorIconos); //la linia divisiora menos al ultimo
+                            }
+                        }
+                    }
+                }
+
+                .globalBox {
+
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-template-rows: repeat(3, 1fr);
+                    gap: 10px;
+
+                    .input-box {
+                        flex-wrap: wrap;
+
+                        //background: red;
+                        .icon {
+                            margin-top: 5px;
+                            margin-right: 5px;
+                        }
+
+                        input {
+                            border: unset;
+                            background-color: var(--ColorGris);
+                            padding: 0.5rem;
+                            //border-radius: 5px;
+                            width: 90%;
+                            height: 30%;
+                            color: black;
+                            padding-left: 0.8rem;
+
+                            &::placeholder {
+                                color: black;
+                            }
+                        }
+
+                        .Select {
+                            input {
+                                height: 100%;
+                                margin: none !important;
+                                border-radius: 0;
+                            }
+                        }
+                    }
+
+                    .input-box-fecha {
+
+                        flex-direction: column;
+                        //background-color: green;
+
+                        input {
+                            border: unset;
+                            background-color: var(--ColorGris);
+                            padding: 0.5rem;
+                            //border-radius: 5px;
+                            width: 90%;
+                            height: 30%;
+                            color: black;
+
+                            //margin-left: 5px;
+                        }
+
+                        p {
+                            padding: 5px;
+                        }
+                    }
+
+                    .ult {
+                        grid-column: span 2;
+
+                        input {
+                            width: 45%;
+                        }
+                    }
+
+
+                }
+
+                .enviar {
+
+                    button {
+                        width: 20%;
+                        height: 25px;
+                        background: var(--ColorPrincipal);
+                        box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+                    }
+                }
+            }
+
+            h1,
+            p {
+                padding-left: 6rem;
+            }
+
+            .vuelos {
+                margin-top: 30px;
+                border-radius: 30px;
+                border: 1px solid rgba(255, 255, 255, .174);
+                background: rgb(232, 232, 232);
+                flex-direction: column;
+                gap: 45px;
+                padding-top: 40px;
+                padding-bottom: 40px;
+
+                .tarjeta {
+                    border-radius: 30px;
+                    border: 1px solid rgba(255, 255, 255, .174);
+                    background: rgba(107, 105, 105, 0.265);
+                    box-shadow: 5px 4px 8px rgba(113, 122, 132, 0.863);
+                    width: 90%;
+                    padding: 10px;
+
+
+
+                    .tituloPri {
+                        padding: 10px;
+
+                        h1 {
+                            padding-left: 0;
+                        }
+                    }
+
+                    .infoVuelo {
+
+                        padding: 5px;
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        gap: 20px;
+
+                        .titulo {
+
+                            padding: 10px 15px;
+
+                            border-radius: 10px;
+                            border: 1px solid rgba(255, 255, 255, .174);
+                            background: rgba(118, 130, 142, 0.174);
+
+                            span {
+                                padding-left: 5px;
+                                font-weight: 600;
+                            }
+                        }
+                    }
+
+                    .btn {
+                        display: block;
+                        margin: auto;
+                        background: rgb(63, 94, 143);
+                        color: white;
+                        padding: 10px 15px;
+                    }
+
+                }
+
+                h1 {
+                    padding: 0;
+                }
+
+                .globalRadio {
+
+                    //background-color: pink; 
+                    padding: 10px 0;
+                    width: 100%;
+
+                    .radioClases {
+
+                        overflow: hidden;
+                        border-radius: 15px;
+                        box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+                        //min-width: 400px;
+
+
+                        .radioInput {
+                            display: none;
+
+                            //cuando un input e seleccionado el selctor apuntara al siguiente elemento con la clase despues del +
+                            &:checked+.radioLabel {
+                                background: var(--ColorSecundario);
+                            }
+                        }
+
+                        .radioLabel {
+                            padding: 8px 14px;
+                            font-size: 14px;
+                            color: var(--ColorTexto1);
+                            background: var(--ColorPrincipal);
+                            cursor: pointer;
+
+                            h3 {
+                                padding: 3px 0 5px 0;
+                            }
+
+                            p {
+                                padding: 3px 0 5px 0;
+                            }
+
+                            transition: backgroung 0.1s;
+
+                            &:not(:last-of-type) {
+                                border-right: 1px solid var(--ColorIconos); //la linia divisiora menos al ultimo
+                            }
+                        }
+                    }
+                }
+
+
+            }
+
+        }
+
+        .principal-1 {
+            display: flex;
+            width: 30%;
+            min-height: 60vh;
+
+            //background-color: green;
+
+            .otro {
+                padding-left: 10%;
+                //background-color: yellow;
+                display: flex;
+                flex-direction: column;
+                gap: 10%;
+
+                .homeImages {
+                    display: flex;
+                    //background-color: red;
+                    min-height: 50%;
+                    position: relative;
+
+                    .videoDiv {
+                        width: 100%;
+
+                        video {
+                            width: 130%;
+                        }
+
+                        .video {
+                            border-radius: 5rem;
+
+                        }
+                    }
+
+                    .plane {
+                        position: absolute;
+                        width: 140%;
+                        top: -50%
+                    }
+                }
+            }
+        }
+    }
+
+    .info {
+        display: grid;
+        gap: 10px;
+        padding: 30px 30px;
+        //background-color: red;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        background-color: var(--ColorPrincipal);
+
+        .box {
+            flex-direction: column;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, .174);
+            background: rgba(232, 232, 232, 0.174);
+            padding: 20px 15px;
+            min-height: 150px;
+            box-shadow: 5px 4px 8px rgba(232, 232, 232, 0.174);
+            ;
+
+            p {
+                color: rgb(226, 224, 224);
+                text-align: left;
+                line-height: var(--Interlineado);
+            }
+        }
+    }
+}
+}

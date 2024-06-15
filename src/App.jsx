@@ -31,7 +31,7 @@ function App() {
   //Verificar si inicio sesion si encuentra un token
   const estaAutenticado = async() => {
     try {
-      const respuesta = await fetch('http://localhost:4000/estalogin', {
+      const respuesta = await fetch(`https://login-skl.vercel.app/estalogin`, {
         method: 'GET',
         headers: {token: localStorage.token}
       });

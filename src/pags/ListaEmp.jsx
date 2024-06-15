@@ -16,7 +16,7 @@ const ListaEmp = ({ logueado }) => {
     // Función para cargar la lista de usuarios
     const cargarUsuarios = async () => {
 
-        const res = await fetch('http://localhost:4000/usuarios', {
+        const res = await fetch(`https://login-skl.vercel.app/usuarios`, {
             method: 'GET',
             headers: { 'Content-Type': "application/json" }
         });
@@ -29,7 +29,7 @@ const ListaEmp = ({ logueado }) => {
     // Función para eliminar un usuario
     const eliminar = async (id, nombre) => {
 
-        const res = await fetch(`http://localhost:4000/usuarios/${id}`, {
+        const res = await fetch(`https://login-skl.vercel.app/usuarios/${id}`, {
             method: 'DELETE',
             headers: { 'Content-Type': "application/json" } // Para que rellene los campos
         });
