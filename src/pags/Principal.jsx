@@ -52,7 +52,7 @@ const Principal = () => {
     const customStyles = {
         control: (provided) => ({
             ...provided,
-            width: '40vh',
+            width: '50vh',
             height: '30%',
             backgroundColor: '#cec9c9;',
             border: 'none',

@@ -1749,362 +1749,1439 @@ h2 {
 }
 
 @media only screen and (max-width: 768px) {
+
     .navBar {
         width: 100%;
+
+        .p2 {
+            width: 50%;
+            justify-content: flex-end;
+            gap: 15px;
+    
+            .texto {
+                color: var(--ColorTexto1);
+                font-size: var(--SizeFuente1);
+                margin-top: 5px;
+                margin-right: 15px;
+    
+                &:hover {
+                    cursor: pointer;
+                    //font-weight: 500;
+                    text-shadow: 0px 1px 3px var(--ColorSombraTexto);
+    
+                }
+            }
+    
+            button {
+                background-color: transparent;
+            }
+    
+            .icono {
+                color: var(--ColorIconos);
+                padding: 0 10px;
+                font-size: 2.2rem;
+                margin-right: 5px;
+    
+                &:hover {
+                    cursor: pointer;
+                    color: var(--BrilloIcono);
+                }
+            }
+    
+            .usuario {
+                //display: inline-block;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-right: 150px;
+                font-weight: 300px;
+                font-size: 1rem;
+                margin-top: 5px;
+                color: var(--ColorTexto1);
+                width: 100%;
+
+                p{
+                    width: 100%;
+                }
+            }
+    
+            .contenedor-menu {
+    
+                .menu-toggle {
+                    display: none; // Oculta el input por defecto
+                }
+    
+                .menu {
+    
+                    position: fixed;
+                    top: 0;
+                    right: -200px; // Mueve el menú hacia la derecha fuera de la pantalla
+                    width: 200px;
+                    height: 100%;
+                    background: url(./recursos/estrellas.png) no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                    padding-top: 50px;
+                    transition: right 0.3s ease; // Cambia la transición a la propiedad right
+                    z-index: 9999;
+    
+                    &.open {
+                        padding-top: 0;
+                        right: 0; // Muestra el menú al moverlo a la posición 0 a la derecha
+    
+                        .izq {
+                            display: flex;
+                            justify-content: flex-end;
+                        }
+                    }
+    
+                    ul {
+                        list-style: none;
+                        padding: 0;
+                        margin: 0;
+    
+                        li {
+                            padding: 15px;
+                            padding-left: 35px;
+                            border-bottom: 1px solid rgba(255, 255, 255, 0.32);
+                            text-align: center;
+    
+                            &:last-child {
+                                border-bottom: none;
+                            }
+    
+                            a {
+                                //color: green;
+                                font-size: 1rem;
+                                text-decoration: none;
+                            }
+    
+                        }
+                    }
+    
+                    .primero {
+                        padding-top: 10px;
+                    }
+                }
+            }
+    
+        }
+    }
+
+    //Estilo del login
+    .logins {
+        display: flex;
+        //estilos del que contendra el formulario
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: -20px;
+            .form-box {
+                
+
+                width: 81%;
+                margin-left: 0px;
+
+                form {
+
+                    .input-box {
+
+                        position: relative;
+                        width: 100%;
+                        height: 50px;
+                        margin: 30px 0;
+
+                        input {
+                            width: 85%;
+                            padding: 0 20px;
+
+                            &::placeholder {
+                                color: white;
+                            }
+                        }
+                    }
+
+                    .forgot {
+                        font-size: 14.5px;
+                        margin-bottom: 40px;
+
+                        a {
+                            color: white;
+                            text-decoration: none;
+
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+
+                    button {
+                        width: 100%;
+                        height: 45px;
+                        background: white;
+                        box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+                        color: #333;
+                    }
+                }
+
+                .icon {
+                    position: absolute;
+                    right: 27px;
+                    top: 50%;
+                    translate: 0 -50%;
+                    font-size: 16px;
+                }
+
+                .register-link {
+
+                    font-size: 14.5px;
+                    text-align: center;
+                    font-weight: 600;
+                    padding-top: 20px;
+
+                    p {
+                        color: white;
+                        font-weight: 300;
+                    }
+
+                    button {
+                        background-color: transparent;
+                        text-decoration: none;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    //Estilo de registros
+    .registros {
+
+        //Pantall principal
+        min-height: 100vh;
+        background: url(./recursos/fondo5.jpg) no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        //Estilos del que contendra el formulario
+        .principal-r {
+            margin-top: 40px;
+            margin-bottom: 40px;
+            flex-direction: column;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, .1);
+            backdrop-filter: blur(100px);
+            border-radius: 35px;
+
+
+            h1 {
+                margin-top: 30px;
+                color: white;
+
+            }
+
+            form {
+                button {
+                    width: 50%;
+                    height: 45px;
+                    background: white;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+                    color: #333;
+
+                }
+            }
+
+            .register-link-r {
+                font-size: 14.5px;
+                text-align: center;
+                font-weight: 600;
+                padding: 20px;
+
+                p {
+                    color: white;
+                    font-weight: 300;
+                    white-space: nowrap; //Para que ocupe toda la linea
+                }
+
+                button {
+                    background-color: transparent;
+                    text-decoration: none;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            .btn-registro {
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        //Estilos de las 2 columnas del formulario
+        .wrapper-r {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            color: white;
+            display: flex;
+
+            .form-box-r {
+                width: 81%;
+                padding: 0px 40px;
+
+                .form {
+
+                    .input-box-r {
+                        position: relative;
+                        width: 100%;
+                        height: 50px;
+                        margin: 30px 0;
+
+                        .Selectr {
+                            input {
+                                border-radius: 0;
+                                margin: none !important;
+
+                            }
+                        }
+
+                        input {
+                            width: 87%;
+                            padding: 0 20px;
+
+                            &::placeholder {
+                                color: white;
+                            }
+                        }
+                    }
+
+                    .input-box-fecha-r {
+                        flex-direction: rows;
+                        position: relative;
+                        width: 100%;
+                        height: 50px;
+                        margin: 30px 0;
+
+                        input {
+                            width: 50%;
+                            padding: 0 15px 0 20px;
+
+                            &::placeholder {
+                                color: white;
+                            }
+                        }
+
+                        p {
+                            padding: 15px 10px;
+                        }
+                    }
+                }
+
+                .icon-r {
+                    position: absolute;
+                    right: 30px;
+                    top: 50%;
+                    translate: 0 -50%;
+                    font-size: 16px;
+                }
+
+                /* Estilos para el icono del calendario en navegadores WebKit (Chrome y Safari) */
+                input[type="date"]::-webkit-calendar-picker-indicator {
+                    filter: invert(1);
+                    /* Invertir el color del icono a blanco */
+                }
+
+                /* Estilos para el botón de aumento/descenso en navegadores WebKit (Chrome y Safari) */
+                input[type="date"]::-webkit-inner-spin-button {
+                    filter: invert(1);
+                    /* Invertir el color del botón a blanco */
+                }
+
+
+            }
+        }
+
+
 
     }
 
     //Principal
-.containerPrincipal {
+    .containerPrincipal {
 
-    //display: none;
-    .general {
+        //display: none;
+        .general {
 
-        display: flex;
-        flex-direction: column;
-        //gap: 10px;
-        //min-height: 60vh;
-
-        .principal-2 {
             display: flex;
             flex-direction: column;
-            width: 50%;
-            min-height: 60vh;
-            //background-color: blueviolet;
-            padding: 50px;
-            padding-left: 10%;
-
-            h1,
-            p {
-                justify-content: flex-start;
-            }
-
-            .busqueda {
-
-                //background-color: orange;
-                padding: 5px;
-                //overflow: hidden;
-
-                .globalRadio {
-
-                    //background-color: pink; 
-                    padding: 15px 0;
-                    width: 100%;
-
-                    .radioClases {
-
-                        overflow: hidden;
-                        border-radius: 15px;
-                        box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
-                        //min-width: 400px;
 
 
-                        .radioInput {
-                            display: none;
+            .principal-2 {
+                display: flex;
+                flex-direction: column;
+                //max-height: 40px;
+                //padding: 50px;
+                
 
-                            //cuando un input e seleccionado el selctor apuntara al siguiente elemento con la clase despues del +
-                            &:checked+.radioLabel {
-                                background: var(--ColorSecundario);
+                h1,
+                p {
+                    justify-content: flex-start;
+                }
+
+                .busqueda {
+
+                    display: flex;
+                    flex-direction: column;
+                    padding: 5px;
+                    //overflow: hidden;
+
+                    .globalRadio {
+
+                        //background-color: pink; 
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        .radioClases {
+
+                            overflow: hidden;
+                            border-radius: 15px;
+                            box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+                            //min-width: 400px;
+
+
+                            .radioInput {
+                                display: none;
+
+                                //cuando un input e seleccionado el selctor apuntara al siguiente elemento con la clase despues del +
+                                &:checked+.radioLabel {
+                                    background: var(--ColorSecundario);
+                                }
+                            }
+
+                            .radioLabel {
+                                padding: 8px 14px;
+                                font-size: 14px;
+                                color: var(--ColorTexto1);
+                                background: var(--ColorPrincipal);
+                                cursor: pointer;
+
+                                h3 {
+                                    padding: 3px 0 5px 0;
+                                }
+
+                                p {
+                                    padding: 3px 0 5px 0;
+                                }
+
+                                transition: backgroung 0.1s;
+
+                                &:not(:last-of-type) {
+                                    border-right: 1px solid var(--ColorIconos); //la linia divisiora menos al ultimo
+                                }
+                            }
+                        }
+                    }
+
+                    .globalBox {
+
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+
+                        .input-box {
+                            flex-wrap: wrap;
+
+                            //background: red;
+                            .icon {
+                                margin-top: 5px;
+                                margin-right: 5px;
+                            }
+
+                            input {
+                                border: unset;
+                                background-color: var(--ColorGris);
+                                padding: 0.5rem;
+                                //border-radius: 5px;
+                                width: 90%;
+                                height: 30%;
+                                color: black;
+                                padding-left: 0.8rem;
+
+                                &::placeholder {
+                                    color: black;
+                                }
+                            }
+
+                            .Select {
+                                input {
+                                    height: 100%;
+                                    margin: none !important;
+                                    border-radius: 0;
+                                }
                             }
                         }
 
-                        .radioLabel {
-                            padding: 8px 14px;
-                            font-size: 14px;
-                            color: var(--ColorTexto1);
-                            background: var(--ColorPrincipal);
-                            cursor: pointer;
+                        .input-box-fecha {
 
-                            h3 {
-                                padding: 3px 0 5px 0;
+                            flex-direction: column;
+                            //background-color: green;
+
+                            input {
+                                border: unset;
+                                background-color: var(--ColorGris);
+                                padding: 0.5rem;
+                                //border-radius: 5px;
+                                width: 96%;
+                                height: 30%;
+                                color: black;
+
+                                //margin-left: 5px;
                             }
 
                             p {
-                                padding: 3px 0 5px 0;
+                                padding: 5px;
                             }
+                        }
 
-                            transition: backgroung 0.1s;
+                        .ult {
+                            grid-column: span 2;
 
-                            &:not(:last-of-type) {
-                                border-right: 1px solid var(--ColorIconos); //la linia divisiora menos al ultimo
+                            input {
+                                width: 100%;
                             }
+                        }
+
+
+                    }
+
+                    .enviar {
+                        margin-top: 20px;
+                        button {
+                            width: 20%;
+                            height: 25px;
+                            background: var(--ColorPrincipal);
+                            box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
                         }
                     }
                 }
 
-                .globalBox {
+                h1,
+                p {
+                    padding-left: 6rem;
+                }
 
-                    display: grid;
-                    grid-template-columns: repeat(2, 1fr);
-                    grid-template-rows: repeat(3, 1fr);
-                    gap: 10px;
+                .vuelos {
+                    margin-top: 30px;
+                    border-radius: 30px;
+                    border: 1px solid rgba(255, 255, 255, .174);
+                    background: rgb(232, 232, 232);
+                    flex-direction: column;
+                    gap: 45px;
+                    padding-top: 40px;
+                    padding-bottom: 40px;
 
-                    .input-box {
-                        flex-wrap: wrap;
+                    .tarjeta {
+                        border-radius: 30px;
+                        border: 1px solid rgba(255, 255, 255, .174);
+                        background: rgba(107, 105, 105, 0.265);
+                        box-shadow: 5px 4px 8px rgba(113, 122, 132, 0.863);
+                        width: 90%;
+                        padding: 10px;
 
-                        //background: red;
-                        .icon {
-                            margin-top: 5px;
-                            margin-right: 5px;
-                        }
 
-                        input {
-                            border: unset;
-                            background-color: var(--ColorGris);
-                            padding: 0.5rem;
-                            //border-radius: 5px;
-                            width: 90%;
-                            height: 30%;
-                            color: black;
-                            padding-left: 0.8rem;
 
-                            &::placeholder {
-                                color: black;
+                        .tituloPri {
+                            padding: 10px;
+
+                            h1 {
+                                padding-left: 0;
                             }
                         }
+
+                        .infoVuelo {
+
+                            padding: 5px;
+                            display: grid;
+                            grid-template-columns: repeat(1, 1fr);
+                            gap: 20px;
+
+                            .titulo {
+
+                                padding: 10px 15px;
+
+                                border-radius: 10px;
+                                border: 1px solid rgba(255, 255, 255, .174);
+                                background: rgba(118, 130, 142, 0.174);
+
+                                span {
+                                    padding-left: 5px;
+                                    font-weight: 600;
+                                }
+                            }
+                        }
+
+                        .btn {
+                            display: block;
+                            margin: auto;
+                            background: rgb(63, 94, 143);
+                            color: white;
+                            padding: 10px 15px;
+                        }
+
+                    }
+
+                    h1 {
+                        padding: 0;
+                    }
+
+                    .globalRadio {
+
+                        //background-color: pink; 
+                        padding: 10px 0;
+
+                        //ACA PARA ACOMODAR
+                        width: 100%;
+                        height: 30%;
+
+                        .radioClases {
+                            
+                            overflow: hidden;
+                            border-radius: 15px;
+                            box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+                            //min-width: 400px;
+                            width: 100%;
+                            height: 110%;
+
+                            .radioInput {
+                                display: none;
+
+                                //cuando un input e seleccionado el selctor apuntara al siguiente elemento con la clase despues del +
+                                &:checked+.radioLabel {
+                                    background: var(--ColorSecundario);
+                                }
+                            }
+
+                            .radioLabel {
+                                //width: 100%;
+                                //height: 100%;
+                                padding: 10px 24px;
+                                font-size: 14px;
+                                color: var(--ColorTexto1);
+                                background: var(--ColorPrincipal);
+                                cursor: pointer;
+                                margin-top: 5px;
+
+                                //ACA PARA ACMODAR
+                                height: 90%;
+
+                                h3 {
+                                    padding: 3px 0 5px 0;
+                                }
+
+                                p {
+                                    padding: 3px 0 5px 0;
+                                }
+
+                                transition: backgroung 0.1s;
+
+                                &:not(:last-of-type) {
+                                    border-right: 1px solid var(--ColorIconos); //la linia divisiora menos al ultimo
+                                }
+                            }
+                        }
+                    }
+
+
+                }
+
+            }
+
+            .principal-1 {
+                display: flex;
+                width: 100%;
+                min-height: 10vh;
+                margin-top: 20px;
+
+                .otro {
+                    width: 100%;
+                    .mainText{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 100%;
+                    }
+                    flex-direction: column;
+                    .homeImages {
+                        display: flex;
+                        //min-width: 100%;
+
+                        .videoDiv {
+                            width: 50%;
+                            justify-content: center;
+                            align-items: center;
+                            padding-left: 130px;
+                            video {
+                                width: 100%;
+                            }
+
+                            .video {
+                                border-radius: 10rem;
+
+                            }
+                        }
+
+                        .plane {
+                            position: absolute;
+                            width: 60%;
+                            top: -60%;
+                            left: 70px;
+                            
+                            
+                        }
+                    }
+                }
+            }
+        }
+
+        .info {
+            //margin-top: -280px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 30px 30px;
+            //background-color: red;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            background-color: var(--ColorPrincipal);
+
+            .box {
+                flex-direction: column;
+                border-radius: 50px;
+                border: 1px solid rgba(255, 255, 255, .174);
+                background: rgba(232, 232, 232, 0.174);
+                padding: 20px 15px;
+                min-height: 150px;
+                width: 80%;
+                box-shadow: 5px 4px 8px rgba(232, 232, 232, 0.174);
+                ;
+
+                p {
+                    color: rgb(226, 224, 224);
+                    text-align: left;
+                    line-height: var(--Interlineado);
+                }
+            }
+        }
+    }
+    //Footer
+    .piePag {
+
+        background: url(./recursos/estrellas.png) no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        .contenedorPiePag {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            /* Divide el contenedor en 4 columnas de igual ancho */
+            gap: 10px;
+            padding: 10px 5px 20px;
+            //background-color: red;
+
+            .boxFlex {
+
+                flex-direction: column;
+                gap: 15px;
+
+                .logoDiv {
+
+                    .logo {
+
+                        width: 30%;
+                        filter: invert(100%); //volver el logo blanco
+                    }
+                }
+
+                p {
+                    padding: 0 28%;
+                    color: var(--ColorTexto1);
+                    line-height: var(--Interlineado);
+                }
+
+                .socialIcon {
+                    gap: 20px;
+
+                    .icon {
+                        color: var(--ColorIconos);
+
+                        &:hover {
+                            cursor: pointer;
+                            color: var(--BrilloIcono);
+                        }
+                    }
+                }
+            }
+
+            .box {
+
+                padding: 0 15px;
+
+                h2 {
+                    text-shadow: 5px 4px 8px var(--ColorSombraTexto);
+                }
+
+                p {
+                    color: var(--ColorTexto1);
+                    text-align: left;
+                    line-height: var(--Interlineado);
+                }
+            }
+
+            .bigBox {
+                padding: 25px 15px 0 15px;
+
+                p {
+                    color: var(--ColorTexto1);
+                    text-align: left;
+                    line-height: var(--Interlineado);
+                }
+            }
+        }
+    }
+
+    //editar perfil
+    .editPerfil {
+
+        //Pantall principal
+        min-height: 90vh;
+        background: url(./recursos/estrellas.png) no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        //Estilos del que contendra el formulario
+        .principal-perfil {
+            margin-top: 40px;
+            margin-bottom: 40px;
+            flex-direction: column;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, .1);
+            backdrop-filter: blur(100px);
+            border-radius: 35px;
+            padding-right: 40px;
+
+            h1 {
+                
+                margin-top: 30px;
+                margin-left: 50px;
+                color: white;
+
+            }
+
+            form {
+                button {
+                    width: 50%;
+                    height: 45px;
+                    background: white;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+                    color: #333;
+                    margin-left: 50px;
+
+                }
+            }
+
+            .regresar {
+                font-size: 14.5px;
+                text-align: center;
+                font-weight: 600;
+                padding: 20px;
+                margin-left: 50px;
+
+                p {
+                    color: white;
+                    font-weight: 300;
+                    white-space: nowrap; //Para que ocupe toda la linea
+                }
+
+                button {
+                    background-color: transparent;
+                    text-decoration: none;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            .btn-editar {
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        //Estilos de las 2 columnas del formulario
+        .wrapper-editar {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            color: white;
+            display: flex;
+            flex-direction: column;
+
+            .form-box-editar {
+                width: 81%;
+                padding: 5px 40px;
+
+                .form {
+                    gap: 20px;
+
+                    .input-box-edit {
+
+                        
+                        position: relative;
+                        width: 100%;
+                        height: 50px;
+                        margin: 30px 0;
+
+                        input {
+
+                            padding: 0 20px;
+
+                            &::placeholder {
+                                color: white;
+                            }
+
+                            &:read-only {
+                                color: gray;
+
+                            }
+                        }
+
+                    }
+
+                    .centro {
+                        margin-top: 18px;
+                        margin-bottom: 40px;
+
+                    }
+
+                    p {
+                        width: 125%;
+                        font-size: .8rem;
+                        padding: 0 0 4px 0px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    .arriba {
+                        margin-bottom: 0;
+                    }
+
+                    // .input-box-fecha-edit {
+                    //     display: flex;
+                    //     //flex-direction: rows;
+                    //     position: relative;
+                    //     width: 100%;
+                    //     height: 50px;
+                    //     margin: 30px 0;
+
+                    //     input {
+                    //         width: 50%;
+                    //         height: 100%;
+                    //         background: transparent;
+                    //         border: none;
+                    //         outline: none;
+                    //         border: 2px solid rgba(255, 255, 255, .1);
+                    //         border-radius: 40px;
+                    //         font-size: 16px;
+                    //         color: white;
+                    //         //padding: 0 15px 0 20px;
+
+                    //         &::placeholder {
+                    //             color: white;
+                    //         }
+                    //     }
+
+                    //     p {
+                    //        // padding: 15px 10px;
+                    //     }
+                    // }
+
+                    .icon-edit {
+                        position: absolute;
+                        right: -25px;
+                        top: 80%;
+                        translate: 0 -50%;
+                        font-size: 16px;
+
+                    }
+
+                    .dis {
+                        color: gray;
+                    }
+
+                }
+
+
+
+                /* Estilos para el icono del calendario en navegadores WebKit (Chrome y Safari) */
+                input[type="date"]::-webkit-calendar-picker-indicator {
+                    filter: invert(1);
+                    /* Invertir el color del icono a blanco */
+                }
+
+                /* Estilos para el botón de aumento/descenso en navegadores WebKit (Chrome y Safari) */
+                input[type="date"]::-webkit-inner-spin-button {
+                    filter: invert(1);
+                    /* Invertir el color del botón a blanco */
+                }
+
+
+            }
+        }
+
+
+
+    }
+
+    .tusVuelos {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        min-height: 60vh;
+        margin-top: 20px;
+    
+        h1,
+        p {
+            justify-content: flex-start;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+    
+    
+        .vuelos {
+            display: flex;
+            flex-direction: column;
+            align-items: top;
+            padding-top: 20px;
+            padding-bottom: 40px;
+            gap: 30px;
+    
+            .tarjeta {
+                background-color: #fff;
+                width: 80%;
+                height: 280px;
+                border: 2px solid #13257fcc;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                margin: auto;
+                display: flex;
+                flex-direction: column;
+    
+                .header {
+                    background-color: #13257fcc;
+                    color: white;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    padding: 10px;
+                    align-items: center;
+    
+                    .airline {
+                        font-size: 24px;
+                        font-weight: bold;
+                    }
+    
+                    .boardingPassTitle {
+                        font-size: 18px;
+                    }
+                }
+    
+                .details {
+                    padding: 20px;
+                    flex-grow: 1;
+    
+                    .passengerInfo {
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: space-between;
+    
+                        .infoBefore{
+                            width: 45%;
+                            height: 4vh;
+                            margin-bottom: 10px;
+                            font-size: 30px;
+                            font-weight: bold;
+                        }
+    
+                        .info {
+                            width: 45%;
+                            margin-bottom: 10px;
+                            position: relative;
+    
+                            .infoText {
+                                font-weight: bold;
+                            }
+    
+                            .infoAfter {
+                                content: '';
+                                position: absolute;
+                                bottom: -5px;
+                                left: 0;
+                                width: 100%;
+                                border-bottom: 1px solid #ccc;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //Estilo de registros
+    .crearVuelo {
+
+        //Pantall principal
+        min-height: 100vh;
+        background: url(./recursos/fondo4.jpg) no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        //Estilos del que contendra el formulario
+        .principal-r {
+            flex-direction: column;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, .1);
+            backdrop-filter: blur(100px);
+            border-radius: 35px;
+            width: 70%;
+
+
+            h1 {
+                margin-top: 30px;
+                color: white;
+                margin-bottom: 15px;
+
+            }
+
+            form {
+                button {
+                    width: 50%;
+                    height: 45px;
+                    background: white;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+                    color: #333;
+
+                }
+            }
+
+            .register-link-r {
+                font-size: 14.5px;
+                text-align: center;
+                font-weight: 600;
+                padding: 20px;
+
+                p {
+                    color: white;
+                    font-weight: 300;
+                    white-space: nowrap; //Para que ocupe toda la linea
+                }
+
+                button {
+                    background-color: transparent;
+                    text-decoration: none;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            .btn-registro {
+                margin-top: 20px;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        //Estilos de las 2 columnas del formulario
+        .wrapper-r {
+            position: relative;
+            width: 100%;
+            height: 340px;
+            color: white;
+            display: flex;
+
+            .form-box-r {
+                //width: 81%;
+                //padding: 5px 40px;
+
+                .form {
+
+                    .input-box-r {
+                        position: relative;
+                        width: 100%;
+                        height: 50px;
+                        //margin: 30px 0;
 
                         .Select {
                             input {
-                                height: 100%;
-                                margin: none !important;
                                 border-radius: 0;
+                                margin: none !important;
+
+                            }
+                        }
+
+                        input {
+                            width: 87%;
+                            padding: 0 20px;
+
+                            &::placeholder {
+                                color: white;
                             }
                         }
                     }
 
-                    .input-box-fecha {
-
-                        flex-direction: column;
-                        //background-color: green;
+                    .input-box-fecha-r {
+                        flex-direction: rows;
+                        position: relative;
+                        width: 100%;
+                        height: 40px;
+                        margin: 10px 0;
 
                         input {
-                            border: unset;
-                            background-color: var(--ColorGris);
-                            padding: 0.5rem;
-                            //border-radius: 5px;
-                            width: 90%;
-                            height: 30%;
-                            color: black;
-
-                            //margin-left: 5px;
+                            width: 75%;
+                            padding: 0 15px 0 20px;
+                            
+                            &::placeholder {
+                                color: white;
+                            }
                         }
 
                         p {
-                            padding: 5px;
+                            padding: 15px 10px;
                         }
                     }
-
-                    .ult {
-                        grid-column: span 2;
-
-                        input {
-                            width: 45%;
-                        }
-                    }
-
-
                 }
 
-                .enviar {
-
-                    button {
-                        width: 20%;
-                        height: 25px;
-                        background: var(--ColorPrincipal);
-                        box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
-                    }
+                .icon-r {
+                    position: absolute;
+                    right: 20px;
+                    top: 50%;
+                    translate: 0 -50%;
+                    font-size: 16px;
                 }
+
+                /* Estilos para el icono del calendario en navegadores WebKit (Chrome y Safari) */
+                input[type="date"]::-webkit-calendar-picker-indicator {
+                    filter: invert(1);
+                    /* Invertir el color del icono a blanco */
+                }
+
+                /* Estilos para el botón de aumento/descenso en navegadores WebKit (Chrome y Safari) */
+                input[type="date"]::-webkit-inner-spin-button {
+                    filter: invert(1);
+                    /* Invertir el color del botón a blanco */
+                }
+
+                input[type="time"]::-webkit-calendar-picker-indicator {
+                    filter: invert(1);
+                    /* Invertir colores */
+                }
+
             }
+        }
 
-            h1,
-            p {
-                padding-left: 6rem;
-            }
+        .horizontal {
+            display: flex;
 
-            .vuelos {
-                margin-top: 30px;
-                border-radius: 30px;
-                border: 1px solid rgba(255, 255, 255, .174);
-                background: rgb(232, 232, 232);
-                flex-direction: column;
-                gap: 45px;
-                padding-top: 40px;
-                padding-bottom: 40px;
+        }
 
+
+
+    }
+
+    .contenedor {
+
+        background: url(./recursos/estrellas.png) no-repeat;
+        background-size: cover;
+        background-position: center;
+    
+        .titulo {
+            color: white;
+            padding: 15px 0;
+        }
+    
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            padding: 0 10%;
+    
+            .listaEmp {
+    
                 .tarjeta {
-                    border-radius: 30px;
-                    border: 1px solid rgba(255, 255, 255, .174);
-                    background: rgba(107, 105, 105, 0.265);
-                    box-shadow: 5px 4px 8px rgba(113, 122, 132, 0.863);
-                    width: 90%;
-                    padding: 10px;
-
-
-
-                    .tituloPri {
-                        padding: 10px;
-
-                        h1 {
-                            padding-left: 0;
-                        }
+                    width: 72%;
+                    
+                    //max-width: 600px;
+                    margin: 10px;
+                    padding: 20px 35px;
+                    border-radius: 20px;
+                    //background-color: green;
+                    background: rgba(255, 255, 255, 0.046);
+                    border: 1px solid rgba(255, 255, 255, .1);
+                    backdrop-filter: blur(100px);
+                    border-radius: 35px;
+                    color: white;
+    
+                    h1 {
+                        color: white;
+                        padding: 20px;
                     }
-
-                    .infoVuelo {
-
-                        padding: 5px;
-                        display: grid;
-                        grid-template-columns: repeat(2, 1fr);
-                        gap: 20px;
-
-                        .titulo {
-
-                            padding: 10px 15px;
-
-                            border-radius: 10px;
-                            border: 1px solid rgba(255, 255, 255, .174);
-                            background: rgba(118, 130, 142, 0.174);
-
-                            span {
-                                padding-left: 5px;
-                                font-weight: 600;
-                            }
-                        }
+    
+                    h3 {
+                        padding-bottom: 10px;
+                        font-weight: 500;
                     }
-
+    
+                    span {
+                        padding-left: 20px;
+                        padding-right: 10px;
+                        font-weight: 700;
+                    }
+    
                     .btn {
                         display: block;
                         margin: auto;
-                        background: rgb(63, 94, 143);
-                        color: white;
+                        background: white;
+                        color: black;
                         padding: 10px 15px;
                     }
-
+    
                 }
-
-                h1 {
-                    padding: 0;
-                }
-
-                .globalRadio {
-
-                    //background-color: pink; 
-                    padding: 10px 0;
-                    width: 100%;
-
-                    .radioClases {
-
-                        overflow: hidden;
-                        border-radius: 15px;
-                        box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
-                        //min-width: 400px;
-
-
-                        .radioInput {
-                            display: none;
-
-                            //cuando un input e seleccionado el selctor apuntara al siguiente elemento con la clase despues del +
-                            &:checked+.radioLabel {
-                                background: var(--ColorSecundario);
-                            }
-                        }
-
-                        .radioLabel {
-                            padding: 8px 14px;
-                            font-size: 14px;
-                            color: var(--ColorTexto1);
-                            background: var(--ColorPrincipal);
-                            cursor: pointer;
-
-                            h3 {
-                                padding: 3px 0 5px 0;
-                            }
-
-                            p {
-                                padding: 3px 0 5px 0;
-                            }
-
-                            transition: backgroung 0.1s;
-
-                            &:not(:last-of-type) {
-                                border-right: 1px solid var(--ColorIconos); //la linia divisiora menos al ultimo
-                            }
-                        }
-                    }
-                }
-
-
             }
-
         }
+    
+        input {
+            display: block;
+            margin: auto;
+            border: unset;
+            background-color: white;
+            padding: 0.5rem;
+            //border-radius: 5px;
+            width: 50%;
+            height: 35%;
+            color: black;
+            padding-left: 0.8rem;
+            margin-top: 20px;
+            margin-bottom: 20px;
+    
+            &::placeholder {
+                color: black;
+            }
+        }
+    
+    
+    }
 
-        .principal-1 {
+    .bodyAbordaje {
+        background: url(./recursos/estrellas.png) no-repeat;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        flex-direction: column;
+    
+        .pase-de-abordaje {
+            margin-top: 10px;
+            background-color: #fff;
+            width: 60%;
+            border: 2px solid #13257fcc;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            /* Agregado para posicionar elementos internamente */
+        }
+    
+        .encabezado {
+            background-color: #13257fcc;
+            color: white;
             display: flex;
-            width: 30%;
-            min-height: 60vh;
-
-            //background-color: green;
-
-            .otro {
-                padding-left: 10%;
-                //background-color: yellow;
-                display: flex;
-                flex-direction: column;
-                gap: 10%;
-
-                .homeImages {
-                    display: flex;
-                    //background-color: red;
-                    min-height: 50%;
-                    position: relative;
-
-                    .videoDiv {
-                        width: 100%;
-
-                        video {
-                            width: 130%;
-                        }
-
-                        .video {
-                            border-radius: 5rem;
-
-                        }
-                    }
-
-                    .plane {
-                        position: absolute;
-                        width: 140%;
-                        top: -50%
-                    }
-                }
-            }
+            justify-content: space-between;
+            padding: 10px 20px;
+            align-items: center;
+        }
+    
+        .aerolinea {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+    
+        .titulo-pase {
+            font-size: 1.2em;
+        }
+    
+        .detalles {
+            padding: 20px;
+        }
+    
+        .info-pasajero {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+    
+        .info {
+            width: 45%;
+            margin-bottom: 10px;
+            position: relative;
+            /* Agregar posición relativa para alinear la línea */
+        }
+    
+        .info span {
+            font-weight: bold;
+        }
+    
+        .info+.info {
+            margin-top: 10px;
+        }
+    
+        .info::after {
+            content: '';
+            /* Agregar contenido para la línea */
+            position: absolute;
+            /* Posicionar absolutamente en relación con .info */
+            bottom: -5px;
+            /* Ajustar la posición vertical de la línea */
+            left: 0;
+            /* Alinear la línea con el borde izquierdo de .info */
+            width: 100%;
+            /* Hacer que la línea ocupe todo el ancho de .info */
+            border-bottom: 1px solid #ccc;
+            /* Estilo de la línea gris */
+        }
+    
+        .codigo-barra {
+            text-align: center;
+            padding: 20px 0;
+        }
+    
+        button {
+            background: #13257fcc;
+            padding: 10px;
+            margin-top: 10px;
         }
     }
-
-    .info {
-        display: grid;
-        gap: 10px;
-        padding: 30px 30px;
-        //background-color: red;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 40px;
-        background-color: var(--ColorPrincipal);
-
-        .box {
-            flex-direction: column;
-            border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, .174);
-            background: rgba(232, 232, 232, 0.174);
-            padding: 20px 15px;
-            min-height: 150px;
-            box-shadow: 5px 4px 8px rgba(232, 232, 232, 0.174);
-            ;
-
-            p {
-                color: rgb(226, 224, 224);
-                text-align: left;
-                line-height: var(--Interlineado);
-            }
-        }
-    }
-}
 }

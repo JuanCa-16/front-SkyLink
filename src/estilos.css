@@ -1334,6 +1334,283 @@ h2 {
   .navBar {
     width: 100%;
   }
+  .navBar .p2 {
+    width: 50%;
+    justify-content: flex-end;
+    gap: 15px;
+  }
+  .navBar .p2 .texto {
+    color: var(--ColorTexto1);
+    font-size: var(--SizeFuente1);
+    margin-top: 5px;
+    margin-right: 15px;
+  }
+  .navBar .p2 .texto:hover {
+    cursor: pointer;
+    text-shadow: 0px 1px 3px var(--ColorSombraTexto);
+  }
+  .navBar .p2 button {
+    background-color: transparent;
+  }
+  .navBar .p2 .icono {
+    color: var(--ColorIconos);
+    padding: 0 10px;
+    font-size: 2.2rem;
+    margin-right: 5px;
+  }
+  .navBar .p2 .icono:hover {
+    cursor: pointer;
+    color: var(--BrilloIcono);
+  }
+  .navBar .p2 .usuario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 150px;
+    font-weight: 300px;
+    font-size: 1rem;
+    margin-top: 5px;
+    color: var(--ColorTexto1);
+    width: 100%;
+  }
+  .navBar .p2 .usuario p {
+    width: 100%;
+  }
+  .navBar .p2 .contenedor-menu .menu-toggle {
+    display: none;
+  }
+  .navBar .p2 .contenedor-menu .menu {
+    position: fixed;
+    top: 0;
+    right: -200px;
+    width: 200px;
+    height: 100%;
+    background: url(./recursos/estrellas.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-top: 50px;
+    transition: right 0.3s ease;
+    z-index: 9999;
+  }
+  .navBar .p2 .contenedor-menu .menu.open {
+    padding-top: 0;
+    right: 0;
+  }
+  .navBar .p2 .contenedor-menu .menu.open .izq {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .navBar .p2 .contenedor-menu .menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .navBar .p2 .contenedor-menu .menu ul li {
+    padding: 15px;
+    padding-left: 35px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.32);
+    text-align: center;
+  }
+  .navBar .p2 .contenedor-menu .menu ul li:last-child {
+    border-bottom: none;
+  }
+  .navBar .p2 .contenedor-menu .menu ul li a {
+    font-size: 1rem;
+    text-decoration: none;
+  }
+  .navBar .p2 .contenedor-menu .menu .primero {
+    padding-top: 10px;
+  }
+  .logins {
+    display: flex;
+  }
+  .logins .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -20px;
+  }
+  .logins .wrapper .form-box {
+    width: 81%;
+    margin-left: 0px;
+  }
+  .logins .wrapper .form-box form .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+  }
+  .logins .wrapper .form-box form .input-box input {
+    width: 85%;
+    padding: 0 20px;
+  }
+  .logins .wrapper .form-box form .input-box input::-moz-placeholder {
+    color: white;
+  }
+  .logins .wrapper .form-box form .input-box input::placeholder {
+    color: white;
+  }
+  .logins .wrapper .form-box form .forgot {
+    font-size: 14.5px;
+    margin-bottom: 40px;
+  }
+  .logins .wrapper .form-box form .forgot a {
+    color: white;
+    text-decoration: none;
+  }
+  .logins .wrapper .form-box form .forgot a:hover {
+    text-decoration: underline;
+  }
+  .logins .wrapper .form-box form button {
+    width: 100%;
+    height: 45px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #333;
+  }
+  .logins .wrapper .form-box .icon {
+    position: absolute;
+    right: 27px;
+    top: 50%;
+    translate: 0 -50%;
+    font-size: 16px;
+  }
+  .logins .wrapper .form-box .register-link {
+    font-size: 14.5px;
+    text-align: center;
+    font-weight: 600;
+    padding-top: 20px;
+  }
+  .logins .wrapper .form-box .register-link p {
+    color: white;
+    font-weight: 300;
+  }
+  .logins .wrapper .form-box .register-link button {
+    background-color: transparent;
+    text-decoration: none;
+  }
+  .logins .wrapper .form-box .register-link button:hover {
+    text-decoration: underline;
+  }
+  .registros {
+    min-height: 100vh;
+    background: url(./recursos/fondo5.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  .registros .principal-r {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    flex-direction: column;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(100px);
+            backdrop-filter: blur(100px);
+    border-radius: 35px;
+  }
+  .registros .principal-r h1 {
+    margin-top: 30px;
+    color: white;
+  }
+  .registros .principal-r form button {
+    width: 50%;
+    height: 45px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #333;
+  }
+  .registros .principal-r .register-link-r {
+    font-size: 14.5px;
+    text-align: center;
+    font-weight: 600;
+    padding: 20px;
+  }
+  .registros .principal-r .register-link-r p {
+    color: white;
+    font-weight: 300;
+    white-space: nowrap;
+  }
+  .registros .principal-r .register-link-r button {
+    background-color: transparent;
+    text-decoration: none;
+  }
+  .registros .principal-r .register-link-r button:hover {
+    text-decoration: underline;
+  }
+  .registros .principal-r .btn-registro {
+    justify-content: center;
+    align-items: center;
+  }
+  .registros .wrapper-r {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    color: white;
+    display: flex;
+  }
+  .registros .wrapper-r .form-box-r {
+    width: 81%;
+    padding: 0px 40px;
+    /* Estilos para el icono del calendario en navegadores WebKit (Chrome y Safari) */
+    /* Estilos para el botón de aumento/descenso en navegadores WebKit (Chrome y Safari) */
+  }
+  .registros .wrapper-r .form-box-r .form .input-box-r {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+  }
+  .registros .wrapper-r .form-box-r .form .input-box-r .Selectr input {
+    border-radius: 0;
+    margin: none !important;
+  }
+  .registros .wrapper-r .form-box-r .form .input-box-r input {
+    width: 87%;
+    padding: 0 20px;
+  }
+  .registros .wrapper-r .form-box-r .form .input-box-r input::-moz-placeholder {
+    color: white;
+  }
+  .registros .wrapper-r .form-box-r .form .input-box-r input::placeholder {
+    color: white;
+  }
+  .registros .wrapper-r .form-box-r .form .input-box-fecha-r {
+    flex-direction: rows;
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+  }
+  .registros .wrapper-r .form-box-r .form .input-box-fecha-r input {
+    width: 50%;
+    padding: 0 15px 0 20px;
+  }
+  .registros .wrapper-r .form-box-r .form .input-box-fecha-r input::-moz-placeholder {
+    color: white;
+  }
+  .registros .wrapper-r .form-box-r .form .input-box-fecha-r input::placeholder {
+    color: white;
+  }
+  .registros .wrapper-r .form-box-r .form .input-box-fecha-r p {
+    padding: 15px 10px;
+  }
+  .registros .wrapper-r .form-box-r .icon-r {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    translate: 0 -50%;
+    font-size: 16px;
+  }
+  .registros .wrapper-r .form-box-r input[type=date]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    /* Invertir el color del icono a blanco */
+  }
+  .registros .wrapper-r .form-box-r input[type=date]::-webkit-inner-spin-button {
+    filter: invert(1);
+    /* Invertir el color del botón a blanco */
+  }
   .containerPrincipal .general {
     display: flex;
     flex-direction: column;
@@ -1341,21 +1618,20 @@ h2 {
   .containerPrincipal .general .principal-2 {
     display: flex;
     flex-direction: column;
-    width: 50%;
-    min-height: 60vh;
-    padding: 50px;
-    padding-left: 10%;
   }
   .containerPrincipal .general .principal-2 h1,
   .containerPrincipal .general .principal-2 p {
     justify-content: flex-start;
   }
   .containerPrincipal .general .principal-2 .busqueda {
+    display: flex;
+    flex-direction: column;
     padding: 5px;
   }
   .containerPrincipal .general .principal-2 .busqueda .globalRadio {
-    padding: 15px 0;
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .containerPrincipal .general .principal-2 .busqueda .globalRadio .radioClases {
     overflow: hidden;
@@ -1386,9 +1662,8 @@ h2 {
     border-right: 1px solid var(--ColorIconos);
   }
   .containerPrincipal .general .principal-2 .busqueda .globalBox {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    display: flex;
+    flex-direction: column;
     gap: 10px;
   }
   .containerPrincipal .general .principal-2 .busqueda .globalBox .input-box {
@@ -1425,7 +1700,7 @@ h2 {
     border: unset;
     background-color: var(--ColorGris);
     padding: 0.5rem;
-    width: 90%;
+    width: 96%;
     height: 30%;
     color: black;
   }
@@ -1436,7 +1711,10 @@ h2 {
     grid-column: span 2;
   }
   .containerPrincipal .general .principal-2 .busqueda .globalBox .ult input {
-    width: 45%;
+    width: 100%;
+  }
+  .containerPrincipal .general .principal-2 .busqueda .enviar {
+    margin-top: 20px;
   }
   .containerPrincipal .general .principal-2 .busqueda .enviar button {
     width: 20%;
@@ -1475,7 +1753,7 @@ h2 {
   .containerPrincipal .general .principal-2 .vuelos .tarjeta .infoVuelo {
     padding: 5px;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 20px;
   }
   .containerPrincipal .general .principal-2 .vuelos .tarjeta .infoVuelo .titulo {
@@ -1501,11 +1779,14 @@ h2 {
   .containerPrincipal .general .principal-2 .vuelos .globalRadio {
     padding: 10px 0;
     width: 100%;
+    height: 30%;
   }
   .containerPrincipal .general .principal-2 .vuelos .globalRadio .radioClases {
     overflow: hidden;
     border-radius: 15px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    height: 110%;
   }
   .containerPrincipal .general .principal-2 .vuelos .globalRadio .radioClases .radioInput {
     display: none;
@@ -1514,11 +1795,13 @@ h2 {
     background: var(--ColorSecundario);
   }
   .containerPrincipal .general .principal-2 .vuelos .globalRadio .radioClases .radioLabel {
-    padding: 8px 14px;
+    padding: 10px 24px;
     font-size: 14px;
     color: var(--ColorTexto1);
     background: var(--ColorPrincipal);
     cursor: pointer;
+    margin-top: 5px;
+    height: 90%;
     transition: backgroung 0.1s;
   }
   .containerPrincipal .general .principal-2 .vuelos .globalRadio .radioClases .radioLabel h3 {
@@ -1532,36 +1815,44 @@ h2 {
   }
   .containerPrincipal .general .principal-1 {
     display: flex;
-    width: 30%;
-    min-height: 60vh;
+    width: 100%;
+    min-height: 10vh;
+    margin-top: 20px;
   }
   .containerPrincipal .general .principal-1 .otro {
-    padding-left: 10%;
-    display: flex;
+    width: 100%;
     flex-direction: column;
-    gap: 10%;
+  }
+  .containerPrincipal .general .principal-1 .otro .mainText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
   .containerPrincipal .general .principal-1 .otro .homeImages {
     display: flex;
-    min-height: 50%;
-    position: relative;
   }
   .containerPrincipal .general .principal-1 .otro .homeImages .videoDiv {
-    width: 100%;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    padding-left: 130px;
   }
   .containerPrincipal .general .principal-1 .otro .homeImages .videoDiv video {
-    width: 130%;
+    width: 100%;
   }
   .containerPrincipal .general .principal-1 .otro .homeImages .videoDiv .video {
-    border-radius: 5rem;
+    border-radius: 10rem;
   }
   .containerPrincipal .general .principal-1 .otro .homeImages .plane {
     position: absolute;
-    width: 140%;
-    top: -50%;
+    width: 60%;
+    top: -60%;
+    left: 70px;
   }
   .containerPrincipal .info {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 10px;
     padding: 30px 30px;
     grid-template-columns: repeat(3, 1fr);
@@ -1575,11 +1866,537 @@ h2 {
     background: rgba(232, 232, 232, 0.174);
     padding: 20px 15px;
     min-height: 150px;
+    width: 80%;
     box-shadow: 5px 4px 8px rgba(232, 232, 232, 0.174);
   }
   .containerPrincipal .info .box p {
     color: rgb(226, 224, 224);
     text-align: left;
     line-height: var(--Interlineado);
+  }
+  .piePag {
+    background: url(./recursos/estrellas.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  .piePag .contenedorPiePag {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* Divide el contenedor en 4 columnas de igual ancho */
+    gap: 10px;
+    padding: 10px 5px 20px;
+  }
+  .piePag .contenedorPiePag .boxFlex {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .piePag .contenedorPiePag .boxFlex .logoDiv .logo {
+    width: 30%;
+    filter: invert(100%);
+  }
+  .piePag .contenedorPiePag .boxFlex p {
+    padding: 0 28%;
+    color: var(--ColorTexto1);
+    line-height: var(--Interlineado);
+  }
+  .piePag .contenedorPiePag .boxFlex .socialIcon {
+    gap: 20px;
+  }
+  .piePag .contenedorPiePag .boxFlex .socialIcon .icon {
+    color: var(--ColorIconos);
+  }
+  .piePag .contenedorPiePag .boxFlex .socialIcon .icon:hover {
+    cursor: pointer;
+    color: var(--BrilloIcono);
+  }
+  .piePag .contenedorPiePag .box {
+    padding: 0 15px;
+  }
+  .piePag .contenedorPiePag .box h2 {
+    text-shadow: 5px 4px 8px var(--ColorSombraTexto);
+  }
+  .piePag .contenedorPiePag .box p {
+    color: var(--ColorTexto1);
+    text-align: left;
+    line-height: var(--Interlineado);
+  }
+  .piePag .contenedorPiePag .bigBox {
+    padding: 25px 15px 0 15px;
+  }
+  .piePag .contenedorPiePag .bigBox p {
+    color: var(--ColorTexto1);
+    text-align: left;
+    line-height: var(--Interlineado);
+  }
+  .editPerfil {
+    min-height: 90vh;
+    background: url(./recursos/estrellas.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  .editPerfil .principal-perfil {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    flex-direction: column;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(100px);
+            backdrop-filter: blur(100px);
+    border-radius: 35px;
+    padding-right: 40px;
+  }
+  .editPerfil .principal-perfil h1 {
+    margin-top: 30px;
+    margin-left: 50px;
+    color: white;
+  }
+  .editPerfil .principal-perfil form button {
+    width: 50%;
+    height: 45px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #333;
+    margin-left: 50px;
+  }
+  .editPerfil .principal-perfil .regresar {
+    font-size: 14.5px;
+    text-align: center;
+    font-weight: 600;
+    padding: 20px;
+    margin-left: 50px;
+  }
+  .editPerfil .principal-perfil .regresar p {
+    color: white;
+    font-weight: 300;
+    white-space: nowrap;
+  }
+  .editPerfil .principal-perfil .regresar button {
+    background-color: transparent;
+    text-decoration: none;
+  }
+  .editPerfil .principal-perfil .regresar button:hover {
+    text-decoration: underline;
+  }
+  .editPerfil .principal-perfil .btn-editar {
+    justify-content: center;
+    align-items: center;
+  }
+  .editPerfil .wrapper-editar {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+  }
+  .editPerfil .wrapper-editar .form-box-editar {
+    width: 81%;
+    padding: 5px 40px;
+    /* Estilos para el icono del calendario en navegadores WebKit (Chrome y Safari) */
+    /* Estilos para el botón de aumento/descenso en navegadores WebKit (Chrome y Safari) */
+  }
+  .editPerfil .wrapper-editar .form-box-editar .form {
+    gap: 20px;
+  }
+  .editPerfil .wrapper-editar .form-box-editar .form .input-box-edit {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+  }
+  .editPerfil .wrapper-editar .form-box-editar .form .input-box-edit input {
+    padding: 0 20px;
+  }
+  .editPerfil .wrapper-editar .form-box-editar .form .input-box-edit input::-moz-placeholder {
+    color: white;
+  }
+  .editPerfil .wrapper-editar .form-box-editar .form .input-box-edit input::placeholder {
+    color: white;
+  }
+  .editPerfil .wrapper-editar .form-box-editar .form .input-box-edit input:-moz-read-only {
+    color: gray;
+  }
+  .editPerfil .wrapper-editar .form-box-editar .form .input-box-edit input:read-only {
+    color: gray;
+  }
+  .editPerfil .wrapper-editar .form-box-editar .form .centro {
+    margin-top: 18px;
+    margin-bottom: 40px;
+  }
+  .editPerfil .wrapper-editar .form-box-editar .form p {
+    width: 125%;
+    font-size: 0.8rem;
+    padding: 0 0 4px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .editPerfil .wrapper-editar .form-box-editar .form .arriba {
+    margin-bottom: 0;
+  }
+  .editPerfil .wrapper-editar .form-box-editar .form .icon-edit {
+    position: absolute;
+    right: -25px;
+    top: 80%;
+    translate: 0 -50%;
+    font-size: 16px;
+  }
+  .editPerfil .wrapper-editar .form-box-editar .form .dis {
+    color: gray;
+  }
+  .editPerfil .wrapper-editar .form-box-editar input[type=date]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    /* Invertir el color del icono a blanco */
+  }
+  .editPerfil .wrapper-editar .form-box-editar input[type=date]::-webkit-inner-spin-button {
+    filter: invert(1);
+    /* Invertir el color del botón a blanco */
+  }
+  .tusVuelos {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 60vh;
+    margin-top: 20px;
+  }
+  .tusVuelos h1,
+  .tusVuelos p {
+    justify-content: flex-start;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  .tusVuelos .vuelos {
+    display: flex;
+    flex-direction: column;
+    align-items: top;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    gap: 30px;
+  }
+  .tusVuelos .vuelos .tarjeta {
+    background-color: #fff;
+    width: 80%;
+    height: 280px;
+    border: 2px solid rgba(19, 37, 127, 0.8);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .tusVuelos .vuelos .tarjeta .header {
+    background-color: rgba(19, 37, 127, 0.8);
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+  }
+  .tusVuelos .vuelos .tarjeta .header .airline {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .tusVuelos .vuelos .tarjeta .header .boardingPassTitle {
+    font-size: 18px;
+  }
+  .tusVuelos .vuelos .tarjeta .details {
+    padding: 20px;
+    flex-grow: 1;
+  }
+  .tusVuelos .vuelos .tarjeta .details .passengerInfo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .tusVuelos .vuelos .tarjeta .details .passengerInfo .infoBefore {
+    width: 45%;
+    height: 4vh;
+    margin-bottom: 10px;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .tusVuelos .vuelos .tarjeta .details .passengerInfo .info {
+    width: 45%;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .tusVuelos .vuelos .tarjeta .details .passengerInfo .info .infoText {
+    font-weight: bold;
+  }
+  .tusVuelos .vuelos .tarjeta .details .passengerInfo .info .infoAfter {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+  }
+  .crearVuelo {
+    min-height: 100vh;
+    background: url(./recursos/fondo4.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  .crearVuelo .principal-r {
+    flex-direction: column;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(100px);
+            backdrop-filter: blur(100px);
+    border-radius: 35px;
+    width: 70%;
+  }
+  .crearVuelo .principal-r h1 {
+    margin-top: 30px;
+    color: white;
+    margin-bottom: 15px;
+  }
+  .crearVuelo .principal-r form button {
+    width: 50%;
+    height: 45px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #333;
+  }
+  .crearVuelo .principal-r .register-link-r {
+    font-size: 14.5px;
+    text-align: center;
+    font-weight: 600;
+    padding: 20px;
+  }
+  .crearVuelo .principal-r .register-link-r p {
+    color: white;
+    font-weight: 300;
+    white-space: nowrap;
+  }
+  .crearVuelo .principal-r .register-link-r button {
+    background-color: transparent;
+    text-decoration: none;
+  }
+  .crearVuelo .principal-r .register-link-r button:hover {
+    text-decoration: underline;
+  }
+  .crearVuelo .principal-r .btn-registro {
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+  .crearVuelo .wrapper-r {
+    position: relative;
+    width: 100%;
+    height: 340px;
+    color: white;
+    display: flex;
+  }
+  .crearVuelo .wrapper-r .form-box-r {
+    /* Estilos para el icono del calendario en navegadores WebKit (Chrome y Safari) */
+    /* Estilos para el botón de aumento/descenso en navegadores WebKit (Chrome y Safari) */
+  }
+  .crearVuelo .wrapper-r .form-box-r .form .input-box-r {
+    position: relative;
+    width: 100%;
+    height: 50px;
+  }
+  .crearVuelo .wrapper-r .form-box-r .form .input-box-r .Select input {
+    border-radius: 0;
+    margin: none !important;
+  }
+  .crearVuelo .wrapper-r .form-box-r .form .input-box-r input {
+    width: 87%;
+    padding: 0 20px;
+  }
+  .crearVuelo .wrapper-r .form-box-r .form .input-box-r input::-moz-placeholder {
+    color: white;
+  }
+  .crearVuelo .wrapper-r .form-box-r .form .input-box-r input::placeholder {
+    color: white;
+  }
+  .crearVuelo .wrapper-r .form-box-r .form .input-box-fecha-r {
+    flex-direction: rows;
+    position: relative;
+    width: 100%;
+    height: 40px;
+    margin: 10px 0;
+  }
+  .crearVuelo .wrapper-r .form-box-r .form .input-box-fecha-r input {
+    width: 75%;
+    padding: 0 15px 0 20px;
+  }
+  .crearVuelo .wrapper-r .form-box-r .form .input-box-fecha-r input::-moz-placeholder {
+    color: white;
+  }
+  .crearVuelo .wrapper-r .form-box-r .form .input-box-fecha-r input::placeholder {
+    color: white;
+  }
+  .crearVuelo .wrapper-r .form-box-r .form .input-box-fecha-r p {
+    padding: 15px 10px;
+  }
+  .crearVuelo .wrapper-r .form-box-r .icon-r {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    translate: 0 -50%;
+    font-size: 16px;
+  }
+  .crearVuelo .wrapper-r .form-box-r input[type=date]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    /* Invertir el color del icono a blanco */
+  }
+  .crearVuelo .wrapper-r .form-box-r input[type=date]::-webkit-inner-spin-button {
+    filter: invert(1);
+    /* Invertir el color del botón a blanco */
+  }
+  .crearVuelo .wrapper-r .form-box-r input[type=time]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    /* Invertir colores */
+  }
+  .crearVuelo .horizontal {
+    display: flex;
+  }
+  .contenedor {
+    background: url(./recursos/estrellas.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  .contenedor .titulo {
+    color: white;
+    padding: 15px 0;
+  }
+  .contenedor .grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0 10%;
+  }
+  .contenedor .grid .listaEmp .tarjeta {
+    width: 72%;
+    margin: 10px;
+    padding: 20px 35px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.046);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(100px);
+            backdrop-filter: blur(100px);
+    border-radius: 35px;
+    color: white;
+  }
+  .contenedor .grid .listaEmp .tarjeta h1 {
+    color: white;
+    padding: 20px;
+  }
+  .contenedor .grid .listaEmp .tarjeta h3 {
+    padding-bottom: 10px;
+    font-weight: 500;
+  }
+  .contenedor .grid .listaEmp .tarjeta span {
+    padding-left: 20px;
+    padding-right: 10px;
+    font-weight: 700;
+  }
+  .contenedor .grid .listaEmp .tarjeta .btn {
+    display: block;
+    margin: auto;
+    background: white;
+    color: black;
+    padding: 10px 15px;
+  }
+  .contenedor input {
+    display: block;
+    margin: auto;
+    border: unset;
+    background-color: white;
+    padding: 0.5rem;
+    width: 50%;
+    height: 35%;
+    color: black;
+    padding-left: 0.8rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .contenedor input::-moz-placeholder {
+    color: black;
+  }
+  .contenedor input::placeholder {
+    color: black;
+  }
+  .bodyAbordaje {
+    background: url(./recursos/estrellas.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+  }
+  .bodyAbordaje .pase-de-abordaje {
+    margin-top: 10px;
+    background-color: #fff;
+    width: 60%;
+    border: 2px solid rgba(19, 37, 127, 0.8);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    /* Agregado para posicionar elementos internamente */
+  }
+  .bodyAbordaje .encabezado {
+    background-color: rgba(19, 37, 127, 0.8);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    align-items: center;
+  }
+  .bodyAbordaje .aerolinea {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  .bodyAbordaje .titulo-pase {
+    font-size: 1.2em;
+  }
+  .bodyAbordaje .detalles {
+    padding: 20px;
+  }
+  .bodyAbordaje .info-pasajero {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .bodyAbordaje .info {
+    width: 45%;
+    margin-bottom: 10px;
+    position: relative;
+    /* Agregar posición relativa para alinear la línea */
+  }
+  .bodyAbordaje .info span {
+    font-weight: bold;
+  }
+  .bodyAbordaje .info + .info {
+    margin-top: 10px;
+  }
+  .bodyAbordaje .info::after {
+    content: "";
+    /* Agregar contenido para la línea */
+    position: absolute;
+    /* Posicionar absolutamente en relación con .info */
+    bottom: -5px;
+    /* Ajustar la posición vertical de la línea */
+    left: 0;
+    /* Alinear la línea con el borde izquierdo de .info */
+    width: 100%;
+    /* Hacer que la línea ocupe todo el ancho de .info */
+    border-bottom: 1px solid #ccc;
+    /* Estilo de la línea gris */
+  }
+  .bodyAbordaje .codigo-barra {
+    text-align: center;
+    padding: 20px 0;
+  }
+  .bodyAbordaje button {
+    background: rgba(19, 37, 127, 0.8);
+    padding: 10px;
+    margin-top: 10px;
   }
 }/*# sourceMappingURL=estilos.css.map */
