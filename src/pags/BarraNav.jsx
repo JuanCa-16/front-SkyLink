@@ -100,19 +100,20 @@ const BarraNav = ({ setAuth, logueado }) => {
                                         <ul>
                                             <li className='primero'><div className='flex icono izq' onClick={toggleMenu}><HiMenu /></div></li>
                                             <li><a className='texto' onClick={() => navigate('/')}>Inicio</a></li>
+                                            <li><a className='texto' onClick={() => navigate('/radar')}>Radar</a></li>
                                             <li><a className='texto' onClick={() => navigate('/perfil')}>Editar Perfil</a></li>
                                             <li><a className='texto' onClick={() => navigate('/tusvuelos')}>Tus Viajes</a></li>
-                                            <li><a className='texto' onClick={() => navigate('/radar')}>Radar</a></li>
 
                                             {
                                                 (rol == 2) ? (<>
                                                     <li><a className='texto' onClick={() => navigate('/vuelosAsignados')}>Vuelos Asigandos</a></li>
+                                                    <li><a className='texto' onClick={() => navigate('/crearVuelos')}>Creacion de vuelos</a></li>
                                                 </>) : (
                                                     (rol == 3) ? (<>
                                                         <li><a className='texto' onClick={() => navigate('/vuelosAsignados')}>Vuelos Asigandos</a></li>
                                                         <li><a className='texto' onClick={() => navigate('/crearVuelos')}>Creacion de vuelos</a></li>
-                                                        <li><a className='texto' onClick={() => navigate('/crearEmpleado')}>Crear Empleado</a></li>
                                                         <li><a className='texto' onClick={() => navigate('/listaEmpleados')}>Lista de Empleados</a></li>
+                                                        <li><a className='texto' onClick={() => navigate('/crearEmpleado')}>Crear Empleado</a></li>
                                                     </>) : (<></>)
                                                 )
                                             }
@@ -135,7 +136,6 @@ const BarraNav = ({ setAuth, logueado }) => {
                                     <ul>
                                         <li className='primero'><div className='flex icono izq' onClick={toggleMenu}><HiMenu /></div></li>
                                         <li><a className='texto' onClick={() => navigate('/')}>Inicio</a></li>
-                                        <li><a className='texto' onClick={() => navigate('/tusvuelos')}>Tus Viajes</a></li>
                                         <li><a className='texto' onClick={() => navigate('/radar')}>Radar</a></li>
                                     </ul>
                                 </nav>
