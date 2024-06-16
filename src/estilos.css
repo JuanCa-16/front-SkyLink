@@ -1126,9 +1126,10 @@ h2 {
   padding: 20px 0;
 }
 .bodyAbordaje button {
-  background: rgba(19, 37, 127, 0.8);
+  background: rgba(68, 72, 194, 0.8);
   padding: 10px;
   margin-top: 10px;
+  margin-left: 10px;
 }
 
 .crearVuelo {
