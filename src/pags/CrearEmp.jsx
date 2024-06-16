@@ -166,7 +166,7 @@ const CrearEmp = () => {
                     <div className='principal-r flex'>
                         
                         <form onSubmit={handleSubmit}>
-                            <h1>EMPLEADO SkyLink</h1>
+                            <h1 className='titulo'>EMPLEADO SkyLink</h1>
 
                             {/* div que contendra el formulario */}
                             <div className='wrapper-r'>

@@ -39,6 +39,7 @@ const PaseDeAbordaje = () => {
 
     const [name, setName] = useState("")
     const [id, setId] = useState("")
+    const [precio, setprecio] = useState("")
 
     async function getName() {
         try {
@@ -50,6 +51,30 @@ const PaseDeAbordaje = () => {
             const data = await response.json();
             setName(data.nombre + ' ' + data.apellidos);
 
+            let cantAsientos = 1;
+
+            let pre = busqueda.misClases === 'Economica'
+                ? (100000 * cantAsientos)
+                : busqueda.misClases === 'Ejecutiva'
+                    ? (200000 * cantAsientos)
+                    : (250000 * cantAsientos);
+
+            let precioC = menu === 'Sin Comida'
+                ? 0
+                : menu === 'Saludable'
+                    ? (100000 * cantAsientos)
+                    : (menu === 'Fast Food'
+                        ? (200000 * cantAsientos)
+                        : (300000 * cantAsientos));
+
+            let preE = equi === 'Sin Equipaje'
+                ? 0
+                : equi === 'Equipaje Mano'
+                    ? (100000 * cantAsientos)
+                    : (200000 * cantAsientos);
+
+            let total = parseInt(precioC) + parseInt(preE) + parseInt(pre);
+            setprecio(total)
             if (response.ok) {
                 setId(data.id)
                 const res = await fetch(`https://login-skl.vercel.app/millas/${data.id}`, {
@@ -73,7 +98,8 @@ const PaseDeAbordaje = () => {
 
 
     async function siguiente() {
-        let cantAsientos = parseInt(cantAsi);
+        //let cantAsientos = parseInt(cantAsi);
+        let cantAsientos = 1;
 
         let pre = busqueda.misClases === 'Economica'
             ? (100000 * cantAsientos)
@@ -152,6 +178,7 @@ const PaseDeAbordaje = () => {
                         <div className="info"><span>Comida</span><br />{menu}</div>
                         <div className="info"><span>E-ticket</span><br />{eTicket}</div>
                         <div className="info"><span>Clase</span><br />{busqueda.misClases}</div>
+                        <div className="info"><span>Precio por Pasaje</span><br />{precio}</div>
                         <div className="info">
                             <span>Asiento</span><br />
                             {selectedSeats.map((asiento, index) => (

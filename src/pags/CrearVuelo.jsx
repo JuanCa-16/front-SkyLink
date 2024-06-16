@@ -265,7 +265,7 @@ const CrearVuelo = () => {
 
                                     <div className='input-box-fecha-r flex'>
 
-                                        <input type='number' min={1} max={4} placeholder='Num Avion' required name='id' onChange={handleChange} />
+                                        <input type='number' min={1} max={19} placeholder='Num Avion' required name='id' onChange={handleChange} />
                                     </div>
                                 </div>
 

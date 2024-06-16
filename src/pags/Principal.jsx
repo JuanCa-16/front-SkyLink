@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaPlaneArrival, FaPlaneDeparture, FaUser } from "react-icons/fa";
 import Select from 'react-select'
-
+import { toast } from 'react-toastify';
 import video from '../recursos/video.mp4';
 import avion2 from '../recursos/avion2.png';
 import {Link, useNavigate} from 'react-router-dom';
@@ -86,7 +86,13 @@ const Principal = () => {
     const handleSubmit = async(e) => {
         e.preventDefault(); //para que no recarge al darle al boton enviar evitar refresh
 
-        console.log(infoVuelo);
+        if (!infoVuelo.misClases) {
+            console.log('Debe seleccionar una clase de vuelo.');
+            toast.error('Debe seleccionar una clase de vuelo.');
+            return;
+        }
+
+        //console.log(infoVuelo);
         localStorage.setItem("busqueda",JSON.stringify(infoVuelo));
         
         navigate('/busqueda')
@@ -132,11 +138,11 @@ const Principal = () => {
 
                             <div className="globalRadio flex">
                                 <div className="radioClases flex">
-                                    <input className="radioInput" type="radio" value="Economica" name="misClases" id="opc1" required onChange={handleChange} />
+                                    <input className="radioInput" type="radio" value="Economica" name="misClases" id="opc1"  onChange={handleChange} />
                                     <label className="radioLabel" htmlFor="opc1"><h3>Economy</h3><p>Clase Turista</p></label>
-                                    <input className="radioInput" type="radio" value="Ejecutiva" name="misClases" id="opc2" required onChange={handleChange}/>
+                                    <input className="radioInput" type="radio" value="Ejecutiva" name="misClases" id="opc2"  onChange={handleChange}/>
                                     <label className="radioLabel" htmlFor="opc2"><h3>Business</h3><p>Clase Ejecutiva</p></label>
-                                    <input className="radioInput" type="radio" value="Primera" name="misClases" id="opc3" required onChange={handleChange}/>
+                                    <input className="radioInput" type="radio" value="Primera" name="misClases" id="opc3"  onChange={handleChange}/>
                                     <label className="radioLabel" htmlFor="opc3"><h3>First Class</h3><p>Primera Clase</p></label>
                                 </div>
                             </div>

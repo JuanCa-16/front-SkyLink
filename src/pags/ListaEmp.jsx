@@ -93,7 +93,7 @@ const ListaEmp = ({ logueado }) => {
                                                     backgroundColor: 'rgba(107, 105, 105, 0.1)', // Fondo oscuro con opacidad
                                                 },
                                                 content: {
-                                                    width: '18%',
+                                                    width: '50%',
                                                     height: '30%',
                                                     margin: 'auto',
                                                     backgroundColor: '#ffffff', // Color de fondo del modal

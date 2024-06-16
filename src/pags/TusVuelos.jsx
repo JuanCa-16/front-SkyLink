@@ -62,6 +62,11 @@ const TusVuelos = ({ logueado }) => {
                         <div className="infoAfter"></div>
                       </div>
                       <div className="info">
+                        <div className="infoText">Hora</div>
+                        <div>{vuelo.hora}</div>
+                        <div className="infoAfter"></div>
+                      </div>
+                      <div className="info">
                         <div className="infoText">Salida</div>
                         <div>{vuelo.aeropuerto_salida}</div>
                         <div className="infoAfter"></div>

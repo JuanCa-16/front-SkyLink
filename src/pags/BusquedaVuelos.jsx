@@ -54,7 +54,7 @@ const BusquedaVuelos = ({ logueado }) => {
     const customStyles = {
         control: (provided) => ({
             ...provided,
-            width: '40vh',
+            width: '65vh',
             height: '30%',
             backgroundColor: '#cec9c9;',
             border: 'none',
@@ -85,7 +85,7 @@ const BusquedaVuelos = ({ logueado }) => {
         cant: busqueda.cant,
         opcInicialSalida: busqueda.opcInicialSalida,
         opcInicialLlegada: busqueda.opcInicialLlegada,
-        misComidas: 'Sin Comida',
+        misComidas: '',
         misMaletas: ''
     })
 
@@ -97,7 +97,7 @@ const BusquedaVuelos = ({ logueado }) => {
     // Función para manejar el envío del formulario de búsqueda
     const handleSubmit = async (e) => {
         e.preventDefault(); //para que no recarge al darle al boton enviar evitar refresh
-        
+
         //Se actuliza el valor de busqueda por la nueva
         localStorage.removeItem("busqueda")
         localStorage.setItem("busqueda", JSON.stringify(infoVuelo));
@@ -164,6 +164,17 @@ const BusquedaVuelos = ({ logueado }) => {
     const handleCompraClick = (v) => {
 
         if (logueado) {
+
+            if (!infoVuelo.misComidas) {
+                toast.error('Debe seleccionar una opcion de Comida.');
+                return;
+            }
+
+            if (!infoVuelo.misMaletas) {
+                toast.error('Debe seleccionar una opcion de Equipaje.');
+                return;
+            }
+            
             let cantAsi = infoVuelo.cant
             let menu = infoVuelo.misComidas
             let equi = infoVuelo.misMaletas
@@ -294,7 +305,7 @@ const BusquedaVuelos = ({ logueado }) => {
                                         <h3 className="titulo">FECHA:<span>{vuelo.fecha.substring(0, 10)}</span></h3>
                                         <h3 className="titulo">HORA VUELO:<span>{vuelo.hora}</span></h3>
                                         <h3 className="titulo">CLASE<span>{busqueda.misClases}</span></h3>
-                                        <h3 className="titulo">PRECIO: $<span>{busqueda.misClases === 'Economica' ? (100000 * infoVuelo.cant) : busqueda.misClases === 'Ejecutiva' ? (200000 * infoVuelo.cant) : (250000*infoVuelo.cant)}</span></h3>
+                                        <h3 className="titulo">PRECIO: $<span>{busqueda.misClases === 'Economica' ? (100000 + ' c/u') : busqueda.misClases === 'Ejecutiva' ? (200000 + ' c/u') : (250000 + ' c/u')}</span></h3>
 
 
                                         <button className="btn" onClick={() => setVuelos(vuelos.map(v => v.id_vuelo === vuelo.id_vuelo ? { ...v, mostrarDiv: !v.mostrarDiv } : v))}>
@@ -304,26 +315,26 @@ const BusquedaVuelos = ({ logueado }) => {
                                             <p>Selecciona un Menú</p>
                                             <div className="globalRadio flex">
                                                 <div className="radioClases flex">
-                                                    <input className="radioInput" type="radio" value="Sin Comida" name={'misComidas'} id={`opc7-${vuelo.id_vuelo}`} required onChange={handleChange} />
-                                                    <label className="radioLabel" htmlFor={`opc7-${vuelo.id_vuelo}`}><h3>Sin comida</h3><p>Menue pa los pobres +0</p></label>
-                                                    <input className="radioInput" type="radio" value="Saludable" name={'misComidas'} id={`opc4-${vuelo.id_vuelo}`} required onChange={handleChange} />
-                                                    <label className="radioLabel" htmlFor={`opc4-${vuelo.id_vuelo}`}><h3>Sana</h3><p>Comida saludable y deliciosa +100</p></label>
-                                                    <input className="radioInput" type="radio" value="Fast Food" name={'misComidas'} id={`opc5-${vuelo.id_vuelo}`} required onChange={handleChange} />
-                                                    <label className="radioLabel" htmlFor={`opc5-${vuelo.id_vuelo}`}><h3>Fast Food</h3><p>Comida chatarra +200</p></label>
-                                                    <input className="radioInput" type="radio" value="A la Carta" name={'misComidas'} id={`opc6-${vuelo.id_vuelo}`} required onChange={handleChange} />
-                                                    <label className="radioLabel" htmlFor={`opc6-${vuelo.id_vuelo}`}><h3>A la Carta</h3><p>Menue ejecutivo +300</p></label>
+                                                    <input className="radioInput" type="radio" value="Sin Comida" name={'misComidas'} id={`opc7-${vuelo.id_vuelo}`} onChange={handleChange} />
+                                                    <label className="radioLabel" htmlFor={`opc7-${vuelo.id_vuelo}`}><h3>Sin comida</h3><p>Para vuelos cortos. +0</p></label>
+                                                    <input className="radioInput" type="radio" value="Saludable" name={'misComidas'} id={`opc4-${vuelo.id_vuelo}`}  onChange={handleChange} />
+                                                    <label className="radioLabel" htmlFor={`opc4-${vuelo.id_vuelo}`}><h3>Sana</h3><p>Alimentos saludables. +100k c/u </p></label>
+                                                    <input className="radioInput" type="radio" value="Fast Food" name={'misComidas'} id={`opc5-${vuelo.id_vuelo}`}  onChange={handleChange} />
+                                                    <label className="radioLabel" htmlFor={`opc5-${vuelo.id_vuelo}`}><h3>Fast Food</h3><p>Ideal para jovenes. +200k c/u</p></label>
+                                                    <input className="radioInput" type="radio" value="A la Carta" name={'misComidas'} id={`opc6-${vuelo.id_vuelo}`} onChange={handleChange} />
+                                                    <label className="radioLabel" htmlFor={`opc6-${vuelo.id_vuelo}`}><h3>A la Carta</h3><p>Menue ejecutivo. +300k c/u</p></label>
                                                 </div>
                                             </div>
 
                                             <p>Selecciona Equipaje</p>
                                             <div className="globalRadio flex">
                                                 <div className="radioClases flex">
-                                                    <input className="radioInput" type="radio" value="Sin Equipaje" name={'misMaletas'} id={`opc8-${vuelo.id_vuelo}`} required onChange={handleChange} />
-                                                    <label className="radioLabel" htmlFor={`opc8-${vuelo.id_vuelo}`}><h3>Sin Equipaje</h3><p>Viaja libre +0 c/u</p></label>
-                                                    <input className="radioInput" type="radio" value="Equipaje Mano" name={'misMaletas'} id={`opc9-${vuelo.id_vuelo}`} required onChange={handleChange} />
-                                                    <label className="radioLabel" htmlFor={`opc9-${vuelo.id_vuelo}`}><h3>Equipaje de Mano</h3><p>Maelta pequeña +100 c/u</p></label>
-                                                    <input className="radioInput" type="radio" value="Equipaje Bodeja" name={'misMaletas'} id={`opc10-${vuelo.id_vuelo}`} required onChange={handleChange} />
-                                                    <label className="radioLabel" htmlFor={`opc10-${vuelo.id_vuelo}`}><h3>Equipaje Bodega</h3><p>Para viajes largos +200 c/u</p></label>
+                                                    <input className="radioInput" type="radio" value="Sin Equipaje" name={'misMaletas'} id={`opc8-${vuelo.id_vuelo}`}  onChange={handleChange} />
+                                                    <label className="radioLabel" htmlFor={`opc8-${vuelo.id_vuelo}`}><h3>Sin Equipaje</h3><p>Viaja libre. +0</p></label>
+                                                    <input className="radioInput" type="radio" value="Equipaje Mano" name={'misMaletas'} id={`opc9-${vuelo.id_vuelo}`}  onChange={handleChange} />
+                                                    <label className="radioLabel" htmlFor={`opc9-${vuelo.id_vuelo}`}><h3>Equipaje de Mano</h3><p>Maleta pequeña. +100k c/u</p></label>
+                                                    <input className="radioInput" type="radio" value="Equipaje Bodeja" name={'misMaletas'} id={`opc10-${vuelo.id_vuelo}`}  onChange={handleChange} />
+                                                    <label className="radioLabel" htmlFor={`opc10-${vuelo.id_vuelo}`}><h3>Equipaje Bodega</h3><p>Para viajes largos. +200k c/u</p></label>
 
                                                 </div>
                                             </div>
