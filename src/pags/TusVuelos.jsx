@@ -6,6 +6,7 @@ const TusVuelos = ({ logueado }) => {
   const navigate = useNavigate();
   const [id, setId] = useState("");
   const [vuelos, setVuelos] = useState([]);
+  const [vuelosFuturos, setVuelosFuturos] = useState([]);
 
   const fetchData = async () => {
     try {
@@ -25,10 +26,13 @@ const TusVuelos = ({ logueado }) => {
       });
 
       const vuelosData = await vuelosResponse.json();
-
+      //console.log(vuelosData)
       if (vuelosResponse.status === 200) {
         const filteredVuelos = vuelosData.filter(vuelo => new Date(vuelo.fecha) < new Date());
         setVuelos(filteredVuelos);
+        //console.log(vuelos)
+        const filteredVuelosFuturos = vuelosData.filter(vuelo => new Date(vuelo.fecha) >= new Date());
+        setVuelosFuturos(filteredVuelosFuturos);
       }
     } catch (error) {
       console.error(error.message);
@@ -43,7 +47,7 @@ const TusVuelos = ({ logueado }) => {
   return (<div className='tusVuelos'>
     {logueado ? (
       <>
-        <h1>VUELOS COMPRADOS</h1>
+        <h1>VUELOS PASADOS</h1>
         <div className="vuelos">
           {Array.isArray(vuelos) && vuelos.length > 0 ? (
             vuelos.flatMap(vuelo => {
@@ -109,6 +113,81 @@ const TusVuelos = ({ logueado }) => {
                       <div className="infoBefore">
                           <div>{new Date(vuelo.fecha) < new Date() && <div className="realizado">REALIZADO</div>}</div>
                       </div>
+                    </div>
+                  </div>
+                </div>
+              ));
+            })
+          ) : (
+            <div>
+              <h1>No se encontraron vuelos.</h1>
+            </div>
+          )}
+        </div>
+        <h1>VUELOS FUTUROS</h1>
+        <div className="vuelos">
+          {Array.isArray(vuelosFuturos) && vuelosFuturos.length > 0 ? (
+            vuelosFuturos.flatMap(vuelo => {
+              const asientos = vuelo.asientos.split(',');
+              return asientos.map(asiento => (
+                <div key={`${vuelo.Id_Tiquete}-${asiento}`} className="tarjeta">
+                  <div className="header">
+                    <div className="airline">SkyLink</div>
+                    <div className="boardingPassTitle">PASE DE ABORDAJE</div>
+                  </div>
+                  <div className="details">
+                    <div className="passengerInfo">
+                      <div className="info">
+                        <div className="infoText">Fecha</div>
+                        <div>{vuelo.fecha.substring(0, 10)}</div>
+                        <div className="infoAfter"></div>
+                      </div>
+                      <div className="info">
+                        <div className="infoText">Hora</div>
+                        <div>{vuelo.hora}</div>
+                        <div className="infoAfter"></div>
+                      </div>
+                      <div className="info">
+                        <div className="infoText">Salida</div>
+                        <div>{vuelo.aeropuerto_salida}</div>
+                        <div className="infoAfter"></div>
+                      </div>
+                      <div className="info">
+                        <div className="infoText">Destino</div>
+                        <div>{vuelo.aeropuerto_llegada}</div>
+                        <div className="infoAfter"></div>
+                      </div>
+                      <div className="info">
+                        <div className="infoText">N° de Vuelo</div>
+                        <div>{vuelo.id_vuelo}</div>
+                        <div className="infoAfter"></div>
+                      </div>
+                      <div className="info">
+                        <div className="infoText">Clase</div>
+                        <div>{vuelo.clase}</div>
+                        <div className="infoAfter"></div>
+                      </div>
+                      <div className="info">
+                        <div className="infoText">Asiento</div>
+                        <div>{asiento}</div>
+                        <div className="infoAfter"></div>
+                      </div>
+                      <div className="info">
+                        <div className="infoText">Precio</div>
+                        <div>{vuelo.precio}</div>
+                        <div className="infoAfter"></div>
+                      </div>
+                      <div className="info">
+                        <div className="infoText">Equipaje</div>
+                        <div>{vuelo.maleta}</div>
+                        <div className="infoAfter"></div>
+                      </div>
+                      <div className="info">
+                        <div className="infoText">Comida</div>
+                        <div>{vuelo.comida_nombre}</div>
+                        <div className="infoAfter"></div>
+                      </div>
+
                     </div>
                   </div>
                 </div>
